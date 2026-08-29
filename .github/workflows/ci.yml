@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Documentation checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML for CITATION.cff validation
+        run: pip install --quiet pyyaml
+
+      - name: Check links, citation metadata, versions, and prose
+        run: python .github/scripts/check_docs.py
+
+  environment:
+    name: Environment installs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+
+      - name: Confirm every pin resolves to the installed version
+        run: |
+          python - <<'EOF'
+          from importlib.metadata import version, PackageNotFoundError
+          bad = []
+          for line in open("requirements.txt"):
+              line = line.split("#")[0].strip()
+              if not line:
+                  continue
+              name, pinned = line.split("==")
+              try:
+                  actual = version(name)
+                  if actual != pinned:
+                      bad.append(f"{name}: pinned {pinned}, installed {actual}")
+              except PackageNotFoundError:
+                  bad.append(f"{name}: not installed")
+          if bad:
+              raise SystemExit("pin mismatch:\n  " + "\n  ".join(bad))
+          print("every pin resolves")
+          EOF
+
+  code:
+    name: Lint, tests, and protocol invariants
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+
+      # These steps no-op until there is code to run them against, so the job
+      # goes green on a docs-only repository and starts doing real work the
+      # moment src/ and tests/ appear. It never reports success on code it did
+      # not actually check.
+      - name: Lint
+        run: |
+          if compgen -G "src/**/*.py" > /dev/null || compgen -G "scripts/*.py" > /dev/null; then
+            ruff check src scripts
+          else
+            echo "no Python yet, skipping"
+          fi
+        shell: bash
+
+      - name: Tests
+        run: |
+          if [ -d tests ]; then
+            pytest -q
+          else
+            echo "no tests/ directory yet, skipping"
+          fi
+
+      - name: Protocol invariants
+        run: |
+          if [ -f scripts/08_verify_invariants.py ]; then
+            python scripts/08_verify_invariants.py
+          else
+            echo "invariant checker not written yet, skipping"
+          fi

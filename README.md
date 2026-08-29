@@ -7,6 +7,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/di37/prospective-claims/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/di37/prospective-claims/ci.yml?branch=main&style=flat-square&label=CI"></a>
   <a href="LICENSE"><img alt="Docs and data licence: CC BY 4.0" src="https://img.shields.io/badge/docs%20%26%20data-CC%20BY%204.0-1f6feb?style=flat-square"></a>
   <a href="LICENSE-MIT"><img alt="Code licence: MIT" src="https://img.shields.io/badge/code-MIT-2da44e?style=flat-square"></a>
   <a href="requirements.txt"><img alt="Python 3.12" src="https://img.shields.io/badge/python-3.12-3776ab?style=flat-square&logo=python&logoColor=white"></a>
@@ -317,7 +318,7 @@ The evidence cutoff `T` is a single frozen date in `reference/evidence_cutoff.tx
 | Annotation agreement is computed pre-adjudication and never recomputed | Agreement scores inflated by discussion |
 | Conventions that could move a number are declared before annotation, then ablated | Choices tuned after seeing their effect |
 
-`scripts/08_verify_invariants.py` checks these mechanically and exits non-zero on failure, so a violation blocks a commit rather than surviving into a paper. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
+`scripts/08_verify_invariants.py` checks these mechanically and exits non-zero on failure, so a violation blocks a commit rather than surviving into a paper. CI runs it on every push, alongside `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
 
 ### Reproduction record
 
@@ -353,6 +354,9 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 ├── annotation-guidelines.md      Annotation manual. Frozen; changes need a version bump and a change-log entry.
 ├── requirements.txt              Pinned dependencies. Versions of record.
 ├── assets/                       README banner, light and dark variants.
+├── .github/
+│   ├── workflows/ci.yml          Documentation, environment, and code checks.
+│   └── scripts/check_docs.py     Link, citation, version, and prose checks. Runnable locally.
 ├── .python-version               3.12.10
 ├── LICENSE                       CC BY 4.0. Covers documentation and data.
 ├── LICENSE-MIT                   MIT. Covers source code.
