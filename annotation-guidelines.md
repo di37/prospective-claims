@@ -441,7 +441,7 @@ One JSONL record per claim, accumulating across passes.
 {
   "claim_id": "2019Q2_XXXX_0007",
   "annotator": "A|B",
-  "guidelines_version": "1.5",
+  "guidelines_version": "1.6",
 
   "call_id": "", "sector": "", "fiscal_year": 0, "fiscal_quarter": 0,
   "speaker_role": "CFO", "section": "PREPARED|QA",
@@ -533,6 +533,7 @@ Terms used in this manual, alphabetically. Label values are given in the case th
 | **8-K** | An SEC filing for events between scheduled reports. The quarterly earnings press release is normally exhibit 99.1 of one. |
 | **10-Q / 10-K** | The quarterly and annual reports a US public company must file. The 10-K covers the full year and replaces the fourth 10-Q. |
 | **ABSENT** | Evidence availability. The resolved metric was not found by the bounded three-source search in section 7. |
+| **Adjudication** | The word carries two senses in this manual, kept apart by context. *Of a claim*: deciding SUPPORTED, REFUTED or NEI once the evidence exists, which is what sections 6 and 7 lead to. *Of a disagreement*: two annotators settling a difference in labels after both have finished independently, in section 9. The claim sense is by far the more common; the disagreement sense appears only in sections 2.3 and 9. |
 | **ADJUSTED_NON_GAAP** | Accounting basis. A company-defined measure rather than a standard one. Never present in the evidence store. |
 | **As-first-reported** | The value as originally filed, before any later restatement. Restated values would leak information that was not available at the time of the claim. |
 | **Baseline (`b`)** | What a directional claim is measured against. Often unstated, which is why section 5.4 supplies defaults by metric class. |
@@ -579,6 +580,7 @@ Terms used in this manual, alphabetically. Label values are given in the case th
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-08-29 | Initial freeze for the pilot. |
+| 1.6 | 2026-08-29 | Section 13 gains an entry for **Adjudication**, stating both senses the word carries here: deciding a claim against evidence, and two annotators settling a labelling difference. One word doing two jobs was reported as confusing. No rule changed, no term renamed. No claims annotated under 1.5; no re-annotation required. |
 | 1.5 | 2026-08-29 | Adds section 13, an alphabetical glossary of finance, filing, and label vocabulary, with a pointer from the top. No rule changed. No claims annotated under 1.4; no re-annotation required. |
 | 1.4 | 2026-08-29 | Section 7: states that Pass D applies the section 5.2 mapping UNSPECIFIED to GAAP before testing availability, and that the Pass C record is unchanged. Without this an annotator could treat UNSPECIFIED as an unresolved basis and search differently. No claims annotated under 1.3; no re-annotation required. |
 | 1.3 | 2026-08-29 | Two consistency fixes. Section 4.3: threshold worked example records `b` provenance as NOT_APPLICABLE, matching the prose below it. Section 3.2: adjudication eligibility restated, since window-UNRESOLVED, right-censored, and conditional claims are also excluded, not only UNFALSIFIABLE. No claims annotated under 1.2; no re-annotation required. |
