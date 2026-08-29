@@ -1,0 +1,885 @@
+{
+  "generated_by": "scripts/01_build_reference_tables.py",
+  "source_of_truth": "src/reference/metrics.py",
+  "commit": "5d7ac24",
+  "generated_at": "2026-08-29T18:04:13Z",
+  "probe_years": [
+    2012,
+    2018,
+    2024
+  ],
+  "counts": {
+    "metrics": 49,
+    "flow": 27,
+    "level": 22,
+    "in_evidence_store": 41,
+    "ambiguous": 10,
+    "elements_verified": 36
+  },
+  "elements": {
+    "dei:EntityCommonStockSharesOutstanding": {
+      "unit": "shares",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 7016,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 5263,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 4960,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:AccountsPayableCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 4141,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 3403,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 3441,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:AccountsReceivableNetCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 3614,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 2984,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 2915,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:Assets": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 7606,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 5946,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 5849,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:AssetsCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 5883,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 4644,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 4605,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 7281,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 5572,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 4701,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:ContractWithCustomerLiabilityCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": false,
+          "filer_count": 0,
+          "http_status": 404,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 543,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 1635,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "partial"
+    },
+    "us-gaap:CostOfRevenue": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 1129,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 1271,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 1172,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:DebtCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 359,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 357,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 313,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:DeferredRevenueCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 1467,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 1223,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 433,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:DepreciationDepletionAndAmortization": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 2640,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 2345,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2380,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:EarningsPerShareBasic": {
+      "unit": "USD-per-shares",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 4410,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3587,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 5022,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:EarningsPerShareDiluted": {
+      "unit": "USD-per-shares",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 4158,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3470,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 4938,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:Goodwill": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 2971,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 2835,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 2726,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:GrossProfit": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 3148,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 2496,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2185,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:IncomeTaxExpenseBenefit": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 4904,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 4190,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 4186,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:InterestExpense": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 4759,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3610,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 3054,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:InventoryNet": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 3028,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 2461,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 2368,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:Liabilities": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 5583,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 4819,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 5163,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:LiabilitiesCurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 5845,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 4650,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 4593,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:LongTermDebtNoncurrent": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 1747,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 1673,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 1609,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 5338,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 4782,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 4940,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:NetIncomeLoss": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 7044,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 5817,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 5562,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:OperatingExpenses": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 3711,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3115,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2801,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:OperatingIncomeLoss": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 5584,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 4710,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 4503,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:PaymentsForRepurchaseOfCommonStock": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 1287,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 1361,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 1566,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:PaymentsOfDividendsCommonStock": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 947,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 956,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 924,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 3534,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3058,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2870,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:PropertyPlantAndEquipmentNet": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 5748,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 4705,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 4059,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:ResearchAndDevelopmentExpense": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 1700,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 1743,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 1928,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": false,
+          "filer_count": 0,
+          "http_status": 404,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 2304,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2654,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "partial"
+    },
+    "us-gaap:RevenueRemainingPerformanceObligation": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": false,
+          "filer_count": 0,
+          "http_status": 404,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 553,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 709,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "partial"
+    },
+    "us-gaap:Revenues": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 3258,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3446,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 2095,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:SellingGeneralAndAdministrativeExpense": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 2400,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 1978,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 1854,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:StockholdersEquity": {
+      "unit": "USD",
+      "periods": {
+        "CY2012Q1I": {
+          "exists": true,
+          "filer_count": 6948,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1I": {
+          "exists": true,
+          "filer_count": 5848,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1I": {
+          "exists": true,
+          "filer_count": 5766,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    },
+    "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding": {
+      "unit": "shares",
+      "periods": {
+        "CY2012Q1": {
+          "exists": true,
+          "filer_count": 4216,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2018Q1": {
+          "exists": true,
+          "filer_count": 3486,
+          "http_status": 200,
+          "error": null
+        },
+        "CY2024Q1": {
+          "exists": true,
+          "filer_count": 4951,
+          "http_status": 200,
+          "error": null
+        }
+      },
+      "window_coverage": "full"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+metric,class,taxonomy_element,in_evidence_store,window_coverage,ambiguous,note
+revenue,FLOW,us-gaap:Revenues | us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax,yes,full,no,"Filers split between the two names after ASC 606, and Revenues coverage has been declining since. Try both."
+cost_of_revenue,FLOW,us-gaap:CostOfRevenue,yes,full,no,
+gross_profit,FLOW,us-gaap:GrossProfit,yes,full,no,Derivable from Revenues minus CostOfRevenue through the calculation linkbase when not tagged directly.
+operating_income,FLOW,us-gaap:OperatingIncomeLoss,yes,full,no,
+net_income,FLOW,us-gaap:NetIncomeLoss,yes,full,no,
+operating_expense,FLOW,us-gaap:OperatingExpenses,yes,full,no,
+rd_expense,FLOW,us-gaap:ResearchAndDevelopmentExpense,yes,full,no,
+sga_expense,FLOW,us-gaap:SellingGeneralAndAdministrativeExpense,yes,full,no,
+income_tax_expense,FLOW,us-gaap:IncomeTaxExpenseBenefit,yes,full,no,
+interest_expense,FLOW,us-gaap:InterestExpense,yes,full,no,
+depreciation_amortisation,FLOW,us-gaap:DepreciationDepletionAndAmortization,yes,full,no,
+eps_basic,FLOW,us-gaap:EarningsPerShareBasic,yes,full,no,
+eps_diluted,FLOW,us-gaap:EarningsPerShareDiluted,yes,full,no,Guidance means diluted unless it says otherwise.
+operating_cash_flow,FLOW,us-gaap:NetCashProvidedByUsedInOperatingActivities,yes,full,no,
+capex,FLOW,us-gaap:PaymentsToAcquirePropertyPlantAndEquipment,yes,full,no,
+share_repurchase,FLOW,us-gaap:PaymentsForRepurchaseOfCommonStock,yes,full,no,
+dividends_paid,FLOW,us-gaap:PaymentsOfDividendsCommonStock,yes,full,no,
+gross_margin,FLOW,GrossProfit / Revenues,yes,full,yes,"A ratio of two flows, so FLOW, compared year over year. Arguable: for a non-seasonal filer management often compares sequentially. Year over year is correct for seasonal filers and merely conservative for the rest, which is why it wins."
+operating_margin,FLOW,OperatingIncomeLoss / Revenues,yes,full,yes,"A ratio of two flows, so FLOW, compared year over year. Arguable: for a non-seasonal filer management often compares sequentially. Year over year is correct for seasonal filers and merely conservative for the rest, which is why it wins."
+net_margin,FLOW,NetIncomeLoss / Revenues,yes,full,yes,"A ratio of two flows, so FLOW, compared year over year. Arguable: for a non-seasonal filer management often compares sequentially. Year over year is correct for seasonal filers and merely conservative for the rest, which is why it wins."
+free_cash_flow,FLOW,NetCashProvidedByUsedInOperatingActivities - PaymentsToAcquirePropertyPlantAndEquipment,yes,full,yes,"The class is unambiguous; the definition is not. Operating cash flow minus capex is the common form but filers vary, and some report it as non-GAAP. Record basis ADJUSTED_NON_GAAP when the speaker qualifies it."
+inventory,LEVEL,us-gaap:InventoryNet,yes,full,no,
+cash,LEVEL,us-gaap:CashAndCashEquivalentsAtCarryingValue,yes,full,no,
+accounts_receivable,LEVEL,us-gaap:AccountsReceivableNetCurrent,yes,full,no,
+accounts_payable,LEVEL,us-gaap:AccountsPayableCurrent,yes,full,no,
+total_assets,LEVEL,us-gaap:Assets,yes,full,no,
+total_liabilities,LEVEL,us-gaap:Liabilities,yes,full,no,
+stockholders_equity,LEVEL,us-gaap:StockholdersEquity,yes,full,no,
+current_assets,LEVEL,us-gaap:AssetsCurrent,yes,full,no,
+current_liabilities,LEVEL,us-gaap:LiabilitiesCurrent,yes,full,no,
+long_term_debt,LEVEL,us-gaap:LongTermDebtNoncurrent,yes,full,no,
+short_term_debt,LEVEL,us-gaap:DebtCurrent,yes,full,no,"Sparsely tagged, so expect frequent absence rather than treating it as an error."
+deferred_revenue,LEVEL,us-gaap:ContractWithCustomerLiabilityCurrent | us-gaap:DeferredRevenueCurrent,yes,full,no,"ASC 606 renamed this. The post-606 element does not exist before 2018 and the pre-606 one is being retired, so the two together span the study window and neither does alone."
+remaining_performance_obligation,LEVEL,us-gaap:RevenueRemainingPerformanceObligation,yes,partial,no,Mostly software and subscription filers.
+goodwill,LEVEL,us-gaap:Goodwill,yes,full,no,
+ppe_net,LEVEL,us-gaap:PropertyPlantAndEquipmentNet,yes,full,no,
+working_capital,LEVEL,AssetsCurrent - LiabilitiesCurrent,yes,full,no,"A difference of two levels, so LEVEL."
+days_sales_outstanding,LEVEL,AccountsReceivableNetCurrent / Revenues * days_in_period,yes,full,yes,"Mixes a level numerator with a flow denominator. Classed LEVEL because management discusses working-capital efficiency sequentially, but the flow denominator makes the other choice arguable."
+inventory_turns,LEVEL,CostOfRevenue / InventoryNet,yes,full,yes,"Mixes a level numerator with a flow denominator. Classed LEVEL because management discusses working-capital efficiency sequentially, but the flow denominator makes the other choice arguable."
+shares_outstanding,LEVEL,dei:EntityCommonStockSharesOutstanding,yes,full,yes,"A count at a point in time, so LEVEL. Not the same as weighted_average_shares, which is a flow. A claim about buyback impact usually means the weighted average."
+weighted_average_shares,FLOW,us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding,yes,full,yes,"Averaged over a period, so FLOW, unlike shares_outstanding."
+ebitda,FLOW,,no,n/a,no,"Not a GAAP concept and never tagged. Derivable from tagged components, but filers define it differently."
+adjusted_ebitda,FLOW,,no,n/a,no,Company-defined. Evidence availability is NON-GAAP-ONLY.
+adjusted_eps,FLOW,,no,n/a,no,Company-defined. Consensus estimates are usually struck on this rather than on GAAP EPS.
+constant_currency_revenue,FLOW,,no,n/a,no,A transform on revenue rather than a separate metric. Record as revenue with transform CONSTANT_CURRENCY and basis ADJUSTED_NON_GAAP.
+headcount,LEVEL,,no,n/a,no,"A count at a point in time. Disclosed in the 10-K cover or business section, so evidence availability is FILING-TEXT at best."
+backlog,LEVEL,,no,n/a,yes,"A level at a point in time. Rarely tagged. Where a filer reports remaining performance obligation instead, use that metric, which is tagged."
+annual_recurring_revenue,LEVEL,,no,n/a,yes,"Named as a revenue figure but reported as an annualised run rate at a point in time, so LEVEL. Company-defined and never tagged."
+bookings,FLOW,,no,n/a,no,"Orders taken over a period, so FLOW. Not the same as backlog, which is the level that bookings accumulate into."

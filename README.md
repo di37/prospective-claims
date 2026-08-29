@@ -381,7 +381,8 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │
 ├── reference/                    Committed. Version-locked to the annotation manual.
 │   ├── README.md
-│   ├── metric_classes.csv        metric -> FLOW or LEVEL, selects the default baseline.
+│   ├── metric_classes.csv        metric -> FLOW or LEVEL, selects the default baseline. Generated.
+│   ├── metric_classes.provenance.json  What produced the table, and when it was last proved.
 │   ├── fiscal_calendar.csv       cik -> fiscal year end, 52/53-week flag.
 │   ├── filing_dates.csv          cik, fiscal_period, form_type, filed_date.
 │   └── evidence_cutoff.txt       The single cutoff date T.
@@ -394,18 +395,17 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │
 ├── src/                          Importable code, no side effects.
 │   ├── README.md
-│   ├── constants.py              Paths, seeds, cutoff. Standard library only.
-│   ├── config.py                 Pydantic models with validation at construction.
-│   ├── common.py                 Loading, seeding, table and figure I/O.
-│   ├── run_logging.py            Console output, log files, output prefixes.
-│   ├── edgar/README.md           Filing dates, fiscal calendars, Company Facts.
+│   ├── constants.py              Paths, seeds, SEC settings. Standard library only.
+│   ├── run_logging.py            Console output and log files.
+│   ├── reference/metrics.py      Authored metric definitions, validated at import.
+│   ├── edgar/frames.py           SEC frames client, used to verify taxonomy elements.
 │   ├── resolution/README.md      Claim text to a structured proposition.
 │   └── adjudication/README.md    Observation status, evidence lookup, verdicts.
 │
 ├── scripts/                      Numbered, runnable, produce results.
 │   ├── README.md
 │   ├── 00_pull_transcripts.py
-│   ├── 01_build_reference_tables.py
+│   ├── 01_build_reference_tables.py   Verifies elements against the SEC, writes reference tables.
 │   ├── 02_sample_passages.py
 │   ├── 03_compute_observation_status.py
 │   ├── 06_make_report_figures.py
@@ -420,10 +420,11 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │   └── repro/README.md           Environment, seeds, artifact inventory.
 │
 └── notebooks/
-    └── README.md                 Read results and interpret them. Generate nothing.
+    ├── README.md                 Read results and interpret them. Generate nothing.
+    └── 01_metric_classes.ipynb   Coverage, the evidence-store gap, and the arguable classes.
 ```
 
-Every directory carries a README stating what lives there, what writes it, and whether it is committed. The code and data files listed above do not exist yet; the directories and their READMEs do, so the manual's references to `metric_classes.csv`, `fiscal_calendar.csv` and `filing_dates.csv` resolve to a known place.
+Every directory carries a README stating what lives there, what writes it, and whether it is committed. Most of the code and data files listed above do not exist yet; the directories and their READMEs do, so the manual's references to `metric_classes.csv`, `fiscal_calendar.csv` and `filing_dates.csv` resolve to a known place.
 
 Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `08_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 

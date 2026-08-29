@@ -8,4 +8,10 @@ The reason is provenance. A figure that exists only in a notebook's output cell 
 
 `08_verify_invariants.py` checks both rules and exits non-zero on failure.
 
+| Notebook | Interprets |
+|---|---|
+| `01_metric_classes.ipynb` | `reference/metric_classes.csv` and its provenance, from `scripts/01_build_reference_tables.py` |
+
+A notebook is numbered to match the script whose output it reads.
+
 If a notebook needs a figure that does not exist, add the builder to `src` and register it in `06_make_report_figures.py`.
