@@ -185,7 +185,8 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 .
 ├── README.md                     This file. Task, annotation scheme, data, and the decision gate.
 ├── annotation-guidelines.md      Annotation manual. Frozen; changes need a version bump and a change-log entry.
-├── LICENSE                       CC BY 4.0 for documents and data, MIT for code.
+├── LICENSE                       CC BY 4.0. Covers documentation and data.
+├── LICENSE-MIT                   MIT. Covers source code.
 ├── CITATION.cff                  Machine-readable citation metadata.
 │
 ├── data/                         Not committed. Obtained by the documented steps.
@@ -328,7 +329,7 @@ Open source and commercially usable. You may use, copy, modify, redistribute, an
 
 **The one condition is attribution.** Cite it. That is the whole trade.
 
-Dual-licensed, because the two kinds of material have different needs. See [LICENSE](LICENSE).
+Dual-licensed, because the two kinds of material have different needs. The full texts are in [LICENSE](LICENSE) (CC BY 4.0) and [LICENSE-MIT](LICENSE-MIT).
 
 | Material | Licence | You may | You must |
 |---|---|---|---|
@@ -338,3 +339,5 @@ Dual-licensed, because the two kinds of material have different needs. See [LICE
 Documentation and data are CC BY 4.0 rather than MIT specifically so that attribution is enforceable. MIT permits use with no credit beyond the copyright notice, which would not oblige anyone to cite this work. CC BY 4.0 keeps commercial use fully open while making the citation a term of the licence rather than a request.
 
 Neither licence extends to earnings-call transcripts, which remain the property of their providers, or to SEC filing content. Released datasets carry claim spans, character offsets, resolutions, and labels, plus a script that reconstructs the text from its source.
+
+`LICENSE` holds the unmodified CC BY 4.0 legal text so GitHub's detector recognises it, which is why the split above is described here rather than inside that file.
