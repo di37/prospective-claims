@@ -1,0 +1,36 @@
+# Pinned for reproducibility. These are the versions of record; every committed
+# result was produced under them. Do not relax a pin without re-running the
+# scripts that depend on it and updating reports/repro/study_metadata.json.
+#
+# Python 3.12.10
+#
+# Install:
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# Data handling
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==23.0.1              # parquet, for the HuggingFace transcript corpus
+
+# Data acquisition
+requests==2.32.5             # SEC EDGAR submissions and Company Facts
+datasets==4.7.0              # HuggingFace transcript corpus
+python-dateutil==2.9.0.post0 # fiscal calendar arithmetic, 52/53-week years
+
+# Validation
+pydantic==2.12.5             # frozen config models, extra fields forbidden
+
+# Analysis
+scipy==1.15.3
+scikit-learn==1.7.0          # cohen_kappa_score for inter-annotator agreement
+
+# Figures
+matplotlib==3.10.3
+
+# Notebooks
+jupyter==1.1.1
+
+# Development
+pytest==8.4.0
+ruff==0.15.21

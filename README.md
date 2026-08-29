@@ -22,6 +22,7 @@ When a CFO says "we expect margins to improve next quarter", that is a predictio
 | [Annotation](#annotation) | Four passes and why the order matters |
 | [Falsifiability](#falsifiability) | The three-way linguistic label |
 | [Data](#data) | Sources, what constrains them, and what is licensable |
+| [Reproducibility](#reproducibility) | Environment, seeds, and the rules that keep results rebuildable |
 | [Pilot and decision gate](#pilot-and-decision-gate) | What 250 claims decide |
 | [Repository](#repository) | Files and what each is for |
 | [Status](#status) | What is done and what blocks the next step |
@@ -264,6 +265,48 @@ Four properties of the data shape the design, and each one closed off an easier 
 
 Transcripts are owned by their providers, so a released dataset carries claim spans, character offsets, resolutions, and labels, plus a script that reconstructs the text from its source. That constraint is a design input, not something to resolve later.
 
+## Reproducibility
+
+Every number in this project should be rebuildable from a clean checkout by someone who is not us. That is a design constraint, not an aspiration, and several decisions elsewhere in this README exist only to serve it.
+
+### Environment
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Python 3.12.10. `requirements.txt` pins exact versions rather than ranges, because a range means two people can follow the same instructions and get different numbers. The pinned set is the versions of record: every committed result was produced under them. Relaxing a pin means re-running whatever depended on it and updating the environment record.
+
+### Seeds
+
+Sampling, splitting, and any model seed are fixed in `src/constants.py` and recorded in `reports/repro/study_metadata.json`. They are part of the protocol rather than tuning knobs: changing one invalidates every committed result.
+
+### Data provenance
+
+Nothing under `data/` is committed. Raw data is obtained by documented steps and everything downstream is rebuilt by script, so the repository stays small and the pipeline stays honest. If a value looks wrong, the fix goes in the script that produced it, never in the file.
+
+XBRL facts are stored **as first reported**. Company Facts serves the current value of a concept including restatements, and a figure revised after a claim was made would leak information that did not exist at the time.
+
+The evidence cutoff `T` is a single frozen date in `reference/evidence_cutoff.txt`. It determines which claims are observable, so a moving cutoff would silently change the censoring rate between runs.
+
+### Protocol rules that keep results honest
+
+| Rule | What it prevents |
+|---|---|
+| The test split is read by exactly one script per part | Selection decisions made with the test set in scope |
+| Splits are frozen before annotation begins | Splits drawn to suit results already seen |
+| Every table and figure carries the prefix of the script that produced it | Artifacts nobody can trace or regenerate |
+| Figures are rendered from builders in `src`, never defined in a notebook | Committed figures that go stale silently |
+| Annotation agreement is computed pre-adjudication and never recomputed | Agreement scores inflated by discussion |
+| Conventions that could move a number are declared before annotation, then ablated | Choices tuned after seeing their effect |
+
+`scripts/08_verify_invariants.py` checks these mechanically and exits non-zero on failure, so a violation blocks a commit rather than surviving into a paper. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
+
+### Reproduction record
+
+`scripts/07_build_repro_artifacts.py` writes `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
+
 ## Pilot and decision gate
 
 250 claims, two annotators, drawn from exhaustively annotated passages so the denominator is unbiased.
@@ -292,6 +335,8 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 .
 ├── README.md                     This file. Task, annotation scheme, data, and the decision gate.
 ├── annotation-guidelines.md      Annotation manual. Frozen; changes need a version bump and a change-log entry.
+├── requirements.txt              Pinned dependencies. Versions of record.
+├── .python-version               3.12.10
 ├── LICENSE                       CC BY 4.0. Covers documentation and data.
 ├── LICENSE-MIT                   MIT. Covers source code.
 ├── CITATION.cff                  Machine-readable citation metadata.
