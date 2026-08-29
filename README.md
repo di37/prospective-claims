@@ -16,8 +16,6 @@
   <a href="CONTRIBUTING.md"><img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-2da44e?style=flat-square"></a>
 </p>
 
-# Prospective Claim Verification
-
 Resolving forward-looking claims from earnings calls into testable financial propositions, then checking them against financial facts published **after** the claim was made.
 
 When a CFO says "we expect margins to improve next quarter", that is a prediction with a deadline. Three months later the company files a report containing the number that settles it. This project asks whether a model can turn the sentence into something checkable, wait for the filing, and decide whether the prediction held.
