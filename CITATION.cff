@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Open source and free for commercial use. If you use this repository, its annotation guidelines, or any derived annotations, cite it: attribution is a condition of the CC BY 4.0 licence covering the documentation and data, not a request."
+title: "Prospective Claim Verification: Checking Forward-Looking Corporate Statements Against Evidence That Does Not Exist Yet"
+abstract: "Resolving forward-looking claims from earnings calls into testable financial propositions, then adjudicating them against SEC XBRL facts published after the claim was made. Includes an annotation manual for the falsifiability and evidence-availability axes."
+version: "0.1.0"
+date-released: "2026-08-29"
+
+authors:
+  - family-names: Hasan
+    given-names: Doula Isham Rashik
+
+repository-code: "https://github.com/di37/prospective-claims"
+license: CC-BY-4.0
+type: dataset
+
+keywords:
+  - claim verification
+  - prospective verification
+  - earnings calls
+  - forward-looking statements
+  - XBRL
+  - financial NLP
+  - annotation guidelines
+  - falsifiability

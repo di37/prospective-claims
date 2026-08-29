@@ -1,0 +1,27 @@
+This repository is open source and may be used commercially. You may use, copy, modify, redistribute, and build products on this work, including for profit, without asking permission and without payment. The one condition is that you give credit.
+
+It is dual-licensed. Which licence applies depends on what you are using.
+
+DOCUMENTATION AND DATA — Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Applies to the annotation guidelines, the README, and any released annotations, reference tables, or derived datasets.
+
+You are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the licence, and indicate whether changes were made. Attribution is a condition of the licence rather than a courtesy: use without credit falls outside its terms. See the Citation section of README.md for the form it should take.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+SOFTWARE — MIT Licence
+
+Applies to source code in src/ and scripts/.
+
+Copyright (c) 2026 Doula Isham Rashik Hasan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+THIRD-PARTY MATERIAL
+
+Neither licence extends to earnings-call transcripts, which remain the property of their providers, or to SEC filing content. Released datasets carry claim spans, character offsets, resolutions, and labels, together with a script that reconstructs text from its original source.

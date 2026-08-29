@@ -1,0 +1,24 @@
+# Working files, not published.
+bin
+
+# OS and editor noise.
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Data is not committed. Raw data is obtained by documented steps; interim and
+# processed are rebuilt by the preparation script.
+data/raw/*
+data/interim/*
+data/processed/*
+!data/*/.gitkeep
+!data/*/README.md
+
+# Run logs carry timestamps and would churn on every run.
+reports/logs/*
+!reports/logs/.gitkeep
+!reports/logs/README.md
+
+checkpoints/
+artifacts/
