@@ -26,6 +26,7 @@ When a CFO says "we expect margins to improve next quarter", that is a predictio
 | [Repository](#repository) | Files and what each is for |
 | [Status](#status) | What is done and what blocks the next step |
 | [Glossary](#glossary) | Finance and filing terms used above |
+| [Contributing](#contributing) | Where to start, and what needs doing |
 | [Citation](#citation) | How to cite this work |
 | [References](#references) | Peer-reviewed anchors |
 
@@ -409,6 +410,37 @@ Peer-reviewed anchors for the task, the annotation axes, and the accounting lite
 | Rogers & Stocken, Credibility of Management Forecasts | The Accounting Review 2005 | Management forecast credibility |
 | Huang, Teoh & Zhang, Tone Management | The Accounting Review 2014 | Abnormal tone; why NRD is not a novelty claim |
 | Gow, Larcker & Zakolyukina, Non-Answers During Conference Calls | JAR 2021 | Non-answers as a disclosure choice |
+
+## Contributing
+
+Contributions are welcome from anyone interested in claim verification, financial NLP, or careful annotation. The project is early, which means most of the groundwork is still open and a contribution now shapes what gets built rather than patching what exists.
+
+Good places to start, none of which need a dataset, an API key, or a GPU:
+
+- [Compile the metric class reference table](https://github.com/di37/prospective-claims/issues/1) — beginner. Classify financial metrics as flow or level, which decides each claim's default baseline.
+- [Add a worked annotation walkthrough](https://github.com/di37/prospective-claims/issues/2) — beginner. Take one claim through all four passes so a new annotator sees the manual applied.
+- [Add unit tests for fiscal calendar alignment](https://github.com/di37/prospective-claims/issues/3) — beginner to intermediate. Small synthetic fixtures, no downloads.
+
+Larger pieces, roughly in the order the project needs them:
+
+| Issue | What it unblocks |
+|---|---|
+| [Build the EDGAR filing dates table](https://github.com/di37/prospective-claims/issues/4) | Observation status, and therefore the censoring rate |
+| [Build the fiscal calendar table](https://github.com/di37/prospective-claims/issues/5) | Temporal resolution for filers whose year does not match the calendar |
+| [Pull and inventory the transcript corpus](https://github.com/di37/prospective-claims/issues/6) | Which filers the pilot can sample from |
+| [Implement the observation status calculator](https://github.com/di37/prospective-claims/issues/7) | The OBSERVABLE and RIGHT_CENSORED split |
+| [Implement the Company Facts client](https://github.com/di37/prospective-claims/issues/8) | Adjudication against as-first-reported values |
+| [Annotate a batch of pilot claims](https://github.com/di37/prospective-claims/issues/9) | The pilot itself; needs at least two people annotating independently |
+| [Per-field agreement reporting](https://github.com/di37/prospective-claims/issues/10) | The decision gate |
+| [Output prefixes and invariant checks](https://github.com/di37/prospective-claims/issues/11) | Provenance and the protocol rules |
+
+[All open issues](https://github.com/di37/prospective-claims/issues).
+
+Comment on an issue before starting so work can be coordinated and nobody duplicates effort. Keep pull requests focused and document any new dependencies.
+
+Two things to know before contributing. `annotation-guidelines.md` is frozen: changing it requires a version bump and a change-log entry, because a rule change alters what every existing annotation means. And the annotation task deliberately gives more weight to careful reading than to code, so a contributor with a finance or accounting background and no Python is genuinely useful here.
+
+Contributors are acknowledged in the repository and in release notes. Where a contribution is substantial and intellectual rather than mechanical, authorship on any resulting paper follows the normal conventions for that.
 
 ## Citation
 
