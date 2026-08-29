@@ -1,3 +1,21 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.png">
+    <img src="assets/banner-light.png" alt="Prospective Claim Verification. Pipeline: earnings calls to claim resolution, then a gap of one to eight quarters while evidence appears, then future filings, then adjudication." width="900">
+  </picture>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="Docs and data licence: CC BY 4.0" src="https://img.shields.io/badge/docs%20%26%20data-CC%20BY%204.0-1f6feb?style=flat-square"></a>
+  <a href="LICENSE-MIT"><img alt="Code licence: MIT" src="https://img.shields.io/badge/code-MIT-2da44e?style=flat-square"></a>
+  <a href="requirements.txt"><img alt="Python 3.12" src="https://img.shields.io/badge/python-3.12-3776ab?style=flat-square&logo=python&logoColor=white"></a>
+  <a href="annotation-guidelines.md"><img alt="Annotation guidelines v1.6" src="https://img.shields.io/badge/guidelines-v1.6-8250df?style=flat-square"></a>
+  <a href="#status"><img alt="Status: pilot not started" src="https://img.shields.io/badge/status-pilot%20not%20started-7d8590?style=flat-square"></a>
+  <a href="https://github.com/di37/prospective-claims/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/di37/prospective-claims?style=flat-square&color=bf8700"></a>
+  <a href="CONTRIBUTING.md"><img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-2da44e?style=flat-square"></a>
+</p>
+
 # Prospective Claim Verification
 
 Resolving forward-looking claims from earnings calls into testable financial propositions, then checking them against financial facts published **after** the claim was made.
@@ -336,6 +354,7 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 ├── README.md                     This file. Task, annotation scheme, data, and the decision gate.
 ├── annotation-guidelines.md      Annotation manual. Frozen; changes need a version bump and a change-log entry.
 ├── requirements.txt              Pinned dependencies. Versions of record.
+├── assets/                       README banner, light and dark variants.
 ├── .python-version               3.12.10
 ├── LICENSE                       CC BY 4.0. Covers documentation and data.
 ├── LICENSE-MIT                   MIT. Covers source code.
