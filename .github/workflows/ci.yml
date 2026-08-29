@@ -14,9 +14,9 @@ jobs:
     name: Documentation checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -30,9 +30,9 @@ jobs:
     name: Environment installs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version-file: .python-version
           cache: pip
@@ -65,9 +65,9 @@ jobs:
     name: Lint, tests, and protocol invariants
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version-file: .python-version
           cache: pip
@@ -81,12 +81,14 @@ jobs:
       # not actually check.
       - name: Lint
         run: |
-          if compgen -G "src/**/*.py" > /dev/null || compgen -G "scripts/*.py" > /dev/null; then
+          # find, not a glob. Without `shopt -s globstar` a ** pattern silently
+          # misses top-level src/*.py, which is where constants and config live,
+          # so the lint would pass having checked nothing that matters.
+          if [ -n "$(find src scripts -name '*.py' -print -quit 2>/dev/null)" ]; then
             ruff check src scripts
           else
             echo "no Python yet, skipping"
           fi
-        shell: bash
 
       - name: Tests
         run: |

@@ -1,6 +1,11 @@
 # Pinned for reproducibility. These are the versions of record; every committed
-# result was produced under them. Do not relax a pin without re-running the
+# result will be produced under them. Nothing has been run yet, so that is a
+# commitment rather than a claim. Do not relax a pin without re-running the
 # scripts that depend on it and updating reports/repro/study_metadata.json.
+#
+# These are direct dependencies only. Transitive dependencies are not locked,
+# which is acceptable while no results exist. Before the first committed result,
+# replace this with a full lock produced by pip freeze or pip-compile.
 #
 # Python 3.12.10
 #

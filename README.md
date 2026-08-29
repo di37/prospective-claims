@@ -74,13 +74,14 @@ INPUT    "We expect gross margin to exceed 71% in the third quarter."
 
 RESOLVE  concept    GrossProfit / Revenues        STATED
          scope      consolidated                  SUPPLIED
-         basis      GAAP                          SUPPLIED
+         basis      UNSPECIFIED                   SUPPLIED
          window     [t+1, t+1]                    EXPLICIT
          direction  THRESHOLD                     STATED
          threshold  > 71%                         STATED
          falsifiability  FALSIFIABLE
 
-CHECK    Q3 filed 2023-11-02, before cutoff  ->  OBSERVABLE
+CHECK    UNSPECIFIED maps to GAAP at adjudication, per section 5.2
+         Q3 filed 2023-11-02, before cutoff  ->  OBSERVABLE
          GrossProfit / Revenues = 73.2%      ->  GAAP-XBRL
 
 OUTPUT   SUPPORTED
@@ -96,18 +97,18 @@ INPUT    "We expect inventory levels to normalise over the next two quarters."
 RESOLVE  concept    InventoryNet                  STATED
          scope      consolidated                  SUPPLIED
          basis      UNSPECIFIED                   SUPPLIED
-         transform  scaled by revenue             POLICY_DEFAULT
+         transform  scaled by revenue             SUPPLIED
          baseline   trailing 8-quarter median     POLICY_DEFAULT
          window     [t+1, t+2]                    EXPLICIT
          direction  TOWARD_BASELINE               STATED
          falsifiability  UNDERSPECIFIED
 
 CHECK    both quarters filed  ->  OBSERVABLE
-         gap to baseline: +38% at t, +34% at t+2
+         gap to baseline: +38% at t, +41% at t+2
 
 OUTPUT   REFUTED
-         the gap narrowed by less than the materiality band, so the
-         stated normalisation did not occur
+         TOWARD_BASELINE is supported only if the gap shrinks. It widened,
+         so the stated normalisation did not occur
 ```
 
 ### 3. Falsifiable, but not checkable from the evidence store
@@ -171,8 +172,12 @@ OUTPUT   excluded from adjudication, reported in the censoring rate
 flowchart TD
     A["Forward-looking claim uttered at time t<br/>'inventory levels should normalise<br/>over the next two quarters'"]
     B["Resolve<br/>m = concept, scope, basis, transform<br/>b = baseline &nbsp; w = window<br/>d = direction &nbsp; τ = threshold"]
-    C{"Falsifiable<br/>from text alone?"}
-    D["UNFALSIFIABLE<br/>excluded from adjudication"]
+    C{"Falsifiable or<br/>underspecified?"}
+    D["UNFALSIFIABLE<br/>excluded on the label alone"]
+    K{"Conditional?"}
+    L["Excluded from primary<br/>reported as its own stratum"]
+    W{"Window resolved?"}
+    X["NOT_APPLICABLE<br/>no window, so no observation status"]
     E{"Window closed AND<br/>filings published<br/>by cutoff T?"}
     F["RIGHT_CENSORED<br/>annotated, counted, not scored"]
     G{"Evidence available<br/>in store E?"}
@@ -182,7 +187,11 @@ flowchart TD
 
     A --> B --> C
     C -- no --> D
-    C -- yes --> E
+    C -- yes --> K
+    K -- yes --> L
+    K -- no --> W
+    W -- no --> X
+    W -- yes --> E
     E -- no --> F
     E -- yes --> G
     G -- no --> H
@@ -193,7 +202,7 @@ Two properties of this order carry the design.
 
 **Observability is decided before evidence is inspected.** A claim is OBSERVABLE when its window has closed *and* the filings covering that window have been published by the cutoff `T`. That test uses the filer's reporting calendar, not the existence of any particular fact, so it does not depend on the thing it gates.
 
-**Adjudication is scored twice.** Binary SUPPORTED / REFUTED on the slice with GAAP-XBRL evidence, isolating comparison and arithmetic. Three-way including NEI over all falsifiable claims, measuring whether a system knows when it cannot check something. A system emitting NEI where evidence does exist is a retrieval failure, reported separately and never credited as correct abstention.
+**Adjudication is scored twice.** Binary SUPPORTED / REFUTED on the slice with GAAP-XBRL evidence, isolating comparison and arithmetic. Three-way including NEI over the adjudication-eligible FALSIFIABLE and UNDERSPECIFIED claims, after the exclusions below, measuring whether a system knows when it cannot check something. A system emitting NEI where evidence does exist is a retrieval failure, reported separately and never credited as correct abstention.
 
 ## Annotation
 
@@ -255,7 +264,9 @@ Q1 asks about *any* financial disclosure, not about the evidence store. A claim 
 | "Inventory should normalise over the next two quarters." | UNDERSPECIFIED |
 | "We remain excited about the long-term opportunity." | UNFALSIFIABLE |
 
-FALSIFIABLE means self-contained, so it is expected to be the smaller class, concentrated in threshold and range claims. Both FALSIFIABLE and UNDERSPECIFIED go to adjudication, stratified.
+FALSIFIABLE means self-contained, so it is expected to be the smaller class, concentrated in threshold and range claims.
+
+FALSIFIABLE and UNDERSPECIFIED claims are both *eligible* for adjudication, and results are stratified by the two. Eligible is not the same as included: a claim is still dropped if its evaluation window is UNRESOLVED, if it is right-censored, or if it is conditional. Only UNFALSIFIABLE is excluded on the strength of the label alone.
 
 ## Data
 
@@ -293,11 +304,11 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Python 3.12.10. `requirements.txt` pins exact versions rather than ranges, because a range means two people can follow the same instructions and get different numbers. The pinned set is the versions of record: every committed result was produced under them. Relaxing a pin means re-running whatever depended on it and updating the environment record.
+Python 3.12.10. `requirements.txt` pins exact versions rather than ranges, because a range means two people can follow the same instructions and get different numbers. The pinned set is the versions of record: every committed result will be produced under them. Nothing has been run yet, so that is a commitment rather than a claim about existing results. Relaxing a pin means re-running whatever depended on it and updating the environment record.
 
 ### Seeds
 
-Sampling, splitting, and any model seed are fixed in `src/constants.py` and recorded in `reports/repro/study_metadata.json`. They are part of the protocol rather than tuning knobs: changing one invalidates every committed result.
+Sampling, splitting, and any model seed will be fixed in `src/constants.py` and recorded in `reports/repro/study_metadata.json`. Neither file exists yet. They are part of the protocol rather than tuning knobs: once set, changing one invalidates every result committed under it.
 
 ### Data provenance
 
@@ -318,11 +329,11 @@ The evidence cutoff `T` is a single frozen date in `reference/evidence_cutoff.tx
 | Annotation agreement is computed pre-adjudication and never recomputed | Agreement scores inflated by discussion |
 | Conventions that could move a number are declared before annotation, then ablated | Choices tuned after seeing their effect |
 
-`scripts/08_verify_invariants.py` checks these mechanically and exits non-zero on failure, so a violation blocks a commit rather than surviving into a paper. CI runs it on every push, alongside `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
+`scripts/08_verify_invariants.py` will check these mechanically and exit non-zero on failure, so a violation blocks a commit rather than surviving into a paper. It is not written yet; CI already has the step, which skips until the file appears. What CI does run today is `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
 
 ### Reproduction record
 
-`scripts/07_build_repro_artifacts.py` writes `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
+`scripts/07_build_repro_artifacts.py`, once written, will produce `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
 
 ## Pilot and decision gate
 
@@ -414,7 +425,7 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 
 Every directory carries a README stating what lives there, what writes it, and whether it is committed. The code and data files listed above do not exist yet; the directories and their READMEs do, so the manual's references to `metric_classes.csv`, `fiscal_calendar.csv` and `filing_dates.csv` resolve to a known place.
 
-Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `08_verify_invariants.py` fails on any artifact whose prefix matches no script.
+Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `08_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 
 ## Status
 
