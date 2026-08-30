@@ -39,7 +39,7 @@ No paid API key is needed for any currently open issue. The SEC endpoints are fr
 
 ## The annotation manual is frozen
 
-`annotation-guidelines.md` is a frozen document. Changing a rule changes what every existing annotation means, so any change requires a version bump, an entry in the change log at the bottom of the file, and re-annotation of anything labelled under the previous version.
+[`docs/annotation-guidelines.md`](docs/annotation-guidelines.md) is a frozen document. Changing a rule changes what every existing annotation means, so any change requires a version bump, an entry in the change log at the bottom of the file, and re-annotation of anything labelled under the previous version.
 
 This is not a barrier to reporting problems with it. If a rule is ambiguous or contradicts another, say so in an issue. Several such reports have already improved it.
 
@@ -67,7 +67,7 @@ Notebooks read results and interpret them. They do not write tables, and they do
 
 ## If you are annotating
 
-Read `annotation-guidelines.md` end to end before starting. The four-pass order matters, and so does the rule that falsifiability is judged before resolution.
+Read [`docs/annotation-guidelines.md`](docs/annotation-guidelines.md) end to end before starting. The four-pass order matters, and so does the rule that falsifiability is judged before resolution.
 
 Complete each pass across your whole batch before starting the next. Do not take one claim end to end.
 
@@ -83,7 +83,7 @@ Log anything the policy registry does not cover in `annotations/policy_gaps.md` 
 - Tests pass, and new logic has tests that would fail without it
 - Nothing under `data/` is committed
 - Transcript text is not committed; it belongs to its providers
-- `annotation-guidelines.md` is unchanged, or the version and change log were updated together
+- `docs/annotation-guidelines.md` is unchanged, or the version and change log were updated together
 - Links and section references in any documentation you touched still resolve
 
 ## Pull requests

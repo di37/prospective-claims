@@ -1,7 +1,8 @@
 """Documentation checks that can run before any research code exists.
 
 Five checks, all of which catch things that rot silently: relative links pointing
-at files that were renamed, anchor links pointing at headings that were reworded,
+at files that were renamed, anchor links pointing at headings that were reworded
+whether the heading is in this file or another one,
 a CITATION.cff that stopped parsing, a guidelines version that drifted between the
 change log and the record schema, and hard-wrapped prose.
 
@@ -89,8 +90,22 @@ def notebook_prose(path: Path) -> list[tuple[int, str]]:
     return out
 
 
+def headings_of(path: Path) -> set[str]:
+    """Return the anchors a file's headings generate.
+
+    Args:
+        path: Markdown file, which may not exist.
+
+    Returns:
+        Anchor slugs, empty when the file is missing or is not Markdown.
+    """
+    if not path.exists() or path.suffix != ".md":
+        return set()
+    return {anchor(m.group(1)) for _, text in outside_fences(path) if (m := HEADING.match(text))}
+
+
 def check_links(fail) -> None:
-    """Check that relative links and same-file anchors resolve.
+    """Check that relative links and anchors resolve, across files as well as within.
 
     Args:
         fail: Callback taking a message string.
@@ -103,10 +118,13 @@ def check_links(fail) -> None:
             for target in LINK.findall(line) + HTML_SRC.findall(line):
                 if target.startswith(("http://", "https://", "mailto:", "#")):
                     continue
-                resolved = (path.parent / target.split("#")[0]).resolve()
+                file_part, _, fragment = target.partition("#")
+                resolved = (path.parent / file_part).resolve()
+                where = f"{path.relative_to(ROOT)} prose line {number}"
                 if not resolved.exists():
-                    fail(f"{path.relative_to(ROOT)} prose line {number}  "
-                         f"link {target} points at a missing file")
+                    fail(f"{where}  link {target} points at a missing file")
+                elif fragment and fragment not in headings_of(resolved):
+                    fail(f"{where}  link {target} points at no heading in that file")
 
     for path in MARKDOWN:
         lines = outside_fences(path)
@@ -120,9 +138,12 @@ def check_links(fail) -> None:
                     if target[1:] not in anchors:
                         fail(f"{where}  anchor {target} matches no heading")
                 else:
-                    resolved = (path.parent / target.split("#")[0]).resolve()
+                    file_part, _, fragment = target.partition("#")
+                    resolved = (path.parent / file_part).resolve()
                     if not resolved.exists():
                         fail(f"{where}  link {target} points at a missing file")
+                    elif fragment and fragment not in headings_of(resolved):
+                        fail(f"{where}  link {target} points at no heading in that file")
 
 
 def check_citation(fail) -> None:
@@ -162,7 +183,7 @@ def check_guidelines_version(fail) -> None:
     Returns:
         None.
     """
-    path = ROOT / "annotation-guidelines.md"
+    path = ROOT / "docs" / "annotation-guidelines.md"
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
@@ -170,15 +191,15 @@ def check_guidelines_version(fail) -> None:
     in_schema = re.search(r'"guidelines_version":\s*"([\d.]+)"', text)
     entries = re.findall(r"^\|\s*(\d+\.\d+)\s*\|", text, re.M)
     if not in_schema:
-        fail("annotation-guidelines.md: no guidelines_version in the record schema")
+        fail("docs/annotation-guidelines.md: no guidelines_version in the record schema")
         return
     if not entries:
-        fail("annotation-guidelines.md: no change-log entries found")
+        fail("docs/annotation-guidelines.md: no change-log entries found")
         return
     newest = max(entries, key=lambda v: tuple(int(x) for x in v.split(".")))
     if in_schema.group(1) != newest:
         fail(
-            f"annotation-guidelines.md: schema says v{in_schema.group(1)} but the "
+            f"docs/annotation-guidelines.md: schema says v{in_schema.group(1)} but the "
             f"newest change-log entry is v{newest}"
         )
 
