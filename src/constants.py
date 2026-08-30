@@ -119,6 +119,14 @@ PERIODIC_FORMS = ("10-K", "10-Q")
 MIN_PLAUSIBLE_FILING_LAG_DAYS = 5
 MAX_PLAUSIBLE_FILING_LAG_DAYS = {"10-Q": 60, "10-K": 120}
 
+# Statutory deadlines for a large accelerated filer, used for one purpose only:
+# deciding whether a filer is delinquent. Section 6 is explicit that the evidence
+# maturity date is built from actual EDGAR filing dates and never from deadlines,
+# because filers vary and the real dates are available. A deadline answers a
+# different question, which is whether a report that has not arrived is merely
+# late in the ordinary sense or genuinely overdue.
+STATUTORY_DEADLINE_DAYS = {"10-Q": 40, "10-K": 60}
+
 # endregion
 
 # region Transcript corpus

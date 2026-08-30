@@ -5,6 +5,7 @@ Run with `pytest` from the repository root. No dataset, no API key, no network, 
 | File | Covers |
 |---|---|
 | `test_windows.py` | Section 5.5 resolved against fiscal calendars that do not match the calendar year |
+| `test_observation.py` | Section 6 applied to synthetic filing calendars, one test per branch |
 
 Every fixture is synthetic. Testing against `reference/fiscal_quarters.csv` would give a suite that fails when the SEC reissues a filing rather than when the logic breaks, and the point of a test is to tell those apart.
 

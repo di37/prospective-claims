@@ -82,7 +82,8 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── edgar/facts.py            One filer, one concept, for the gaps the frames leave.
 │   ├── resolution/README.md      Claim text to a structured proposition.
 │   ├── resolution/windows.py     Section 5.5 phrases onto a filer's fiscal quarters.
-│   └── adjudication/README.md    Observation status, evidence lookup, verdicts.
+│   ├── adjudication/README.md    Observation status, evidence lookup, verdicts.
+│   └── adjudication/observation.py  Status from the filing calendar, never from evidence.
 │
 ├── scripts/                      Numbered, runnable, produce results.
 │   ├── README.md
@@ -100,7 +101,8 @@ Where everything lives, what writes it, and whether it is committed.
 │
 ├── tests/                        CPU only. No dataset, API key, or network.
 │   ├── README.md
-│   └── test_windows.py           Window resolution across five calendar shapes.
+│   ├── test_windows.py           Window resolution across five calendar shapes.
+│   └── test_observation.py       Observation status across every branch of section 6.
 │
 ├── reports/
 │   ├── README.md
@@ -118,7 +120,7 @@ Where everything lives, what writes it, and whether it is committed.
     └── 05_transcripts.ipynb      Corpus coverage, the ticker join, and the Q&A split.
 ```
 
-Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the [annotation guidelines](annotation/annotation-guidelines.md) references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
+Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the [annotation guidelines](annotation/annotation-guidelines.md) references resolve to a known place either way. Six reference tables are built and committed, each with a provenance record, and five of them have a notebook that reads it and says what it is fit for.
 
 Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `10_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 
