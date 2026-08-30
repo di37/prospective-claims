@@ -5,6 +5,11 @@ at files that were renamed, anchor links pointing at headings that were reworded
 a CITATION.cff that stopped parsing, a guidelines version that drifted between the
 change log and the record schema, and hard-wrapped prose.
 
+Notebook prose is checked alongside the Markdown files. A notebook is the first
+thing many readers open, and its links rot the same way, so the markdown cells go
+through the same link check rather than being trusted because they are inside
+JSON. Code cells and outputs are left alone.
+
 Run locally with `python .github/scripts/check_docs.py`. Exits non-zero on failure.
 """
 
@@ -12,11 +17,11 @@ from __future__ import annotations
 
 import json
 import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MARKDOWN = sorted(p for p in ROOT.rglob("*.md") if "bin" not in p.parts and ".github" not in p.parts)
+NOTEBOOKS = sorted(p for p in ROOT.rglob("*.ipynb") if "bin" not in p.parts and ".ipynb_checkpoints" not in p.parts)
 
 FENCE = re.compile(r"^\s*(```|~~~)")
 HEADING = re.compile(r"^\s*#{1,6}\s+(.*)$")
@@ -58,6 +63,32 @@ def outside_fences(path: Path) -> list[tuple[int, str]]:
     return out
 
 
+def notebook_prose(path: Path) -> list[tuple[int, str]]:
+    """Return numbered lines of a notebook's markdown cells.
+
+    Line numbers count prose lines rather than lines of the JSON file, since the
+    JSON position of a cell is meaningless to anyone fixing the link.
+
+    Args:
+        path: Notebook file.
+
+    Returns:
+        List of (line number, line) pairs.
+    """
+    try:
+        cells = json.loads(path.read_text(encoding="utf-8")).get("cells", [])
+    except (json.JSONDecodeError, OSError):
+        return []
+    out, number = [], 0
+    for cell in cells:
+        if cell.get("cell_type") != "markdown":
+            continue
+        for line in "".join(cell.get("source", [])).split("\n"):
+            number += 1
+            out.append((number, line))
+    return out
+
+
 def check_links(fail) -> None:
     """Check that relative links and same-file anchors resolve.
 
@@ -67,9 +98,19 @@ def check_links(fail) -> None:
     Returns:
         None.
     """
+    for path in NOTEBOOKS:
+        for number, line in notebook_prose(path):
+            for target in LINK.findall(line) + HTML_SRC.findall(line):
+                if target.startswith(("http://", "https://", "mailto:", "#")):
+                    continue
+                resolved = (path.parent / target.split("#")[0]).resolve()
+                if not resolved.exists():
+                    fail(f"{path.relative_to(ROOT)} prose line {number}  "
+                         f"link {target} points at a missing file")
+
     for path in MARKDOWN:
         lines = outside_fences(path)
-        anchors = {anchor(m.group(1)) for _, l in lines if (m := HEADING.match(l))}
+        anchors = {anchor(m.group(1)) for _, text in lines if (m := HEADING.match(text))}
         for number, line in lines:
             for target in LINK.findall(line) + HTML_SRC.findall(line):
                 if target.startswith(("http://", "https://", "mailto:")):
