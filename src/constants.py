@@ -121,6 +121,51 @@ MAX_PLAUSIBLE_FILING_LAG_DAYS = {"10-Q": 60, "10-K": 120}
 
 # endregion
 
+# region Transcript corpus
+# The transcripts come from a HuggingFace release rather than a vendor feed. The
+# chain is kurry/sp500_earnings_transcripts -> Bose345/sp500_earnings_transcripts
+# -> this one, each tagged MIT, and none of them naming the vendor the transcripts
+# originally came from. Several carry a "TRANSCRIPT SPONSOR" line, which is a
+# vendor artefact. An MIT tag applied by an uploader does not grant rights the
+# uploader does not hold, so the study treats the text as third-party content:
+# it is pulled, never committed, and never redistributed. Released artifacts carry
+# offsets and labels plus a script that reconstructs the text from this source.
+TRANSCRIPT_REPO = "RudrakshNanavaty/earnings-call-data"
+TRANSCRIPT_REPO_FILE = "episodes.parquet"
+TRANSCRIPT_RAW_FILE = RAW_DIR / "episodes.parquet"
+TRANSCRIPT_SEGMENTS_FILE = INTERIM_DIR / "transcript_segments.parquet"
+TRANSCRIPT_COVERAGE_FILE = REFERENCE_DIR / "transcript_coverage.csv"
+
+# The release carries 72 columns of prices, XBRL fundamentals and return labels
+# alongside the text. The study reads only identity and transcript: its financial
+# facts come from EDGAR through this repository's own reference tables, where the
+# as-first-reported rule is enforced, rather than from a third party's join.
+TRANSCRIPT_READ_COLUMNS = (
+    "episode_id",
+    "symbol",
+    "company_name",
+    "year",
+    "quarter",
+    "date",
+    "earnings_date",
+    "sector",
+    "earnings_transcript",
+)
+
+# A call splits into prepared remarks and Q&A, and the boundary is found by the
+# operator handing over to the first analyst. Where the boundary lands is a check
+# on whether it was found correctly: across the corpus the split sits at 39 per
+# cent of the transcript at the median, with the first and ninety-ninth
+# percentiles at 4.5 and 83 per cent. A split below 5 per cent leaves almost no
+# prepared remarks and one above 90 per cent almost no Q&A, so both are marked
+# low confidence rather than dropped. The band flags 1.7 per cent of splits;
+# widening it to 10 and 85 per cent would flag 4.5 per cent, most of them
+# ordinary calls.
+QA_SPLIT_MIN_FRACTION = 0.05
+QA_SPLIT_MAX_FRACTION = 0.90
+
+# endregion
+
 # region Fiscal calendars
 # A filer's own calendar decides what "next quarter" means, and it is derived
 # from the period ends it actually filed rather than from the fiscalYearEnd field

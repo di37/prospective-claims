@@ -41,6 +41,7 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── filing_dates.csv          cik, fiscal_period, form_type, filed_date, lag. Generated.
 │   ├── fiscal_calendar.csv       cik -> fiscal year end, 52/53-week flag. Generated.
 │   ├── fiscal_quarters.csv       cik, fiscal year, quarter -> period end. Generated.
+│   ├── transcript_coverage.csv   Corpus symbol -> quarters covered. The sampling frame. Generated.
 │   ├── *.provenance.json         Per table: what produced it, when, and the rules in force.
 │   └── evidence_cutoff.txt       The single cutoff date T.
 │
@@ -58,6 +59,10 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── reference/metrics.py      Authored metric definitions, validated at import.
 │   ├── reference/filers.py       The filer selection rule, and what it costs.
 │   ├── reference/calendar.py     Fiscal year shapes, derived from filed period ends.
+│   ├── corpus/README.md          The transcript corpus: coverage, identity, segmentation.
+│   ├── corpus/bridge.py          Ticker to CIK, and why that join is fragile.
+│   ├── corpus/coverage.py        Quarter-by-quarter coverage per symbol.
+│   ├── corpus/segments.py        Prepared remarks against the analyst Q&A.
 │   ├── edgar/README.md           One transport, one rate limit, for every SEC call.
 │   ├── edgar/transport.py        Shared HTTP layer. A 404 is a result, not a failure.
 │   ├── edgar/frames.py           Element existence, and every filer's value for one period.
@@ -68,16 +73,17 @@ Where everything lives, what writes it, and whether it is committed.
 │
 ├── scripts/                      Numbered, runnable, produce results.
 │   ├── README.md
-│   ├── 00_pull_transcripts.py
+│   ├── 00_pull_transcripts.py        Transcript corpus -> data/raw. About 1.2 GB.
 │   ├── 01_build_metric_classes.py    Verifies elements against the SEC, writes the metric table.
 │   ├── 02_select_filers.py           Ranks filers by revenue, writes the study set.
 │   ├── 03_build_filing_dates.py      Filing history per filer, with a lag plausibility flag.
 │   ├── 04_build_fiscal_calendar.py   Fiscal year shape and quarter ends per filer. Offline.
-│   ├── 05_sample_passages.py
-│   ├── 06_compute_observation_status.py
-│   ├── 07_make_report_figures.py
-│   ├── 08_build_repro_artifacts.py
-│   └── 09_verify_invariants.py
+│   ├── 05_build_transcript_inventory.py  Corpus coverage and the sampling frame. Offline.
+│   ├── 06_sample_passages.py
+│   ├── 07_compute_observation_status.py
+│   ├── 08_make_report_figures.py
+│   ├── 09_build_repro_artifacts.py
+│   └── 10_verify_invariants.py
 │
 ├── reports/
 │   ├── README.md
@@ -91,12 +97,13 @@ Where everything lives, what writes it, and whether it is committed.
     ├── 01_metric_classes.ipynb   Coverage, the evidence-store gap, and the arguable classes.
     ├── 02_filers.ipynb           What the selection rule admits, and the three things it gets wrong.
     ├── 03_filing_dates.ipynb     Filing lag, the rows the table does not trust, window coverage.
-    └── 04_fiscal_calendar.ipynb  The two calendar shapes, year-end changes, quarter labels.
+    ├── 04_fiscal_calendar.ipynb  The two calendar shapes, year-end changes, quarter labels.
+    └── 05_transcripts.ipynb      Corpus coverage, the ticker join, and the Q&A split.
 ```
 
 Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the [annotation guidelines](annotation-guidelines.md) references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
 
-Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `09_verify_invariants.py` will fail on any artifact whose prefix matches no script.
+Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `10_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 
 ---
 

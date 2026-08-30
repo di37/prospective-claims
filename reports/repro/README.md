@@ -1,6 +1,6 @@
 # reports/repro
 
-The reproduction record. Written by `08_build_repro_artifacts.py` after every experiment script has run.
+The reproduction record. Written by `09_build_repro_artifacts.py` after every experiment script has run.
 
 | File | Contents |
 |---|---|

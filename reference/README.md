@@ -9,6 +9,7 @@ Frozen companion tables the [annotation guidelines](../docs/annotation-guideline
 | `filing_dates.csv` | [section 6](../docs/annotation-guidelines.md#6-observation-status-computed-not-annotated) | cik, fiscal_period, form_type, filed_date. **Present**, 7,118 rows. |
 | `fiscal_calendar.csv` | [section 5.5](../docs/annotation-guidelines.md#55-window) | cik -> fiscal year end, 52/53-week flag. **Present**, 150 rows. |
 | `fiscal_quarters.csv` | [section 5.5](../docs/annotation-guidelines.md#55-window) | cik, fiscal year, quarter -> period end. **Present**, 7,030 rows. |
+| `transcript_coverage.csv` | the sampling frame | corpus symbol -> quarters covered, and which study filer it is. **Present**, 685 rows. |
 | `evidence_cutoff.txt` | [section 6](../docs/annotation-guidelines.md#6-observation-status-computed-not-annotated) | the single cutoff date T |
 
 `filing_dates.csv` is what makes the evidence maturity date computable. The fiscal calendar maps "next quarter" onto a period; it cannot say when the report covering that period was filed. Take the first filing covering a period, not an amendment.
@@ -20,9 +21,11 @@ python scripts/01_build_metric_classes.py
 python scripts/02_select_filers.py
 python scripts/03_build_filing_dates.py
 python scripts/04_build_fiscal_calendar.py
+python scripts/00_pull_transcripts.py        # about 1.2 GB, run once
+python scripts/05_build_transcript_inventory.py
 ```
 
-Only 04 is offline. It derives the calendars from the filing dates 03 already pulled, so it changes only when they do.
+Only 04 and 05 are offline. It derives the calendars from the filing dates 03 already pulled, so it changes only when they do.
 
 Every table has a `.provenance.json` beside it recording the commit it was built from, when, and the rules that were in force. Every table has a notebook in `notebooks/` that reads it and says what it is fit for.
 
@@ -105,5 +108,19 @@ The derivation is also a second filter on bad period ends. Publix files every ye
 `fiscal_year` is the calendar year the fiscal year ends in. That is a convention, not the filer's own name for the year: Walmart calls the year ending January 2024 fiscal 2024 while Target calls the year ending January 2023 fiscal 2022, so no single rule matches both. **Join on `period_end`, never on `fiscal_year`.**
 
 74 quarters carry no label because they sit after their filer's last annual report and belong to a fiscal year the window never closes. Four more sit in the gaps left by the two missing anchors.
+
+## transcript_coverage.csv
+
+Columns: `symbol`, `company_name`, `cik`, `filer_name`, `match_method`, `first_period`, `last_period`, `quarters_present`, `quarters_expected`, `gaps`, `continuous`, `calls_split`, `calls_unsplit`, `calls_low_confidence`. One row per symbol in the transcript corpus, 685 of them, with `cik` filled for the 121 that are study filers.
+
+This is the sampling frame. A filer with immaculate filing coverage and no transcript contributes no claims, so this table and not `filers.csv` decides what the pilot can draw from.
+
+The join it records is the fragile part. The corpus is keyed by ticker and the study by CIK, and a ticker is not stable over thirteen years. Exxon Mobil is the case that proves it: the study holds CIK 34088 from a 2023 revenue frame, the SEC's current ticker file maps XOM to a later holding entity, and 34088 carries no ticker at all, so joining on the public ticker file would have dropped the seventh largest filer in the study. Matching therefore runs on tickers from each filer's own submissions record, with three aliases checked one at a time against the corpus's company names. Nothing is fuzzy matched: an earlier attempt mapped Metropolitan Life onto 3M and Flex onto F5 Networks.
+
+29 study filers have no transcript. Five are not listed and hold no public call, which the filer notebook predicted. 24 are listed and simply absent from a corpus that carries 685 tickers rather than a full index history.
+
+86 of the 121 cover every quarter of 2012 to 2024, against a design that assumes 120 to 150. 106 have no interior gap, so most of the shortfall is companies that listed after 2012 or were acquired before 2024 rather than ragged coverage. Relaxing to at most four missing quarters gives 100 filers, as does shortening the window to 2016, but not the same 100. The table carries quarters and gaps per filer so the threshold stays a study decision rather than being baked in here.
+
+`calls_split`, `calls_unsplit` and `calls_low_confidence` count how the prepared-remarks and Q&A boundary went for that symbol. The offsets themselves are in `data/interim/transcript_segments.parquet`, which is not committed. Offsets rather than text, because the transcripts are third-party content this project does not redistribute.
 
 Changing any file here is a version bump on the annotation guidelines and requires a change-log entry.

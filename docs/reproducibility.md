@@ -34,11 +34,11 @@ The evidence cutoff `T` is a single frozen date in `reference/evidence_cutoff.tx
 | Annotation agreement is computed pre-adjudication and never recomputed | Agreement scores inflated by discussion |
 | Conventions that could move a number are declared before annotation, then ablated | Choices tuned after seeing their effect |
 
-`scripts/09_verify_invariants.py` will check these mechanically and exit non-zero on failure, so a violation blocks a commit rather than surviving into a paper. It is not written yet; CI already has the step, which skips until the file appears. What CI does run today is `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
+`scripts/10_verify_invariants.py` will check these mechanically and exit non-zero on failure, so a violation blocks a commit rather than surviving into a paper. It is not written yet; CI already has the step, which skips until the file appears. What CI does run today is `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
 
 ## Reproduction record
 
-`scripts/08_build_repro_artifacts.py`, once written, will produce `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
+`scripts/09_build_repro_artifacts.py`, once written, will produce `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
 
 ---
 

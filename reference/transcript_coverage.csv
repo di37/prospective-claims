@@ -1,0 +1,686 @@
+symbol,company_name,cik,filer_name,match_method,first_period,last_period,quarters_present,quarters_expected,gaps,continuous,calls_split,calls_unsplit,calls_low_confidence
+A,"Agilent Technologies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,71,2,2
+AA,,,,,2012Q1,2016Q4,20,20,0,,38,2,0
+AAL,,6201,American Airlines Group Inc.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,63,6,2
+AAP,,,,,2015Q1,2023Q4,36,36,0,,36,0,0
+AAPL,Apple Inc.,320193,Apple Inc.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,3,1
+ABBV,AbbVie Inc.,1551152,AbbVie Inc.,edgar_ticker,2013Q1,2024Q4,48,48,0,,48,1,0
+ABMD,,,,,2018Q1,2022Q4,20,20,0,,19,0,1
+ABNB,"Airbnb, Inc.",,,,2020Q4,2024Q4,17,17,0,,18,0,0
+ABT,Abbott Laboratories,1800,ABBOTT LABORATORIES,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,67,0,4
+ACGL,Arch Capital Group Ltd.,,,,2012Q1,2024Q4,52,52,0,yes,61,1,0
+ACN,Accenture plc,,,,2012Q1,2024Q4,52,52,0,yes,67,4,0
+ADBE,Adobe Inc.,,,,2012Q1,2024Q4,52,52,0,yes,70,6,2
+ADCT,,,,,,,0,52,52,,8,0,0
+ADI,"Analog Devices, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,63,1,8
+ADM,Archer-Daniels-Midland Company,7084,Archer-Daniels-Midland Co,edgar_ticker,2012Q2,2024Q4,51,51,0,,64,2,1
+ADP,"Automatic Data Processing, Inc.",,,,2012Q1,2024Q4,51,52,1,,73,2,1
+ADS,,,,,2013Q1,2020Q4,32,32,0,,31,0,1
+ADSK,"Autodesk, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+ADT,,,,,2013Q2,2016Q1,12,12,0,,12,0,0
+AEE,Ameren Corporation,,,,2012Q1,2024Q4,52,52,0,yes,66,0,1
+AEP,"American Electric Power Company, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,55,14,5
+AES,The AES Corporation,,,,2012Q1,2024Q4,50,52,2,,58,2,0
+AFL,Aflac Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,65,2,0
+AIG,"American International Group, Inc.",5272,"AMERICAN INTERNATIONAL GROUP, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,57,4,1
+AIV,,,,,2012Q1,2020Q4,36,36,0,,51,1,0
+AIZ,"Assurant, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,67,0,3
+AJG,Arthur J. Gallagher & Co.,,,,2012Q1,2024Q4,52,52,0,yes,62,0,1
+AKAM,"Akamai Technologies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,78,0,0
+AKS,,,,,,,0,52,52,,11,2,1
+ALB,Albemarle Corporation,,,,2012Q1,2024Q4,52,52,0,yes,62,0,1
+ALGN,"Align Technology, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,62,0,2
+ALK,,,,,2016Q1,2023Q4,32,32,0,,30,2,0
+ALL,The Allstate Corporation,899051,ALLSTATE CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,0,1
+ALLE,Allegion plc,,,,2014Q1,2024Q4,44,44,0,,45,0,0
+ALTR,,,,,2012Q1,2015Q1,13,13,0,,30,7,0
+ALXN,,,,,2012Q1,2020Q3,35,35,0,,33,2,0
+AMAT,"Applied Materials, Inc.",6951,APPLIED MATERIALS INC /DE,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,1,0
+AMBC,,,,,,,0,52,52,,5,0,0
+AMCR,Amcor plc,,,,2012Q1,2024Q4,48,52,4,,64,0,2
+AMD,"Advanced Micro Devices, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,72,0,1
+AME,"AMETEK, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,63,0,0
+AMG,,,,,2014Q1,2019Q4,24,24,0,,24,0,0
+AMGN,Amgen Inc.,318154,AMGEN INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,74,3,0
+AMP,"Ameriprise Financial, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,0,1
+AMT,American Tower Corporation,,,,2012Q1,2024Q4,52,52,0,yes,67,1,4
+AMTM,,,,,2024Q4,2024Q4,1,1,0,,1,0,0
+AMZN,"Amazon.com, Inc.",1018724,AMAZON COM INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,74,4,0
+AN,,350698,"AUTONATION, INC.",edgar_ticker,2012Q1,2017Q4,24,24,0,,40,2,0
+ANET,Arista Networks Inc,,,,2014Q2,2024Q4,43,43,0,,41,1,2
+ANF,,,,,2012Q1,2013Q4,8,8,0,,19,3,2
+ANSS,"ANSYS, Inc.",,,,2012Q1,2023Q3,47,47,0,,55,0,0
+AON,Aon plc,,,,2012Q1,2024Q4,52,52,0,yes,57,1,0
+AOS,A. O. Smith Corporation,,,,2012Q1,2024Q4,52,52,0,yes,60,2,1
+APA,APA Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,2,0
+APD,"Air Products and Chemicals, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,63,7,1
+APH,Amphenol Corporation,,,,2012Q1,2024Q4,52,52,0,yes,65,5,2
+APO,"Apollo Global Management, Inc.",1858681,"Apollo Global Management, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,59,4,0
+APTV,Aptiv PLC,,,,2017Q1,2024Q4,32,32,0,,29,0,4
+ARE,"Alexandria Real Estate Equities, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,59,8,1
+ASH,,,,,,,0,52,52,,5,0,0
+AT,,,,,,,0,52,52,,6,2,0
+ATGE,,,,,2012Q1,2012Q4,4,4,0,,13,0,0
+ATI,,,,,2012Q1,2015Q4,16,16,0,,32,0,0
+ATO,Atmos Energy Corporation,,,,2012Q1,2024Q4,52,52,0,yes,58,3,1
+ATVI,,,,,2015Q1,2021Q3,27,27,0,,20,7,0
+AVB,"AvalonBay Communities, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,61,4,2
+AVGO,Broadcom Inc.,1730168,Broadcom Inc.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,77,1,0
+AVY,Avery Dennison Corporation,,,,2012Q1,2024Q4,52,52,0,yes,66,1,1
+AWK,"American Water Works Company, Inc.",,,,2012Q1,2024Q4,51,52,1,,57,0,1
+AXON,"Axon Enterprise, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+AXP,American Express Company,4962,AMERICAN EXPRESS CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,67,4,1
+AYI,,,,,2016Q1,2018Q4,12,12,0,,12,0,0
+AZO,"AutoZone, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,75,1,2
+BA,The Boeing Company,12927,BOEING CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,72,3,1
+BAC,Bank of America Corporation,70858,BANK OF AMERICA CORP /DE/,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,63,4,3
+BALL,Ball Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,0,1
+BAX,Baxter International Inc.,,,,2012Q1,2024Q4,52,52,0,yes,71,0,0
+BBBY,,,,,2012Q1,2017Q4,23,24,1,,8,34,0
+BBWI,,,,,2012Q1,2024Q4,49,52,3,,60,2,8
+BBY,"Best Buy Co., Inc.",764478,BEST BUY CO INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,5,0
+BC,,,,,,,0,52,52,,5,1,0
+BDX,"Becton, Dickinson and Company",,,,2012Q1,2024Q4,52,52,0,yes,71,1,0
+BEAM,,,,,2012Q1,2013Q3,7,7,0,,25,0,0
+BEN,"Franklin Resources, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,58,9,3
+BF.B,Brown-Forman Corporation,,,,2012Q1,2024Q4,52,52,0,yes,64,2,0
+BG,Bunge Global SA,,,,2012Q1,2024Q4,52,52,0,yes,62,2,1
+BHF,,,,,2017Q3,2019Q4,10,10,0,,10,0,0
+BIG,,,,,2012Q1,2013Q4,8,8,0,,19,2,0
+BIIB,Biogen Inc.,,,,2012Q1,2024Q4,52,52,0,yes,72,6,0
+BIO,,,,,2012Q1,2024Q4,52,52,0,yes,61,2,0
+BK,The Bank of New York Mellon Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,1,1
+BKNG,Booking Holdings Inc.,,,,2012Q1,2024Q4,52,52,0,yes,75,1,0
+BKR,Baker Hughes Company,1701605,Baker Hughes Co,edgar_ticker,2012Q1,2024Q4,46,52,6,,66,0,0
+BLDR,"Builders FirstSource, Inc.",,,,2012Q1,2024Q4,40,52,12,,40,6,3
+BLK,"BlackRock, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,57,0,0
+BMY,Bristol-Myers Squibb Company,14272,BRISTOL MYERS SQUIBB CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,68,2,2
+BR,"Broadridge Financial Solutions, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,62,4,0
+BRO,"Brown & Brown, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,63,2,0
+BSX,Boston Scientific Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,1,2
+BTU,,,,,2012Q1,2014Q4,12,12,0,,25,3,0
+BWA,,,,,2012Q1,2024Q4,52,52,0,yes,63,1,0
+BX,Blackstone Inc.,,,,2012Q1,2024Q4,52,52,0,yes,47,16,2
+BXP,"BXP, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,65,3,0
+C,Citigroup Inc.,831001,CITIGROUP INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,3,0
+CAG,"Conagra Brands, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,64,3,3
+CAH,"Cardinal Health, Inc.",721371,CARDINAL HEALTH INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,69,2,1
+CAR,,,,,,,0,52,52,,1,1,0
+CARR,Carrier Global Corporation,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+CAT,Caterpillar Inc.,18230,CATERPILLAR INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,73,0,0
+CB,Chubb Limited,,,,2012Q1,2024Q4,51,52,1,,70,0,0
+CBH,,,,,,,0,52,52,,2,0,0
+CBOE,"Cboe Global Markets, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,55,1,0
+CBRE,"CBRE Group, Inc.",1138118,"CBRE GROUP, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,4,0
+CCI,Crown Castle Inc.,,,,2012Q1,2024Q4,52,52,0,yes,71,0,0
+CCL,Carnival Corporation & plc,,,,2012Q1,2024Q4,50,52,2,,63,1,3
+CDNS,"Cadence Design Systems, Inc.",,,,2017Q1,2024Q4,32,32,0,,33,0,0
+CDW,CDW Corporation,,,,2019Q1,2024Q4,24,24,0,,24,1,0
+CE,,,,,2012Q1,2024Q4,52,52,0,yes,41,0,20
+CEG,Constellation Energy Corporation,,,,2022Q1,2024Q3,11,11,0,,11,1,0
+CERN,,,,,2012Q1,2021Q3,39,39,0,,47,0,0
+CF,"CF Industries Holdings, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,65,0,0
+CFG,"Citizens Financial Group, Inc.",,,,2016Q1,2024Q4,36,36,0,,34,3,0
+CHD,"Church & Dwight Co., Inc.",,,,2015Q1,2024Q3,39,39,0,,35,6,0
+CHIR,,,,,,,0,52,52,,0,1,1
+CHRW,"C.H. Robinson Worldwide, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,1,0
+CHTR,"Charter Communications, Inc.",1091667,"CHARTER COMMUNICATIONS, INC. /MO/",edgar_ticker,2016Q1,2024Q4,36,36,0,,37,0,0
+CI,The Cigna Group,1739940,Cigna Group,edgar_ticker,2012Q1,2024Q4,48,52,4,,65,1,1
+CIEN,,,,,,,0,52,52,,12,0,4
+CINF,Cincinnati Financial Corporation,,,,2012Q1,2024Q4,52,52,0,yes,66,0,0
+CIT,,,,,,,0,52,52,,7,0,0
+CL,Colgate-Palmolive Company,,,,2012Q1,2024Q4,52,52,0,yes,71,6,0
+CLF,,,,,2012Q1,2014Q4,12,12,0,,26,1,0
+CLX,The Clorox Company,,,,2012Q1,2024Q4,52,52,0,yes,67,2,3
+CMA,,,,,2012Q1,2024Q4,52,52,0,yes,68,2,0
+CMCSA,Comcast Corporation,1166691,COMCAST CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,73,4,0
+CME,CME Group Inc.,,,,2012Q1,2024Q4,52,52,0,yes,70,1,1
+CMG,"Chipotle Mexican Grill, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,51,6,0
+CMI,Cummins Inc.,26172,CUMMINS INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,66,2,2
+CMS,CMS Energy Corporation,,,,2012Q1,2024Q4,51,52,1,,60,1,0
+CNC,Centene Corporation,1071739,CENTENE CORP,edgar_ticker,2016Q1,2024Q4,36,36,0,,36,1,0
+CNP,"CenterPoint Energy, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,68,1,0
+CNX,,,,,2012Q1,2016Q4,19,20,1,,32,3,0
+COF,Capital One Financial Corporation,927628,CAPITAL ONE FINANCIAL CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,5,0
+COO,"The Cooper Companies, Inc.",,,,2016Q1,2024Q4,36,36,0,,37,0,0
+COOP,,,,,,,0,52,52,,4,1,0
+COP,ConocoPhillips,1163165,CONOCOPHILLIPS,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,5,1
+COR,"Cencora, Inc.",1140859,"Cencora, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,52,1,1
+COST,Costco Wholesale Corporation,909832,COSTCO WHOLESALE CORP /NEW,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,74,3,0
+COTY,,,,,2016Q1,2020Q4,20,20,0,,20,0,0
+CPAY,"Corpay, Inc.",,,,2018Q1,2024Q4,27,28,1,,24,1,3
+CPB,The Campbell's Company,,,,2012Q1,2024Q4,51,52,1,,68,0,0
+CPRI,,,,,2013Q1,2020Q4,31,32,1,,29,2,0
+CPRT,"Copart, Inc.",,,,2018Q1,2024Q4,28,28,0,,30,0,0
+CPT,Camden Property Trust,,,,2020Q1,2024Q4,20,20,0,,20,1,0
+CRL,"Charles River Laboratories International, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+CRM,"Salesforce, Inc.",1108524,"Salesforce, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,3,1
+CRWD,"CrowdStrike Holdings, Inc.",,,,2020Q1,2024Q4,20,20,0,,24,0,0
+CSCO,"Cisco Systems, Inc.",858877,"CISCO SYSTEMS, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,64,12,1
+CSGP,"CoStar Group, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+CSX,CSX Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,2,0
+CTAS,Cintas Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,2,1
+CTLT,,,,,2020Q1,2024Q1,17,17,0,,16,0,1
+CTRA,Coterra Energy Inc.,,,,2012Q1,2024Q4,52,52,0,yes,67,2,0
+CTSH,Cognizant Technology Solutions Corporation,,,,2012Q1,2024Q4,52,52,0,yes,74,3,0
+CTVA,"Corteva, Inc.",,,,2019Q2,2024Q4,23,23,0,,22,2,0
+CVS,CVS Health Corporation,64803,CVS HEALTH Corp,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,1,2
+CVX,Chevron Corporation,93410,CHEVRON CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,72,0,1
+CXO,,,,,2016Q1,2020Q2,18,18,0,,18,0,0
+CZR,"Caesars Entertainment, Inc.",,,,2020Q1,2024Q4,20,20,0,,20,1,0
+D,"Dominion Energy, Inc.",,,,2012Q1,2024Q4,50,52,2,,72,1,2
+DAL,"Delta Air Lines, Inc.",27904,"DELTA AIR LINES, INC.",edgar_ticker,2013Q1,2024Q4,48,48,0,,42,6,1
+DASH,"DoorDash, Inc.",,,,2020Q4,2024Q4,17,17,0,,8,0,10
+DAY,Dayforce Inc.,,,,2020Q1,2024Q4,20,20,0,,14,2,5
+DD,"DuPont de Nemours, Inc.",,,,2019Q1,2024Q4,24,24,0,,24,1,0
+DE,Deere & Company,315189,DEERE & CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,1,1
+DECK,Deckers Outdoor Corporation,,,,2020Q1,2024Q4,20,20,0,,23,0,0
+DELL,Dell Technologies Inc.,1571996,Dell Technologies Inc.,edgar_ticker,2012Q1,2024Q4,28,52,24,,50,7,0
+DFS,Discover Financial Services,,,,2012Q1,2024Q4,52,52,0,yes,57,8,2
+DG,Dollar General Corporation,29534,DOLLAR GENERAL CORP,edgar_ticker,2012Q1,2024Q4,50,52,2,,48,0,2
+DGX,Quest Diagnostics Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,69,3,0
+DHI,"D.R. Horton, Inc.",882184,HORTON D R INC /DE/,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,0,0
+DHR,Danaher Corporation,,,,2012Q1,2024Q4,52,52,0,yes,58,12,1
+DIS,The Walt Disney Company,1744489,Walt Disney Co,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,69,7,0
+DISCK,,,,,2014Q1,2022Q4,36,36,0,,36,0,0
+DISH,,,,,2017Q1,2023Q3,23,27,4,,21,0,2
+DLR,"Digital Realty Trust, Inc.",,,,2016Q1,2024Q4,36,36,0,,37,0,0
+DLTR,"Dollar Tree, Inc.",,,,2012Q1,2024Q4,48,52,4,,38,8,5
+DNB,,,,,2012Q1,2017Q4,23,24,1,,39,0,0
+DO,,,,,2012Q1,2016Q4,20,20,0,,32,0,0
+DOC,"Healthpeak Properties, Inc.",,,,2020Q1,2024Q4,19,20,1,,19,0,1
+DOV,Dover Corporation,,,,2012Q1,2024Q4,52,52,0,yes,67,2,0
+DOW,Dow Inc.,1751788,DOW INC.,edgar_ticker,2012Q1,2024Q4,46,52,6,,62,2,2
+DPZ,"Domino's Pizza, Inc.",,,,2020Q1,2024Q4,20,20,0,,20,1,0
+DRE,,,,,2017Q1,2022Q1,20,21,1,,20,0,0
+DRI,"Darden Restaurants, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,74,2,0
+DTE,DTE Energy Company,,,,2012Q1,2024Q4,52,52,0,yes,66,2,1
+DUK,Duke Energy Corporation,,,,2012Q1,2024Q4,52,52,0,yes,59,9,4
+DVA,DaVita Inc.,,,,2012Q1,2024Q4,51,52,1,,54,14,0
+DVN,Devon Energy Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,1,2
+DXC,,,,,2017Q1,2023Q4,28,28,0,,27,1,0
+DXCM,"DexCom, Inc.",,,,2020Q1,2024Q4,20,20,0,,20,0,1
+DYN,,,,,,,0,52,52,,8,1,1
+EA,Electronic Arts Inc.,,,,2012Q1,2024Q4,52,52,0,yes,77,2,0
+EBAY,eBay Inc.,,,,2012Q1,2024Q4,52,52,0,yes,68,9,0
+ECL,Ecolab Inc.,,,,2012Q1,2024Q4,52,52,0,yes,70,1,0
+EFX,Equifax Inc.,,,,2012Q1,2024Q4,52,52,0,yes,58,11,2
+EG,"Everest Group, Ltd.",,,,2017Q1,2024Q4,32,32,0,,33,0,0
+EIX,Edison International,,,,2012Q1,2024Q4,52,52,0,yes,64,4,0
+EL,The Estée Lauder Companies Inc.,,,,2012Q1,2024Q4,52,52,0,yes,77,1,0
+ELV,"Elevance Health, Inc.",1156039,"Elevance Health, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,0,0
+EMN,Eastman Chemical Company,,,,2012Q1,2024Q4,52,52,0,yes,46,8,15
+EMR,Emerson Electric Co.,,,,2012Q1,2024Q4,52,52,0,yes,69,0,1
+ENDP,,,,,2015Q1,2017Q4,12,12,0,,12,0,0
+ENPH,"Enphase Energy, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+EOG,"EOG Resources, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,65,6,1
+EPAM,"EPAM Systems, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+EQ,,,,,,,0,52,52,,7,0,0
+EQIX,"Equinix, Inc.",,,,2015Q1,2024Q4,40,40,0,,40,0,1
+EQR,Equity Residential,,,,2012Q1,2024Q4,52,52,0,yes,61,5,2
+EQT,EQT Corporation,,,,2023Q3,2024Q4,6,6,0,,7,0,0
+ERIE,Erie Indemnity Company,,,,2020Q1,2024Q4,20,20,0,,0,21,0
+ES,Eversource Energy,,,,2012Q1,2024Q4,51,52,1,,56,1,2
+ESS,"Essex Property Trust, Inc.",,,,2014Q1,2024Q4,44,44,0,,43,2,0
+ETFC,,,,,2012Q1,2019Q4,32,32,0,,56,0,1
+ETN,Eaton Corporation plc,,,,2012Q1,2024Q4,52,52,0,yes,66,5,1
+ETR,Entergy Corporation,,,,2012Q1,2024Q4,52,52,0,yes,67,8,0
+ETSY,,,,,2020Q1,2024Q4,20,20,0,,7,12,1
+EVRG,"Evergy, Inc.",,,,2018Q2,2024Q4,27,27,0,,28,0,0
+EW,Edwards Lifesciences Corporation,,,,2012Q1,2024Q4,52,52,0,yes,56,0,0
+EXC,Exelon Corporation,,,,2012Q2,2024Q4,49,51,2,,69,5,1
+EXE,Expand Energy Corporation,,,,2023Q4,2024Q4,5,5,0,,6,0,0
+EXPE,"Expedia Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,67,6,0
+EXR,Extra Space Storage Inc.,,,,2016Q1,2024Q4,36,36,0,,37,0,0
+F,Ford Motor Company,37996,FORD MOTOR CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,3,1
+FANG,"Diamondback Energy, Inc.",,,,2018Q1,2024Q4,28,28,0,,24,0,5
+FAST,Fastenal Company,,,,2012Q1,2024Q4,52,52,0,yes,69,0,0
+FBIN,,,,,2016Q1,2022Q4,28,28,0,,28,0,0
+FCX,Freeport-McMoRan Inc.,,,,2012Q1,2024Q4,52,52,0,yes,65,0,0
+FDS,FactSet Research Systems Inc.,,,,2020Q1,2024Q4,20,20,0,,22,0,0
+FDX,FedEx Corporation,1048911,FEDEX CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,52,16,2
+FE,FirstEnergy Corp.,,,,2012Q1,2024Q4,52,52,0,yes,73,2,0
+FFIV,"F5, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,57,0,0
+FHI,,,,,2012Q1,2013Q4,8,8,0,,26,0,0
+FHN,,,,,2012Q1,2013Q4,8,8,0,,25,0,0
+FI,"Fiserv, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,53,0,0
+FICO,Fair Isaac Corporation,,,,2020Q1,2024Q4,20,20,0,,21,1,0
+FIS,"Fidelity National Information Services, Inc.",,,,2012Q1,2024Q4,51,52,1,,64,7,0
+FITB,Fifth Third Bancorp,,,,2012Q1,2024Q4,52,52,0,yes,69,0,2
+FL,,,,,2016Q1,2019Q4,16,16,0,,15,0,1
+FLIR,,,,,2012Q1,2020Q3,35,35,0,,50,0,0
+FLR,,,,,2012Q1,2019Q4,32,32,0,,46,3,0
+FLS,,,,,2012Q1,2021Q4,40,40,0,,55,1,0
+FMC,,,,,2012Q1,2024Q4,50,52,2,,59,3,1
+FMCC,,,,,,,0,52,52,,6,1,0
+FNMA,,,,,,,0,52,52,,1,1,0
+FOSL,,,,,2012Q1,2016Q4,20,20,0,,20,0,0
+FOXA,Fox Corporation,,,,2019Q4,2024Q3,20,20,0,,13,9,1
+FRC,,,,,2012Q1,2023Q1,45,45,0,,45,3,0
+FRT,Federal Realty Investment Trust,,,,2016Q1,2024Q4,36,36,0,,37,0,0
+FSLR,"First Solar, Inc.",,,,2012Q1,2024Q4,44,52,8,,52,3,2
+FTI,,,,,2012Q1,2021Q4,38,40,2,,45,2,0
+FTNT,"Fortinet, Inc.",,,,2018Q1,2024Q4,28,28,0,,29,0,0
+FTV,Fortive Corporation,,,,2016Q2,2024Q4,35,35,0,,33,0,3
+GD,General Dynamics Corporation,40533,GENERAL DYNAMICS CORP,edgar_ticker,2012Q1,2024Q3,51,51,0,,67,3,0
+GDDY,GoDaddy Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+GE,General Electric Company,40545,GENERAL ELECTRIC CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,67,8,1
+GEHC,GE HealthCare Technologies Inc.,,,,2022Q4,2024Q4,9,9,0,,9,1,0
+GEN,Gen Digital Inc.,,,,2012Q1,2024Q4,50,52,2,,63,2,1
+GEV,GE Vernova Inc.,1996810,GE Vernova Inc.,edgar_ticker,2024Q1,2024Q4,4,4,0,,5,0,0
+GILD,"Gilead Sciences, Inc.",882095,"GILEAD SCIENCES, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,2,0
+GIS,"General Mills, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,53,3,15
+GL,Globe Life Inc.,,,,2012Q1,2024Q4,52,52,0,yes,69,0,0
+GLW,Corning Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,73,4,1
+GM,General Motors Company,1467858,General Motors Co,edgar_ticker,2013Q1,2024Q4,48,48,0,,58,1,0
+GME,,,,,2012Q1,2016Q4,20,20,0,,34,6,0
+GNRC,Generac Holdings Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+GNW,,,,,2012Q1,2015Q4,16,16,0,,30,1,2
+GOOG,,,,,2014Q1,2024Q4,44,44,0,,43,2,0
+GOOGL,Alphabet Inc.,1652044,Alphabet Inc.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,73,3,1
+GPC,Genuine Parts Company,,,,2012Q1,2024Q4,52,52,0,yes,66,2,2
+GPN,Global Payments Inc.,,,,2016Q1,2024Q4,36,36,0,,37,0,0
+GRMN,Garmin Ltd.,,,,2012Q1,2024Q4,52,52,0,yes,48,4,1
+GS,"The Goldman Sachs Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,71,3,0
+GT,,,,,2012Q1,2019Q4,32,32,0,,47,2,0
+GWW,"W.W. Grainger, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,34,28,0
+HAL,Halliburton Company,,,,2012Q1,2024Q4,52,52,0,yes,77,1,0
+HAS,"Hasbro, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,71,1,0
+HBAN,Huntington Bancshares Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,67,2,0
+HBI,,,,,2015Q1,2021Q4,26,28,2,,26,0,0
+HCA,"HCA Healthcare, Inc.",860730,"HCA Healthcare, Inc.",edgar_ticker,2015Q1,2024Q4,40,40,0,,32,8,1
+HD,"The Home Depot, Inc.",354950,"HOME DEPOT, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,3,0
+HES,Hess Corporation,,,,2012Q1,2023Q2,46,46,0,,58,0,0
+HFC,,,,,2018Q1,2021Q4,15,16,1,,14,1,0
+HIG,"The Hartford Insurance Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+HII,"Huntington Ingalls Industries, Inc.",,,,2018Q1,2024Q4,28,28,0,,29,0,0
+HLT,Hilton Worldwide Holdings Inc.,,,,2017Q1,2024Q4,32,32,0,,35,0,0
+HOG,,,,,2012Q1,2020Q4,36,36,0,,52,0,0
+HOLX,"Hologic, Inc.",,,,2016Q1,2024Q4,36,36,0,,38,0,0
+HON,Honeywell International Inc.,773840,HONEYWELL INTERNATIONAL INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,1,1
+HP,,,,,2012Q1,2020Q4,36,36,0,,46,0,2
+HPE,Hewlett Packard Enterprise Company,1645590,Hewlett Packard Enterprise Co,edgar_ticker,2016Q1,2024Q4,36,36,0,,37,0,0
+HPQ,HP Inc.,47217,HP INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,62,1,1
+HRB,,,,,2012Q1,2020Q4,35,36,1,,42,5,0
+HRL,Hormel Foods Corporation,,,,2012Q1,2024Q4,52,52,0,yes,61,3,0
+HSIC,"Henry Schein, Inc.",,,,2015Q1,2024Q4,40,40,0,,41,0,0
+HST,"Host Hotels & Resorts, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,61,10,1
+HSY,The Hershey Company,,,,2012Q1,2024Q4,52,52,0,yes,61,4,7
+HUBB,Hubbell Incorporated,,,,2020Q1,2024Q4,20,20,0,,20,1,0
+HUM,Humana Inc.,49071,HUMANA INC,edgar_ticker,2012Q1,2024Q4,45,52,7,,58,0,0
+HWM,Howmet Aerospace Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+IAC,,,,,,,0,52,52,,10,2,0
+IBM,International Business Machines Corporation,51143,INTERNATIONAL BUSINESS MACHINES CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,77,1,0
+ICE,"Intercontinental Exchange, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,67,5,0
+IDXX,"IDEXX Laboratories, Inc.",,,,2017Q1,2024Q4,32,32,0,,31,1,1
+IEX,IDEX Corporation,,,,2019Q1,2024Q4,24,24,0,,24,1,0
+IFF,International Flavors & Fragrances Inc.,,,,2012Q1,2024Q4,52,52,0,yes,66,5,0
+IGT,,,,,2012Q1,2014Q3,11,11,0,,27,1,1
+ILMN,,,,,2015Q1,2024Q4,40,40,0,,39,0,1
+INCY,Incyte Corporation,,,,2017Q1,2024Q4,32,32,0,,32,1,0
+INFO,,,,,2017Q1,2021Q3,19,19,0,,19,0,0
+INTC,Intel Corporation,50863,INTEL CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,2,0
+INTU,Intuit Inc.,,,,2012Q1,2024Q4,52,52,0,yes,74,1,1
+INVH,Invitation Homes Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+IP,International Paper Company,,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+IPG,"The Interpublic Group of Companies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,3,0
+IPGP,,,,,2018Q1,2022Q4,20,20,0,,20,0,0
+IQV,IQVIA Holdings Inc.,,,,2017Q1,2024Q4,32,32,0,,32,1,0
+IR,Ingersoll Rand Inc.,,,,2012Q1,2024Q4,52,52,0,yes,66,3,0
+IRM,Iron Mountain Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,64,1,0
+ISRG,"Intuitive Surgical, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,66,1,0
+IT,"Gartner, Inc.",,,,2017Q1,2024Q4,32,32,0,,32,1,0
+ITT,,,,,,,0,52,52,,17,0,0
+ITW,Illinois Tool Works Inc.,,,,2012Q1,2024Q4,52,52,0,yes,69,0,1
+IVZ,Invesco Ltd.,,,,2012Q1,2024Q4,52,52,0,yes,67,0,2
+J,Jacobs Solutions Inc.,,,,2012Q1,2024Q4,52,52,0,yes,69,0,0
+JBHT,"J.B. Hunt Transport Services, Inc.",,,,2018Q3,2024Q4,26,26,0,,25,2,0
+JBL,Jabil Inc.,898293,JABIL INC,edgar_ticker,2012Q1,2024Q4,32,52,20,,53,2,0
+JCI,Johnson Controls International plc,,,,2016Q1,2024Q4,36,36,0,,47,1,0
+JKHY,"Jack Henry & Associates, Inc.",,,,2018Q1,2024Q4,28,28,0,,31,0,0
+JNJ,Johnson & Johnson,200406,JOHNSON & JOHNSON,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,2,5
+JNPR,"Juniper Networks, Inc.",,,,2012Q1,2023Q3,47,47,0,,69,1,0
+JPM,JPMorgan Chase & Co.,19617,JPMORGAN CHASE & CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,66,4,2
+JWN,,,,,2012Q1,2020Q4,36,36,0,,60,1,0
+K,Kellanova,,,,2012Q1,2024Q2,50,50,0,,69,2,1
+KBH,,,,,,,0,52,52,,11,1,0
+KDP,Keurig Dr Pepper Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+KEY,KeyCorp,,,,2012Q1,2024Q4,52,52,0,yes,55,16,1
+KEYS,"Keysight Technologies, Inc.",,,,2018Q1,2024Q4,28,28,0,,29,0,0
+KHC,The Kraft Heinz Company,,,,2012Q1,2024Q4,46,52,6,,46,1,0
+KIM,Kimco Realty Corporation,,,,2012Q1,2024Q4,52,52,0,yes,66,3,0
+KKR,KKR & Co. Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+KLAC,KLA Corporation,,,,2012Q1,2024Q4,48,52,4,,60,1,1
+KMB,Kimberly-Clark Corporation,,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+KMI,"Kinder Morgan, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,55,1,0
+KMX,"CarMax, Inc.",1170010,CARMAX INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,63,0,0
+KO,The Coca-Cola Company,21344,COCA COLA CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,4,0
+KODK,,,,,,,0,52,52,,15,4,0
+KR,The Kroger Co.,56873,KROGER CO,edgar_ticker,2012Q4,2024Q4,46,49,3,,59,5,6
+KSS,,,,,2012Q1,2020Q4,36,36,0,,49,5,1
+KSU,,,,,2012Q1,2021Q3,39,39,0,,47,1,0
+KVUE,Kenvue Inc.,,,,2023Q2,2024Q4,7,7,0,,8,0,0
+L,Loews Corporation,,,,2012Q1,2024Q4,50,52,2,,58,8,1
+LDOS,"Leidos Holdings, Inc.",,,,2012Q1,2024Q4,32,52,20,,41,1,0
+LEG,,,,,2012Q1,2021Q4,40,40,0,,58,1,0
+LEN,Lennar Corporation,920760,LENNAR CORP /NEW/,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,66,2,0
+LH,Labcorp Holdings Inc.,,,,2012Q1,2024Q4,52,52,0,yes,68,2,1
+LHX,"L3Harris Technologies, Inc.",,,,2019Q2,2024Q4,23,23,0,,22,2,0
+LIFE,,,,,2012Q1,2012Q4,4,4,0,,16,0,0
+LII,Lennox International Inc.,,,,2020Q1,2024Q4,20,20,0,,20,1,0
+LIN,Linde plc,1707925,LINDE PLC,edgar_ticker,2019Q1,2024Q4,24,24,0,,25,0,0
+LKQ,LKQ Corporation,,,,2016Q1,2024Q4,36,36,0,,37,0,0
+LLY,Eli Lilly and Company,59478,ELI LILLY & Co,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,1,0
+LM,,,,,2012Q1,2016Q4,20,20,0,,33,2,0
+LMT,Lockheed Martin Corporation,936468,LOCKHEED MARTIN CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,48,17,0
+LNC,,,,,2012Q1,2023Q4,48,48,0,,62,1,1
+LNT,Alliant Energy Corporation,,,,2016Q1,2024Q4,36,36,0,,34,2,1
+LOW,"Lowe's Companies, Inc.",60667,LOWES COMPANIES INC,edgar_ticker,2012Q1,2024Q4,50,52,2,,62,3,4
+LRCX,Lam Research Corporation,,,,2012Q1,2024Q4,52,52,0,yes,55,0,0
+LSI,,,,,2012Q1,2014Q4,12,12,0,,31,2,0
+LULU,lululemon athletica inc.,,,,2020Q1,2024Q4,20,20,0,,20,0,0
+LUMN,,,,,2012Q1,2023Q4,48,48,0,,72,0,1
+LUV,Southwest Airlines Co.,92380,SOUTHWEST AIRLINES CO,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,68,3,0
+LVS,Las Vegas Sands Corp.,,,,2019Q1,2024Q4,24,24,0,,23,0,1
+LW,"Lamb Weston Holdings, Inc.",,,,2018Q1,2024Q4,28,28,0,,26,4,1
+LYB,LyondellBasell Industries N.V.,1489393,LyondellBasell Industries N.V.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,49,4,0
+LYV,"Live Nation Entertainment, Inc.",,,,2019Q1,2024Q4,24,24,0,,25,0,0
+M,,,,,2012Q1,2020Q4,36,36,0,,49,8,1
+MA,Mastercard Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,68,1,0
+MAA,"Mid-America Apartment Communities, Inc.",,,,2016Q1,2024Q4,36,36,0,,36,0,1
+MAC,,,,,2013Q1,2019Q4,28,28,0,,27,1,0
+MAR,"Marriott International, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,67,4,2
+MAS,Masco Corporation,,,,2012Q1,2024Q4,52,52,0,yes,68,1,0
+MAT,,,,,2012Q1,2019Q4,32,32,0,,47,1,3
+MBC,,,,,2022Q4,2022Q4,1,1,0,,1,0,0
+MBI,,,,,,,0,52,52,,8,0,0
+MCD,McDonald's Corporation,,,,2012Q1,2024Q4,52,52,0,yes,67,9,0
+MCHP,Microchip Technology Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,61,8,2
+MCK,McKesson Corporation,927653,MCKESSON CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,57,1,9
+MCO,Moody's Corporation,,,,2012Q1,2024Q4,52,52,0,yes,59,12,0
+MDLZ,"Mondelez International, Inc.",1103982,"Mondelez International, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,67,3,2
+MDP,,,,,,,0,52,52,,12,0,0
+MDT,Medtronic plc,,,,2012Q1,2024Q4,52,52,0,yes,69,0,0
+MET,"MetLife, Inc.",1099219,METLIFE INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,0,0
+META,"Meta Platforms, Inc.",1326801,"Meta Platforms, Inc.",edgar_ticker,2013Q1,2024Q4,48,48,0,,49,0,0
+MGM,MGM Resorts International,,,,2017Q1,2024Q4,32,32,0,,33,0,0
+MHK,"Mohawk Industries, Inc.",,,,2013Q1,2024Q4,48,48,0,,49,0,0
+MKC,"McCormick & Company, Incorporated",,,,2012Q1,2024Q4,52,52,0,yes,64,0,0
+MKTX,MarketAxess Holdings Inc.,,,,2019Q1,2024Q4,24,24,0,,25,0,0
+MLM,"Martin Marietta Materials, Inc.",,,,2014Q1,2024Q4,44,44,0,,44,1,0
+MMC,"Marsh & McLennan Companies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,1,0
+MMM,3M Company,,,,2012Q1,2024Q4,52,52,0,yes,70,1,0
+MNK,,,,,2014Q2,2017Q4,15,15,0,,14,1,0
+MNST,Monster Beverage Corporation,,,,2012Q1,2024Q4,52,52,0,yes,52,0,1
+MO,"Altria Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,1,2
+MOH,"Molina Healthcare, Inc.",1179929,"MOLINA HEALTHCARE, INC.",edgar_ticker,2020Q1,2024Q4,20,20,0,,21,0,0
+MOS,The Mosaic Company,,,,2012Q1,2024Q4,52,52,0,yes,56,1,0
+MPC,Marathon Petroleum Corporation,1510295,Marathon Petroleum Corp,edgar_ticker,2012Q1,2024Q4,51,52,1,,51,1,0
+MPWR,"Monolithic Power Systems, Inc.",,,,2020Q1,2024Q4,20,20,0,,20,0,1
+MRK,"Merck & Co., Inc.",310158,"Merck & Co., Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,74,1,0
+MRNA,"Moderna, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+MRO,,,,,2012Q1,2024Q1,49,49,0,,66,2,0
+MS,Morgan Stanley,,,,2012Q1,2024Q4,52,52,0,yes,64,0,1
+MSCI,MSCI Inc.,,,,2018Q1,2024Q4,28,28,0,,27,0,2
+MSFT,Microsoft Corporation,789019,MICROSOFT CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,74,4,0
+MSI,"Motorola Solutions, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,57,0,0
+MTB,M&T Bank Corporation,,,,2012Q1,2024Q4,52,52,0,yes,71,0,0
+MTCH,"Match Group, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+MTD,Mettler-Toledo International Inc.,,,,2016Q1,2024Q4,36,36,0,,36,1,0
+MTG,,,,,,,0,52,52,,5,0,0
+MTW,,,,,,,0,52,52,,9,0,0
+MU,"Micron Technology, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,73,2,0
+MUR,,,,,2012Q1,2017Q4,24,24,0,,35,4,0
+MXIM,,,,,2012Q1,2020Q3,35,35,0,,48,0,0
+NAVI,,,,,2014Q2,2018Q4,19,19,0,,19,0,0
+NBL,,,,,2012Q1,2020Q1,33,33,0,,51,0,0
+NBR,,,,,2012Q1,2015Q4,16,16,0,,34,0,0
+NCLH,Norwegian Cruise Line Holdings Ltd.,,,,2017Q1,2024Q4,32,32,0,,33,0,0
+NDAQ,"Nasdaq, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,68,0,1
+NDSN,Nordson Corporation,,,,2020Q1,2024Q4,20,20,0,,20,0,1
+NE,,,,,2012Q1,2015Q4,16,16,0,,34,0,0
+NEE,"NextEra Energy, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,53,5,1
+NEM,Newmont Corporation,,,,2012Q1,2024Q4,52,52,0,yes,75,3,0
+NFLX,"Netflix, Inc.",1065280,NETFLIX INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,13,4,44
+NI,NiSource Inc.,,,,2012Q1,2024Q4,51,52,1,,68,0,2
+NKE,"NIKE, Inc.",320187,"NIKE, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,3,1
+NKTR,,,,,2018Q1,2019Q4,8,8,0,,8,0,0
+NLSN,,,,,2013Q1,2021Q4,36,36,0,,36,0,0
+NOC,Northrop Grumman Corporation,1133421,NORTHROP GRUMMAN CORP /DE/,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,0,0
+NOV,,,,,2012Q1,2021Q4,40,40,0,,56,2,0
+NOW,"ServiceNow, Inc.",,,,2019Q1,2024Q4,24,24,0,,23,1,1
+NRG,"NRG Energy, Inc.",1013871,"NRG ENERGY, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,61,0,0
+NSC,Norfolk Southern Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,1,0
+NTAP,"NetApp, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,73,4,0
+NTRS,Northern Trust Corporation,,,,2012Q1,2024Q4,52,52,0,yes,61,8,0
+NUE,Nucor Corporation,73309,NUCOR CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,69,0,0
+NVDA,NVIDIA Corporation,1045810,NVIDIA CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,72,2,2
+NWL,,,,,2012Q1,2023Q4,48,48,0,,66,1,0
+NWS,,,,,2015Q1,2024Q4,40,40,0,,39,4,0
+NWSA,News Corporation,,,,2013Q1,2024Q4,47,48,1,,45,5,0
+NXPI,NXP Semiconductors N.V.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+NYT,,,,,,,0,52,52,,20,0,0
+O,Realty Income Corporation,,,,2015Q1,2024Q4,40,40,0,,40,0,1
+ODFL,"Old Dominion Freight Line, Inc.",,,,2019Q1,2024Q4,24,24,0,,25,0,0
+ODP,,,,,,,0,52,52,,12,2,0
+OGN,,,,,2021Q2,2023Q4,11,11,0,,10,1,0
+OI,,,,,2012Q1,2016Q4,20,20,0,,34,0,0
+OKE,"ONEOK, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,56,4,0
+OMC,Omnicom Group Inc.,,,,2012Q1,2024Q4,52,52,0,yes,60,1,2
+ON,ON Semiconductor Corporation,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+ORCL,Oracle Corporation,1341439,ORACLE CORP,edgar_ticker,2012Q1,2024Q4,51,52,1,,68,7,0
+ORLY,"O'Reilly Automotive, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,62,3,0
+OTIS,Otis Worldwide Corporation,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+OXY,Occidental Petroleum Corporation,,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+PANW,"Palo Alto Networks, Inc.",,,,2020Q1,2024Q4,20,20,0,,22,0,0
+PARA,Paramount Global,813828,Paramount Global,verified_alias,2012Q1,2024Q4,52,52,0,yes,63,4,11
+PAYC,"Paycom Software, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+PAYX,"Paychex, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+PBCT,,,,,2012Q1,2020Q4,36,36,0,,52,0,0
+PBI,,,,,2012Q1,2017Q4,24,24,0,,39,2,0
+PCAR,PACCAR Inc,75362,PACCAR INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,0,0
+PCG,PG&E Corporation,,,,2020Q2,2024Q4,19,19,0,,17,3,0
+PD,,,,,,,0,52,52,,1,0,0
+PDCO,,,,,2012Q1,2018Q4,28,28,0,,37,3,1
+PEG,Public Service Enterprise Group Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,74,1,0
+PENN,,,,,2021Q1,2022Q4,8,8,0,,8,0,0
+PEP,"PepsiCo, Inc.",77476,PEPSICO INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,59,2,13
+PFE,Pfizer Inc.,78003,PFIZER INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,0,1
+PFG,"Principal Financial Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+PG,The Procter & Gamble Company,80424,PROCTER & GAMBLE Co,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,3,0
+PGR,The Progressive Corporation,80661,PROGRESSIVE CORP/OH/,edgar_ticker,2012Q2,2024Q4,46,51,5,,44,0,10
+PH,Parker-Hannifin Corporation,,,,2012Q1,2024Q4,51,52,1,,64,0,0
+PHM,"PulteGroup, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+PKG,Packaging Corporation of America,,,,2017Q1,2024Q4,32,32,0,,31,2,0
+PLD,"Prologis, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,67,2,0
+PLL,,,,,2012Q1,2015Q2,14,14,0,,28,0,0
+PLTR,Palantir Technologies Inc.,,,,2020Q3,2024Q4,18,18,0,,14,4,1
+PM,Philip Morris International Inc.,1413329,Philip Morris International Inc.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,66,1,0
+PNC,"The PNC Financial Services Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,1,0
+PNR,Pentair plc,,,,2012Q1,2024Q4,52,52,0,yes,53,0,0
+PNW,Pinnacle West Capital Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+PODD,Insulet Corporation,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+POM,,,,,2012Q2,2016Q4,18,19,1,,34,3,1
+POOL,Pool Corporation,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+PPG,"PPG Industries, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,65,3,0
+PPL,PPL Corporation,,,,2012Q1,2024Q4,52,52,0,yes,66,1,0
+PRGO,,,,,2012Q1,2021Q4,39,40,1,,40,0,0
+PRU,"Prudential Financial, Inc.",1137774,PRUDENTIAL FINANCIAL INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,71,0,1
+PSA,Public Storage,,,,2012Q1,2024Q4,52,52,0,yes,65,0,5
+PSX,Phillips 66,1534701,Phillips 66,edgar_ticker,2012Q2,2024Q4,51,51,0,,49,3,0
+PTC,PTC Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,1
+PVH,,,,,2013Q1,2022Q4,40,40,0,,39,1,0
+PWR,"Quanta Services, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,59,0,0
+PXD,,,,,2012Q1,2023Q2,44,46,2,,54,4,2
+PYPL,"PayPal Holdings, Inc.",1633917,"PayPal Holdings, Inc.",edgar_ticker,2016Q1,2024Q4,36,36,0,,37,0,0
+QCOM,QUALCOMM Incorporated,804328,QUALCOMM INC/DE,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,72,4,2
+QEP,,,,,2012Q1,2015Q4,16,16,0,,20,1,0
+QRVO,,,,,2015Q1,2024Q4,40,40,0,,38,1,1
+R,,,,,2012Q1,2017Q4,24,24,0,,41,0,0
+RCL,Royal Caribbean Cruises Ltd.,,,,2014Q1,2024Q4,44,44,0,,44,0,1
+REG,Regency Centers Corporation,,,,2017Q1,2024Q4,32,32,0,,32,1,0
+REGN,"Regeneron Pharmaceuticals, Inc.",,,,2013Q1,2024Q4,48,48,0,,48,1,0
+RF,Regions Financial Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,2,0
+RHI,,,,,2012Q1,2024Q4,52,52,0,yes,69,1,0
+RIG,,,,,2012Q1,2017Q4,24,24,0,,39,3,1
+RJF,"Raymond James Financial, Inc.",,,,2017Q1,2024Q4,32,32,0,,31,1,1
+RL,Ralph Lauren Corporation,,,,2012Q1,2024Q4,52,52,0,yes,68,1,2
+RMD,ResMed Inc.,,,,2017Q1,2024Q4,32,32,0,,31,4,0
+ROK,"Rockwell Automation, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+ROL,"Rollins, Inc.",,,,2018Q1,2024Q4,28,28,0,,29,0,0
+ROP,"Roper Technologies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,56,3,1
+ROST,"Ross Stores, Inc.",,,,2012Q1,2024Q4,51,52,1,,51,0,7
+RRC,,,,,2012Q1,2018Q4,28,28,0,,45,0,0
+RRD,,,,,2012Q1,2012Q4,4,4,0,,21,0,0
+RSG,"Republic Services, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,0,0
+RTX,RTX Corporation,101829,RTX Corp,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,68,0,0
+RVTY,"Revvity, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,1,0
+SAF,,,,,,,0,52,52,,2,0,0
+SANM,,,,,,,0,52,52,,1,0,0
+SBAC,SBA Communications Corporation,,,,2017Q1,2024Q4,32,32,0,,25,5,3
+SBNY,,,,,2021Q1,2022Q4,8,8,0,,7,0,1
+SBUX,Starbucks Corporation,829224,STARBUCKS CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,3,0
+SCHW,The Charles Schwab Corporation,,,,2012Q1,2024Q4,19,52,33,,22,0,0
+SE,,,,,2012Q1,2017Q4,19,24,5,,34,1,0
+SEDG,,,,,2021Q1,2023Q4,12,12,0,,11,0,1
+SEE,,,,,2012Q1,2023Q4,48,48,0,,63,2,0
+SHW,The Sherwin-Williams Company,,,,2012Q1,2024Q4,52,52,0,yes,72,0,0
+SIG,,,,,2015Q1,2018Q4,16,16,0,,16,0,0
+SITC,,,,,,,0,52,52,,10,0,0
+SIVB,,,,,2018Q1,2022Q4,20,20,0,,11,1,8
+SJM,The J. M. Smucker Company,,,,2012Q1,2024Q4,52,52,0,yes,61,4,5
+SLB,Schlumberger Limited,87347,SLB LIMITED/NV,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,68,2,1
+SLG,,,,,2015Q1,2021Q4,28,28,0,,28,0,0
+SLM,,,,,2012Q1,2014Q4,12,12,0,,29,0,1
+SMCI,"Super Micro Computer, Inc.",,,,2020Q1,2024Q4,20,20,0,,22,1,0
+SNA,Snap-on Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,56,8,1
+SNPS,"Synopsys, Inc.",,,,2017Q1,2024Q4,32,32,0,,33,0,0
+SNV,,,,,,,0,52,52,,2,0,0
+SO,The Southern Company,,,,2012Q1,2024Q4,52,52,0,yes,68,5,0
+SOLV,Solventum Corporation,,,,2024Q2,2024Q4,3,3,0,,4,0,0
+SPG,"Simon Property Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,0,2
+SPGI,S&P Global Inc.,,,,2012Q1,2024Q4,52,52,0,yes,77,0,0
+SRCL,,,,,2012Q1,2018Q4,28,28,0,,44,0,0
+SRE,Sempra,,,,2012Q1,2024Q4,52,52,0,yes,56,11,2
+SSP,,,,,,,0,52,52,,5,2,0
+STE,STERIS plc,,,,2019Q1,2024Q4,24,24,0,,28,0,0
+STI,,,,,2012Q1,2019Q3,31,31,0,,45,4,0
+STLD,"Steel Dynamics, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+STT,State Street Corporation,,,,2012Q1,2024Q4,52,52,0,yes,69,1,1
+STX,Seagate Technology Holdings plc,,,,2012Q1,2024Q4,52,52,0,yes,55,0,0
+STZ,"Constellation Brands, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,68,0,0
+SUN,,,,,2012Q1,2012Q4,3,4,1,,18,1,0
+SW,Smurfit Westrock Plc,,,,2023Q1,2024Q4,6,8,2,,7,0,0
+SWK,"Stanley Black & Decker, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,66,3,0
+SWKS,"Skyworks Solutions, Inc.",,,,2015Q1,2024Q4,40,40,0,,41,1,0
+SYF,Synchrony Financial,,,,2015Q1,2024Q4,40,40,0,,39,2,0
+SYK,Stryker Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,0,1
+SYY,Sysco Corporation,96021,SYSCO CORP,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,66,6,0
+T,AT&T Inc.,732717,AT&T INC.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,59,7,0
+TAP,Molson Coors Beverage Company,,,,2012Q1,2024Q4,52,52,0,yes,68,1,1
+TDC,,,,,2012Q1,2017Q4,24,24,0,,38,1,0
+TDG,TransDigm Group Incorporated,,,,2016Q1,2024Q3,35,35,0,,36,1,0
+TDY,Teledyne Technologies Incorporated,,,,2020Q1,2024Q4,20,20,0,,17,4,0
+TECH,Bio-Techne Corporation,,,,2020Q1,2024Q4,20,20,0,,23,0,0
+TEL,TE Connectivity plc,,,,2020Q1,2024Q4,20,20,0,,27,2,1
+TER,"Teradyne, Inc.",,,,2012Q1,2024Q4,28,52,24,,47,0,0
+TEX,,,,,,,0,52,52,,5,0,0
+TFC,Truist Financial Corporation,,,,2012Q1,2024Q4,52,52,0,yes,63,8,1
+TFX,,,,,2019Q1,2024Q4,24,24,0,,25,0,0
+TGNA,,,,,2015Q1,2017Q4,12,12,0,,9,1,2
+TGT,Target Corporation,27419,TARGET CORP,edgar_ticker,2012Q1,2024Q4,50,52,2,,70,3,0
+THC,,,,,2012Q1,2016Q4,20,20,0,,36,1,0
+TIF,,,,,2012Q1,2019Q2,30,30,0,,8,46,0
+TJX,"The TJX Companies, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+TKO,"TKO Group Holdings, Inc.",,,,2023Q3,2024Q4,6,6,0,,7,0,0
+TMO,Thermo Fisher Scientific Inc.,97745,THERMO FISHER SCIENTIFIC INC.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,2,0
+TMUS,"T-Mobile US, Inc.",1283699,"T-Mobile US, Inc.",edgar_ticker,2012Q1,2024Q4,31,52,21,,44,0,2
+TPL,Texas Pacific Land Corporation,,,,2021Q1,2024Q4,16,16,0,,17,0,0
+TPR,"Tapestry, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,75,4,0
+TRGP,Targa Resources Corp.,,,,2020Q1,2024Q4,20,20,0,,20,1,0
+TRIP,,,,,2012Q1,2019Q4,32,32,0,,31,0,1
+TRMB,Trimble Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+TROW,"T. Rowe Price Group, Inc.",,,,2023Q1,2024Q4,8,8,0,,8,0,1
+TRV,"The Travelers Companies, Inc.",86312,"TRAVELERS COMPANIES, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,70,0,0
+TSCO,Tractor Supply Company,,,,2014Q1,2024Q4,44,44,0,,45,0,0
+TSLA,"Tesla, Inc.",1318605,"Tesla, Inc.",edgar_ticker,2020Q1,2024Q4,20,20,0,,21,0,0
+TSN,"Tyson Foods, Inc.",100493,"TYSON FOODS, INC.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,69,0,2
+TSS,,,,,2012Q1,2019Q1,29,29,0,,48,0,0
+TT,Trane Technologies plc,,,,2020Q1,2024Q4,20,20,0,,22,0,0
+TTWO,"Take-Two Interactive Software, Inc.",,,,2018Q1,2024Q4,28,28,0,,31,1,0
+TWTR,,,,,2018Q1,2021Q4,16,16,0,,16,0,0
+TXN,Texas Instruments Incorporated,,,,2012Q1,2024Q4,52,52,0,yes,74,3,1
+TXT,Textron Inc.,,,,2012Q1,2024Q4,52,52,0,yes,55,10,0
+TYL,"Tyler Technologies, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+UA,,,,,2016Q1,2022Q1,25,25,0,,22,0,3
+UAL,"United Airlines Holdings, Inc.",100517,"United Airlines Holdings, Inc.",edgar_ticker,2015Q1,2024Q4,40,40,0,,35,2,4
+UBER,"Uber Technologies, Inc.",1543151,"Uber Technologies, Inc",edgar_ticker,2020Q1,2024Q4,20,20,0,,19,1,1
+UDR,"UDR, Inc.",,,,2016Q1,2024Q4,36,36,0,,37,0,0
+UHS,"Universal Health Services, Inc.",,,,2014Q1,2024Q4,44,44,0,,43,1,1
+UIS,,,,,,,0,52,52,,7,0,0
+ULTA,"Ulta Beauty, Inc.",,,,2016Q1,2024Q4,36,36,0,,31,0,5
+UNH,UnitedHealth Group Incorporated,731766,UNITEDHEALTH GROUP INC,edgar_ticker,2013Q1,2024Q4,48,48,0,,46,1,2
+UNM,,,,,2012Q1,2021Q4,40,40,0,,49,6,0
+UNP,Union Pacific Corporation,,,,2012Q1,2024Q4,52,52,0,yes,70,0,0
+UPS,"United Parcel Service, Inc.",1090727,UNITED PARCEL SERVICE INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,63,7,0
+URBN,,,,,2012Q1,2017Q4,24,24,0,,28,0,0
+URI,"United Rentals, Inc.",,,,2014Q1,2024Q4,44,44,0,,45,0,0
+USB,U.S. Bancorp,36104,US BANCORP \DE\,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,65,4,2
+UST,,,,,,,0,52,52,,5,1,0
+V,Visa Inc.,1403161,VISA INC.,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,64,1,1
+VAL,,,,,2012Q1,2016Q4,20,20,0,,38,0,0
+VAR,,,,,2012Q1,2020Q2,34,34,0,,50,0,0
+VFC,,,,,2012Q1,2024Q4,49,52,3,,62,2,4
+VIAB,,,,,2012Q1,2019Q4,32,32,0,,32,9,1
+VIAV,,,,,2012Q1,2013Q4,8,8,0,,23,1,0
+VICI,VICI Properties Inc.,,,,2020Q1,2024Q4,20,20,0,,21,0,0
+VLO,Valero Energy Corporation,,,,2012Q1,2024Q4,52,52,0,yes,71,1,0
+VLTO,Veralto Corporation,,,,2023Q3,2024Q4,6,6,0,,6,1,0
+VMC,Vulcan Materials Company,,,,2012Q1,2024Q4,52,52,0,yes,65,5,0
+VNO,,,,,2012Q2,2023Q4,47,47,0,,43,4,0
+VNT,,,,,2020Q3,2021Q4,6,6,0,,6,0,0
+VRSK,"Verisk Analytics, Inc.",,,,2015Q1,2024Q4,40,40,0,,40,1,0
+VRSN,"VeriSign, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,70,5,1
+VRTX,Vertex Pharmaceuticals Incorporated,,,,2013Q1,2024Q4,48,48,0,,48,0,1
+VST,Vistra Corp.,,,,2020Q1,2024Q4,19,20,1,,20,0,0
+VTR,"Ventas, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,65,0,0
+VTRS,Viatris Inc.,,,,2012Q1,2024Q4,50,52,2,,60,0,1
+VZ,Verizon Communications Inc.,732712,VERIZON COMMUNICATIONS INC,edgar_ticker,2012Q1,2024Q4,52,52,0,yes,75,3,0
+WAB,Westinghouse Air Brake Technologies Corporation,,,,2019Q1,2024Q4,24,24,0,,25,0,0
+WAT,Waters Corporation,,,,2012Q1,2024Q4,52,52,0,yes,68,3,0
+WBA,"Walgreens Boots Alliance, Inc.",1618921,"Walgreens Boots Alliance, Inc.",verified_alias,2012Q1,2024Q4,52,52,0,yes,64,12,0
+WBD,"Warner Bros. Discovery, Inc.",1437107,"Warner Bros. Discovery, Inc.",edgar_ticker,2012Q1,2024Q4,52,52,0,yes,57,1,0
+WCG,,,,,2018Q1,2019Q3,7,7,0,,4,3,0
+WDAY,"Workday, Inc.",,,,2020Q1,2024Q4,20,20,0,,24,0,0
+WDC,Western Digital Corporation,,,,2012Q1,2024Q4,52,52,0,yes,61,1,2
+WEC,"WEC Energy Group, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,61,6,0
+WELL,Welltower Inc.,,,,2012Q1,2024Q4,52,52,0,yes,62,3,0
+WEN,,,,,,,0,52,52,,7,1,0
+WFC,Wells Fargo & Company,,,,2012Q1,2024Q4,52,52,0,yes,64,8,0
+WHR,,,,,2012Q1,2024Q4,52,52,0,yes,66,3,1
+WM,"Waste Management, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,1,0
+WMB,"The Williams Companies, Inc.",,,,2012Q1,2024Q4,49,52,3,,61,13,0
+WMT,Walmart Inc.,104169,Walmart Inc.,edgar_ticker,2012Q1,2024Q4,47,52,5,,24,37,0
+WPX,,,,,2012Q2,2014Q4,11,11,0,,10,1,0
+WRB,W. R. Berkley Corporation,,,,2019Q1,2024Q4,24,24,0,,25,0,0
+WRK,,,,,2012Q1,2023Q3,47,47,0,,62,1,1
+WSM,"Williams-Sonoma, Inc.",,,,2020Q1,2024Q4,19,20,1,,17,2,0
+WST,"West Pharmaceutical Services, Inc.",,,,2020Q1,2024Q4,20,20,0,,21,0,0
+WTW,Willis Towers Watson Public Limited Company,,,,2016Q1,2024Q4,36,36,0,,29,0,8
+WU,,,,,2012Q1,2021Q4,40,40,0,,59,0,0
+WY,Weyerhaeuser Company,,,,2012Q1,2024Q4,52,52,0,yes,70,0,1
+WYND,,,,,2018Q2,2018Q4,3,3,0,,3,0,0
+WYNN,"Wynn Resorts, Limited",,,,2012Q1,2024Q4,52,52,0,yes,64,3,2
+X,,,,,2012Q1,2014Q4,12,12,0,,26,2,2
+XEC,,,,,2014Q1,2020Q4,26,28,2,,26,0,0
+XEL,Xcel Energy Inc.,,,,2012Q1,2024Q4,52,52,0,yes,69,7,2
+XLNX,,,,,2012Q1,2021Q2,38,38,0,,60,0,0
+XOM,Exxon Mobil Corporation,34088,EXXON MOBIL CORP,verified_alias,2012Q1,2024Q4,52,52,0,yes,67,10,1
+XRAY,,,,,2012Q1,2024Q4,51,52,1,,55,11,1
+XRX,,,,,2012Q1,2021Q4,39,40,1,,60,1,1
+XYL,Xylem Inc.,,,,2012Q1,2024Q4,52,52,0,yes,53,0,0
+YUM,"Yum! Brands, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,73,3,0
+ZBH,"Zimmer Biomet Holdings, Inc.",,,,2012Q1,2024Q4,52,52,0,yes,69,1,1
+ZBRA,Zebra Technologies Corporation,,,,2019Q1,2024Q4,24,24,0,,25,0,0
+ZION,,,,,2012Q1,2024Q4,52,52,0,yes,66,4,0
+ZTS,Zoetis Inc.,,,,2013Q1,2024Q4,48,48,0,,48,0,1

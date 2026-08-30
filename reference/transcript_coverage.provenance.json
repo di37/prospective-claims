@@ -1,0 +1,306 @@
+{
+  "generated_by": "scripts/05_build_transcript_inventory.py",
+  "source_of_truth": "src/corpus/",
+  "commit": "2020624",
+  "generated_at": "2026-08-30T12:02:49Z",
+  "derived_from": [
+    "data/raw/episodes.parquet",
+    "reference/filers.csv",
+    "reference/filing_dates.provenance.json"
+  ],
+  "study_window": [
+    2012,
+    2024
+  ],
+  "rules": [
+    "Coverage is counted in the corpus's own calendar quarters, not fiscal ones, so a gap is a gap rather than a mapping artefact.",
+    "Study filers are matched on tickers from their own EDGAR submissions record, never on the SEC's current-registrant ticker file, which maps a reassigned ticker to whichever entity holds it now.",
+    "Where EDGAR and the corpus disagree about identity, the match comes from a short list of aliases checked one at a time against the corpus's company names. Nothing is fuzzy matched.",
+    "Segmentation is stored as character offsets, never text, because the transcripts are third-party content this project does not redistribute."
+  ],
+  "qa_split_band": [
+    0.05,
+    0.9
+  ],
+  "counts": {
+    "corpus_symbols": 685,
+    "corpus_calls": 33362,
+    "study_filers": 150,
+    "study_filers_matched": 121,
+    "match_methods": {
+      "edgar_ticker": 118,
+      "absent_from_corpus": 24,
+      "verified_alias": 3,
+      "not_listed": 5
+    },
+    "symbols_continuous_in_window": 290,
+    "study_filers_continuous": 86,
+    "segmentation": {
+      "ok": 31404,
+      "implausible_position": 543,
+      "not_found": 1289,
+      "empty": 126
+    }
+  },
+  "unmatched_study_filers": [
+    {
+      "cik": 1067983,
+      "name": "BERKSHIRE HATHAWAY INC",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "BRK-B",
+        "BRK-A"
+      ]
+    },
+    {
+      "cik": 1646972,
+      "name": "Albertsons Companies, Inc.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "ACI"
+      ]
+    },
+    {
+      "cik": 1276187,
+      "name": "Energy Transfer LP",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "ET",
+        "ET-PI"
+      ]
+    },
+    {
+      "cik": 913760,
+      "name": "StoneX Group Inc.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "SNEX"
+      ]
+    },
+    {
+      "cik": 1177394,
+      "name": "TD SYNNEX CORP",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "SNX"
+      ]
+    },
+    {
+      "cik": 81061,
+      "name": "PUBLIX SUPER MARKETS INC",
+      "reason": "not_listed",
+      "edgar_tickers": []
+    },
+    {
+      "cik": 1271833,
+      "name": "CCO HOLDINGS LLC",
+      "reason": "not_listed",
+      "edgar_tickers": []
+    },
+    {
+      "cik": 1859392,
+      "name": "Galaxy Digital Inc.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "GLXY"
+      ]
+    },
+    {
+      "cik": 1061219,
+      "name": "ENTERPRISE PRODUCTS PARTNERS L.P.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "EPD",
+        "EPDU"
+      ]
+    },
+    {
+      "cik": 1897762,
+      "name": "Ingram Micro Holding Corp",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "INGM"
+      ]
+    },
+    {
+      "cik": 789460,
+      "name": "WORLD KINECT CORP",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "WKC"
+      ]
+    },
+    {
+      "cik": 1070423,
+      "name": "PLAINS ALL AMERICAN PIPELINE LP",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "PAA",
+        "PAAPU"
+      ]
+    },
+    {
+      "cik": 1581990,
+      "name": "PLAINS GP HOLDINGS LP",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "PAGP"
+      ]
+    },
+    {
+      "cik": 823277,
+      "name": "CHS INC",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "CHSCP",
+        "CHSCL",
+        "CHSCM",
+        "CHSCN",
+        "CHSCO"
+      ]
+    },
+    {
+      "cik": 1534504,
+      "name": "PBF Energy Inc.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "PBF"
+      ]
+    },
+    {
+      "cik": 1566011,
+      "name": "PBF Holding Co LLC",
+      "reason": "not_listed",
+      "edgar_tickers": []
+    },
+    {
+      "cik": 937834,
+      "name": "METROPOLITAN LIFE INSURANCE CO",
+      "reason": "not_listed",
+      "edgar_tickers": []
+    },
+    {
+      "cik": 1665918,
+      "name": "US Foods Holding Corp.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "USFD"
+      ]
+    },
+    {
+      "cik": 7536,
+      "name": "ARROW ELECTRONICS, INC.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "ARW"
+      ]
+    },
+    {
+      "cik": 1915657,
+      "name": "HF Sinclair Corp",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "DINO"
+      ]
+    },
+    {
+      "cik": 1023128,
+      "name": "LITHIA MOTORS INC",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "LAD"
+      ]
+    },
+    {
+      "cik": 1019849,
+      "name": "PENSKE AUTOMOTIVE GROUP, INC.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "PAG"
+      ]
+    },
+    {
+      "cik": 1020859,
+      "name": "UNITED NATURAL FOODS INC",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "UNFI"
+      ]
+    },
+    {
+      "cik": 2011641,
+      "name": "Ferguson Enterprises Inc. /DE/",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "FERG"
+      ]
+    },
+    {
+      "cik": 2041610,
+      "name": "Paramount Skydance Corp",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "PSKY"
+      ]
+    },
+    {
+      "cik": 1527469,
+      "name": "Athene Holding Ltd.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "ATH-PA",
+        "ATH-PB",
+        "ATH-PD",
+        "ATH-PE",
+        "ATHS"
+      ]
+    },
+    {
+      "cik": 8858,
+      "name": "AVNET INC",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "AVT"
+      ]
+    },
+    {
+      "cik": 866374,
+      "name": "FLEX LTD.",
+      "reason": "absent_from_corpus",
+      "edgar_tickers": [
+        "FLEX"
+      ]
+    },
+    {
+      "cik": 1081316,
+      "name": "BERKSHIRE HATHAWAY ENERGY CO",
+      "reason": "not_listed",
+      "edgar_tickers": []
+    }
+  ],
+  "aliases_used": [
+    {
+      "cik": 34088,
+      "name": "EXXON MOBIL CORP",
+      "symbol": "XOM",
+      "why": "The study holds the predecessor CIK from a 2023 revenue frame; the SEC ticker file now maps XOM to a later holding entity, and 34088 carries no ticker. The corpus rows under XOM name Exxon Mobil Corporation."
+    },
+    {
+      "cik": 1618921,
+      "name": "Walgreens Boots Alliance, Inc.",
+      "symbol": "WBA",
+      "why": "Delisted, so it has been removed from the SEC's current-registrant ticker file and its submissions record carries no ticker. The corpus rows under WBA name Walgreens Boots Alliance, Inc."
+    },
+    {
+      "cik": 813828,
+      "name": "Paramount Global",
+      "symbol": "PARA",
+      "why": "Succeeded by Paramount Skydance, so the submissions record for the predecessor carries no ticker. The corpus rows under PARA name Paramount Global."
+    }
+  ],
+  "limitations": [
+    "The corpus is a 685-ticker subset rather than full S&P 500 history: Arrow Electronics, Avnet, Flex, US Foods and others are listed, in the study set, and absent from it.",
+    "Partnerships and debt-issuing subsidiaries hold no earnings call, so their absence is structural rather than a gap in the corpus.",
+    "The corpus labels each call with its own year and quarter. Reconciling those to a filer's fiscal calendar is left to reference/fiscal_quarters.csv."
+  ]
+}

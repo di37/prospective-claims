@@ -100,8 +100,8 @@ jobs:
 
       - name: Protocol invariants
         run: |
-          if [ -f scripts/09_verify_invariants.py ]; then
-            python scripts/09_verify_invariants.py
+          if [ -f scripts/10_verify_invariants.py ]; then
+            python scripts/10_verify_invariants.py
           else
             echo "invariant checker not written yet, skipping"
           fi

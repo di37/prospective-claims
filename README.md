@@ -101,6 +101,13 @@ python scripts/03_build_filing_dates.py
 python scripts/04_build_fiscal_calendar.py
 ```
 
+The transcript corpus is a separate, one-off download of about 1.2 GB, and the inventory that reads it:
+
+```bash
+python scripts/00_pull_transcripts.py
+python scripts/05_build_transcript_inventory.py
+```
+
 In that order: 02 decides who is in the study, 03 joins on the CIKs it writes, and 04 derives the calendars from what 03 pulled. Only 04 is offline. No API key is needed for any of it; the SEC asks for a descriptive User-Agent, which `src/constants.py` sets.
 
 The notebooks in `notebooks/` read each table and say what it is fit for. They generate nothing, so they can be read without being run.
@@ -109,9 +116,9 @@ Full detail in [reproducibility](docs/reproducibility.md).
 
 ## Status
 
-No transcripts have been pulled and nothing has been annotated. Every companion table the pilot depends on is built.
+The transcript corpus is pulled and inventoried, every companion table is built, and nothing has been annotated yet.
 
-The data comes before the pilot, not after. An earlier reading of the plan had the pilot as the first gate, but 250 annotated claims cannot exist without transcripts, and `StructuredCoverage` cannot be computed without filing dates and XBRL facts. Acquisition is the first task.
+The data comes before the pilot, not after. An earlier reading of the plan had the pilot as the first gate, but 250 annotated claims cannot exist without transcripts, and `StructuredCoverage` cannot be computed without filing dates and XBRL facts.
 
 | File | Needed by | Contents | State |
 |---|---|---|---|
@@ -120,10 +127,13 @@ The data comes before the pilot, not after. An earlier reading of the plan had t
 | `filing_dates.csv` | [observation status](docs/task.md) | cik, fiscal_period, form_type, filed_date | Built, 7,118 rows |
 | `fiscal_calendar.csv` | [Pass C](docs/annotation.md) | cik → fiscal year end, 52/53-week flag | Built, 150 rows |
 | `fiscal_quarters.csv` | [Pass C](docs/annotation.md) | cik, fiscal year, quarter → period end | Built, 7,030 rows |
+| `transcript_coverage.csv` | the sampling frame | corpus symbol → quarters covered, and which filer it is | Built, 685 rows |
 
 `filing_dates.csv` is what makes the evidence maturity date computable. The fiscal calendar maps "next quarter" onto a period; it cannot say when the report covering that period was filed.
 
 Each table carries a provenance record and a notebook that reads it and states what it is fit for. Filer selection screens candidates on revenue over total assets, which removes one company that tagged its revenue a thousand-fold too high and would otherwise have ranked 25th. One known limitation is recorded rather than fixed: six corporate families hold twelve of the 150 slots, because the dedupe is per CIK and cannot see one business filing under two. See [`reference/README.md`](reference/README.md).
+
+The transcript corpus narrows the study set from 150 filers to 121, and 86 of those cover every quarter of the window against a design that assumes 120 to 150. Most of the shortfall is companies that listed after 2012 rather than ragged coverage, so it is a threshold decision rather than a data defect. [`notebooks/05_transcripts.ipynb`](notebooks/05_transcripts.ipynb) lays out the options.
 
 The next thing that can change this project is the pilot. Further conceptual review has reached diminishing returns.
 
