@@ -1,8 +1,8 @@
 {
-  "generated_by": "scripts/01_build_reference_tables.py",
+  "generated_by": "scripts/01_build_metric_classes.py",
   "source_of_truth": "src/reference/metrics.py",
-  "commit": "5d7ac24",
-  "generated_at": "2026-08-29T18:04:13Z",
+  "commit": "8b474ee",
+  "generated_at": "2026-08-30T10:11:33Z",
   "probe_years": [
     2012,
     2018,

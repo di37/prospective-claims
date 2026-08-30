@@ -8,11 +8,25 @@ at each call site.
 # region Imports
 from __future__ import annotations
 
-from edgar.frames import TaxonomyProbe, element_exists, probe_elements
+from edgar.facts import ConceptValue, latest_value_in_year
+from edgar.frames import FrameFact, TaxonomyProbe, element_exists, fetch_frame, probe_elements
+from edgar.submissions import Filing, FilerSubmissions, fetch_filer, first_filing_per_period
 
 # endregion
 
 # region Public surface
-__all__ = ["TaxonomyProbe", "element_exists", "probe_elements"]
+__all__ = [
+    "ConceptValue",
+    "Filing",
+    "FilerSubmissions",
+    "FrameFact",
+    "TaxonomyProbe",
+    "element_exists",
+    "fetch_filer",
+    "fetch_frame",
+    "first_filing_per_period",
+    "latest_value_in_year",
+    "probe_elements",
+]
 
 # endregion

@@ -4,7 +4,7 @@ Section 5.4 of the annotation manual picks a claim's default baseline from its
 metric class. Flows are measured over a period and default to the same quarter a
 year earlier; levels are measured at a point in time and default to the
 immediately prior quarter. This module is the authored source of that mapping;
-``scripts/01_build_reference_tables.py`` verifies it against the SEC and writes
+``scripts/01_build_metric_classes.py`` verifies it against the SEC and writes
 the CSV.
 
 Two rules the model enforces rather than trusting an author to remember. A metric

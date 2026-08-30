@@ -8,25 +8,21 @@ returns the filers using it.
 Filer counts matter as well as existence. An element that only three hundred
 companies tag is real but sparse, and a reference table that says so lets an
 annotator expect the gap rather than treat it as an error.
+
+The same endpoint answers a second question. One request returns every filer's
+value for an element in a period, which is how the study ranks filers by revenue
+and screens them against their balance sheets without a request per company.
 """
 
 # region Imports
 from __future__ import annotations
 
-import json
 import time
-import urllib.error
-import urllib.request
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from constants import (
-    SEC_FRAMES_URL,
-    SEC_MAX_RETRIES,
-    SEC_REQUEST_DELAY_SECONDS,
-    SEC_TIMEOUT_SECONDS,
-    SEC_USER_AGENT,
-)
+from constants import SEC_FRAMES_URL, SEC_REQUEST_DELAY_SECONDS
+from edgar.transport import get_json
 
 # endregion
 
@@ -53,6 +49,29 @@ class TaxonomyProbe(BaseModel):
     filer_count: int = Field(default=0, ge=0)
     http_status: int | None = None
     error: str | None = None
+
+
+# endregion
+
+# region Frame values
+class FrameFact(BaseModel):
+    """One filer's reported value for an element in a period.
+
+    Attributes:
+        cik: SEC identifier for the filer.
+        entity_name: Entity name as the SEC records it, which is not stable and
+            must never be used as a join key.
+        location: SEC location code, such as ``US-CA``. Empty when not given.
+        value: The reported value, exactly as tagged. The SEC serves what the
+            filer submitted, scale errors included.
+    """
+
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    cik: int = Field(gt=0)
+    entity_name: str
+    location: str = ""
+    value: float
 
 
 # endregion
@@ -92,35 +111,56 @@ def element_exists(element: str, unit: str = "USD", period: str = "CY2023Q1") ->
     """
     namespace, local = _split_namespace(element)
     url = SEC_FRAMES_URL.format(namespace=namespace, element=local, unit=unit, period=period)
-    request = urllib.request.Request(url, headers={"User-Agent": SEC_USER_AGENT})
+    payload, status, error = get_json(url)
 
-    last_error: str | None = None
-    for attempt in range(SEC_MAX_RETRIES):
-        try:
-            with urllib.request.urlopen(request, timeout=SEC_TIMEOUT_SECONDS) as response:
-                payload = json.load(response)
-            return TaxonomyProbe(
-                element=element,
-                unit=unit,
-                period=period,
-                exists=True,
-                filer_count=len(payload.get("data", [])),
-                http_status=200,
-            )
-        except urllib.error.HTTPError as exc:
-            if exc.code == 404:
-                return TaxonomyProbe(
-                    element=element, unit=unit, period=period,
-                    exists=False, http_status=404,
-                )
-            last_error = f"HTTP {exc.code}"
-        except Exception as exc:  # noqa: BLE001  network failures are varied and all retryable
-            last_error = type(exc).__name__
-        time.sleep(SEC_REQUEST_DELAY_SECONDS * (attempt + 2))
-
+    if payload is None:
+        return TaxonomyProbe(
+            element=element, unit=unit, period=period,
+            exists=False, http_status=status, error=error,
+        )
     return TaxonomyProbe(
-        element=element, unit=unit, period=period,
-        exists=False, http_status=None, error=last_error,
+        element=element,
+        unit=unit,
+        period=period,
+        exists=True,
+        filer_count=len(payload.get("data", [])),
+        http_status=status,
+    )
+
+
+def fetch_frame(element: str, unit: str = "USD", period: str = "CY2023") -> tuple[FrameFact, ...]:
+    """Fetch every filer's value for one element in one period.
+
+    Args:
+        element: Qualified element name.
+        unit: Unit to query.
+        period: Frames period. Instantaneous elements need the ``I`` suffix.
+
+    Returns:
+        One fact per filer, in the order the SEC returned them. Empty when the
+        element does not exist for that unit and period.
+
+    Raises:
+        RuntimeError: If the request failed for a reason other than 404, since a
+            partial frame would silently change which filers are in the study.
+    """
+    namespace, local = _split_namespace(element)
+    url = SEC_FRAMES_URL.format(namespace=namespace, element=local, unit=unit, period=period)
+    payload, status, error = get_json(url)
+
+    if payload is None:
+        if status == 404:
+            return ()
+        raise RuntimeError(f"frame {element} {unit} {period} failed: {error}")
+
+    return tuple(
+        FrameFact(
+            cik=int(row["cik"]),
+            entity_name=row["entityName"],
+            location=row.get("loc", "") or "",
+            value=float(row["val"]),
+        )
+        for row in payload.get("data", [])
     )
 
 

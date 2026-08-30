@@ -8,7 +8,8 @@ Importable code with no side effects. Importing anything here must not read a fi
 | `config.py` | Pydantic models for claims and experiment conditions, with validation at construction |
 | `common.py` | Loading, seeding, table and figure I/O |
 | `run_logging.py` | Console output, log files, and the output-prefix rule |
-| `edgar/` | Filing dates, fiscal calendars, Company Facts |
+| `edgar/` | Everything that talks to the SEC: one transport, the frames API, submissions, single concepts |
+| `reference/` | Authored definitions behind the generated tables in `reference/` |
 | `resolution/` | Claim text to a structured, checkable proposition |
 | `adjudication/` | Observation status, evidence lookup, verdicts |
 

@@ -214,7 +214,7 @@ def write_provenance(probes: dict[str, dict[str, object]], definitions: tuple[Me
         None.
     """
     record = {
-        "generated_by": "scripts/01_build_reference_tables.py",
+        "generated_by": "scripts/01_build_metric_classes.py",
         "source_of_truth": "src/reference/metrics.py",
         "commit": commit_sha(),
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),

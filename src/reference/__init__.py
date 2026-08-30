@@ -8,6 +8,7 @@ annotation.
 # region Imports
 from __future__ import annotations
 
+from reference.filers import Candidate, Exclusion, Filer, Selection, rank_candidates, select
 from reference.metrics import (
     METRIC_DEFINITIONS,
     MetricClass,
@@ -18,6 +19,17 @@ from reference.metrics import (
 # endregion
 
 # region Public surface
-__all__ = ["METRIC_DEFINITIONS", "MetricClass", "MetricDefinition", "TaxonomyElement"]
+__all__ = [
+    "METRIC_DEFINITIONS",
+    "Candidate",
+    "Exclusion",
+    "Filer",
+    "MetricClass",
+    "MetricDefinition",
+    "Selection",
+    "TaxonomyElement",
+    "rank_candidates",
+    "select",
+]
 
 # endregion

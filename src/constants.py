@@ -88,6 +88,81 @@ SEC_MAX_RETRIES = 3
 SEC_FRAMES_URL = "https://data.sec.gov/api/xbrl/frames/{namespace}/{element}/{unit}/{period}.json"
 SEC_COMPANY_FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
 SEC_SUBMISSIONS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
+SEC_SUBMISSIONS_OVERFLOW_URL = "https://data.sec.gov/submissions/{name}"
+SEC_COMPANY_CONCEPT_URL = (
+    "https://data.sec.gov/api/xbrl/companyconcept/CIK{cik:010d}/{namespace}/{element}.json"
+)
+
+# Periodic reports the study adjudicates against. Amendments are excluded by
+# construction rather than filtered later: a 10-Q/A published after the evidence
+# cutoff does not make a claim observable, while the original that arrived on time
+# does, so the amendment must never displace it.
+PERIODIC_FORMS = ("10-K", "10-Q")
+
+# EDGAR's reportDate is unreliable for a small share of filings. Two failure modes
+# appear in the data: the field sometimes duplicates the filing date, giving a
+# periodic report a zero-day lag, and it sometimes carries a plausible-looking but
+# wrong period on a filing submitted a year later. Both matter because
+# fiscal_period is the key the whole adjudication joins on, so a wrong period
+# matches a claim to the wrong filing or to none.
+#
+# Rows are flagged rather than dropped. A short lag is almost certainly a bad
+# reportDate; a long one may be genuine delinquency, which the study cares about.
+#
+# The short threshold is set from the observed distribution rather than picked.
+# Lags of 0 to 3 days are six rows across three filers and are impossible: a
+# periodic report cannot be filed before its accounting close. Nothing then
+# appears until 9 days, after which Delta and Oracle form a coherent cluster at
+# 10 to 14 days across dozens of filings. Those two file genuinely fast, and an
+# earlier threshold of 15 flagged 40 of their legitimate filings as errors.
+MIN_PLAUSIBLE_FILING_LAG_DAYS = 5
+MAX_PLAUSIBLE_FILING_LAG_DAYS = {"10-Q": 60, "10-K": 120}
+
+# endregion
+
+# region Filer selection
+# The study set is drawn by revenue rather than market capitalisation, because
+# revenue is in XBRL and market capitalisation is not. Filers are ranked at a
+# single recent year, which is a survivorship filter: a company that was large in
+# 2012 and has since shrunk or delisted cannot appear. See src/reference/filers.py
+# for what that costs and why it is accepted here.
+FILER_SELECTION_YEAR = "CY2023"
+FILER_SELECTION_ELEMENTS = (
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "us-gaap:Revenues",
+)
+FILER_COUNT = 150
+FILER_LOCATION_PREFIX = "US-"
+FILERS_FILE = REFERENCE_DIR / "filers.csv"
+
+# The frames API serves whatever a filer tagged, including the scale errors. Tigo
+# Energy tagged CY2023 revenue as 145,233,000,000 against total assets of
+# 127,777,000, a factor of a thousand out, and ranked 25th on it, above Meta.
+#
+# Revenue over total assets separates that cleanly. Across the top 300 candidates
+# the median is 0.70, the 99th percentile 4.96, and the largest genuine reading is
+# 6.5 for World Kinect, a fuel distributor that turns enormous throughput on a
+# small balance sheet. The next value up is Tigo at 1,137. Nothing lies between.
+#
+# The threshold sits at 25 rather than in the middle of that gap. A thousand-fold
+# error on an asset-heavy filer, a bank or a utility whose true ratio is near
+# 0.05, lands around 50, so a higher cut would let those through while still
+# catching Tigo. Four times the largest real observation is far enough above the
+# genuine distribution and far enough below any scale error to catch both.
+#
+# A filer failing the screen is excluded from the ranking, not flagged in place.
+# An implausible revenue figure does not make a filer suspect, it makes its rank
+# fabricated, and the rule is the largest filers by revenue. Every exclusion is
+# named in the provenance record with the figures that caused it.
+MAX_REVENUE_TO_ASSETS = 25.0
+ASSETS_ELEMENT = "us-gaap:Assets"
+ASSETS_PERIOD = f"{FILER_SELECTION_YEAR}Q4I"
+
+# Candidates are screened from the top down, so the pool must be deep enough to
+# refill the count after exclusions. Fifty spare is far more than the observed
+# exclusion rate of one, and it bounds the per-filer requests needed when the
+# assets frame has no row for a candidate.
+SCREENING_POOL_MARGIN = 50
 
 # Periods used to prove an element exists in the taxonomy, spanning the study
 # window rather than sampling one quarter. A single probe cannot distinguish an

@@ -329,11 +329,11 @@ The evidence cutoff `T` is a single frozen date in `reference/evidence_cutoff.tx
 | Annotation agreement is computed pre-adjudication and never recomputed | Agreement scores inflated by discussion |
 | Conventions that could move a number are declared before annotation, then ablated | Choices tuned after seeing their effect |
 
-`scripts/08_verify_invariants.py` will check these mechanically and exit non-zero on failure, so a violation blocks a commit rather than surviving into a paper. It is not written yet; CI already has the step, which skips until the file appears. What CI does run today is `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
+`scripts/09_verify_invariants.py` will check these mechanically and exit non-zero on failure, so a violation blocks a commit rather than surviving into a paper. It is not written yet; CI already has the step, which skips until the file appears. What CI does run today is `.github/scripts/check_docs.py`, which catches the documentation equivalents: links pointing at renamed files, anchors pointing at reworded headings, a guidelines version that drifted between the change log and the record schema, and hard-wrapped prose. Each rule is invisible in the results when broken, which is exactly why it is checked by machine rather than by review.
 
 ### Reproduction record
 
-`scripts/07_build_repro_artifacts.py`, once written, will produce `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
+`scripts/08_build_repro_artifacts.py`, once written, will produce `reports/repro/` after every experiment script has run: interpreter and platform, versions of the packages that affect results, seeds, and an inventory of every artifact with the script that produced it. Together these answer the two questions a later reader has, which are whether they can rebuild this and whether a committed figure came from the current code.
 
 ## Pilot and decision gate
 
@@ -382,9 +382,10 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 ├── reference/                    Committed. Version-locked to the annotation manual.
 │   ├── README.md
 │   ├── metric_classes.csv        metric -> FLOW or LEVEL, selects the default baseline. Generated.
-│   ├── metric_classes.provenance.json  What produced the table, and when it was last proved.
+│   ├── filers.csv                The 150 study filers. The CIK every other table joins on. Generated.
+│   ├── filing_dates.csv          cik, fiscal_period, form_type, filed_date, lag. Generated.
+│   ├── *.provenance.json         Per table: what produced it, when, and the rules in force.
 │   ├── fiscal_calendar.csv       cik -> fiscal year end, 52/53-week flag.
-│   ├── filing_dates.csv          cik, fiscal_period, form_type, filed_date.
 │   └── evidence_cutoff.txt       The single cutoff date T.
 │
 ├── annotations/
@@ -398,19 +399,27 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │   ├── constants.py              Paths, seeds, SEC settings. Standard library only.
 │   ├── run_logging.py            Console output and log files.
 │   ├── reference/metrics.py      Authored metric definitions, validated at import.
-│   ├── edgar/frames.py           SEC frames client, used to verify taxonomy elements.
+│   ├── reference/filers.py       The filer selection rule, and what it costs.
+│   ├── edgar/README.md           One transport, one rate limit, for every SEC call.
+│   ├── edgar/transport.py        Shared HTTP layer. A 404 is a result, not a failure.
+│   ├── edgar/frames.py           Element existence, and every filer's value for one period.
+│   ├── edgar/submissions.py      Filing history per filer.
+│   ├── edgar/facts.py            One filer, one concept, for the gaps the frames leave.
 │   ├── resolution/README.md      Claim text to a structured proposition.
 │   └── adjudication/README.md    Observation status, evidence lookup, verdicts.
 │
 ├── scripts/                      Numbered, runnable, produce results.
 │   ├── README.md
 │   ├── 00_pull_transcripts.py
-│   ├── 01_build_reference_tables.py   Verifies elements against the SEC, writes reference tables.
-│   ├── 02_sample_passages.py
-│   ├── 03_compute_observation_status.py
-│   ├── 06_make_report_figures.py
-│   ├── 07_build_repro_artifacts.py
-│   └── 08_verify_invariants.py
+│   ├── 01_build_metric_classes.py    Verifies elements against the SEC, writes the metric table.
+│   ├── 02_select_filers.py           Ranks filers by revenue, writes the study set.
+│   ├── 03_build_filing_dates.py      Filing history per filer, with a lag plausibility flag.
+│   ├── 04_build_fiscal_calendar.py
+│   ├── 05_sample_passages.py
+│   ├── 06_compute_observation_status.py
+│   ├── 07_make_report_figures.py
+│   ├── 08_build_repro_artifacts.py
+│   └── 09_verify_invariants.py
 │
 ├── reports/
 │   ├── README.md
@@ -421,28 +430,31 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │
 └── notebooks/
     ├── README.md                 Read results and interpret them. Generate nothing.
-    └── 01_metric_classes.ipynb   Coverage, the evidence-store gap, and the arguable classes.
+    ├── 01_metric_classes.ipynb   Coverage, the evidence-store gap, and the arguable classes.
+    ├── 02_filers.ipynb           What the selection rule admits, and the three things it gets wrong.
+    └── 03_filing_dates.ipynb     Filing lag, the rows the table does not trust, window coverage.
 ```
 
-Every directory carries a README stating what lives there, what writes it, and whether it is committed. Most of the code and data files listed above do not exist yet; the directories and their READMEs do, so the manual's references to `metric_classes.csv`, `fiscal_calendar.csv` and `filing_dates.csv` resolve to a known place.
+Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the manual's references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
 
-Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `08_verify_invariants.py` will fail on any artifact whose prefix matches no script.
+Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `09_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 
 ## Status
 
-Nothing has been pulled and nothing has been annotated.
+No transcripts have been pulled and nothing has been annotated. Three of the four companion tables the pilot depends on are built.
 
 The data comes before the pilot, not after. An earlier reading of the plan had the pilot as the first gate, but 250 annotated claims cannot exist without transcripts, and `StructuredCoverage` cannot be computed without filing dates and XBRL facts. Acquisition is the first task.
 
-Three companion tables block the pilot, and two of the three are pure data-engineering with no annotation involved.
-
-| File | Needed by | Contents |
-|---|---|---|
-| `metric_classes.csv` | Pass C | metric → FLOW or LEVEL, for the baseline defaults |
-| `fiscal_calendar.csv` | Pass C | cik → fiscal year end, 52/53-week flag |
-| `filing_dates.csv` | observation status | cik, fiscal_period, form_type, filed_date |
+| File | Needed by | Contents | State |
+|---|---|---|---|
+| `metric_classes.csv` | Pass C | metric → FLOW or LEVEL, for the baseline defaults | Built, 49 rows |
+| `filers.csv` | every table below | the 150 study filers | Built, 150 rows |
+| `filing_dates.csv` | observation status | cik, fiscal_period, form_type, filed_date | Built, 7,118 rows |
+| `fiscal_calendar.csv` | Pass C | cik → fiscal year end, 52/53-week flag | Not built |
 
 `filing_dates.csv` is what makes the evidence maturity date computable. The fiscal calendar maps "next quarter" onto a period; it cannot say when the report covering that period was filed.
+
+Each table carries a provenance record and a notebook that reads it and states what it is fit for. Filer selection screens candidates on revenue over total assets, which removes one company that tagged its revenue a thousand-fold too high and would otherwise have ranked 25th. One known limitation is recorded rather than fixed: six corporate families hold twelve of the 150 slots, because the dedupe is per CIK and cannot see one business filing under two. See `reference/README.md`.
 
 The next thing that can change this project is the pilot. Further conceptual review has reached diminishing returns.
 

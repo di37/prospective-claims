@@ -1,0 +1,3547 @@
+{
+  "generated_by": "scripts/03_build_filing_dates.py",
+  "commit": "8b474ee",
+  "generated_at": "2026-08-30T10:06:27Z",
+  "study_window": [
+    2012,
+    2024
+  ],
+  "forms": [
+    "10-K",
+    "10-Q"
+  ],
+  "rules": [
+    "Amendments are excluded at extraction, never filtered later.",
+    "Where a period was filed more than once, the earliest filing wins.",
+    "Rows whose filing lag is implausible are flagged in the suspect column, not dropped."
+  ],
+  "lag_thresholds": {
+    "min_plausible_days": 5,
+    "max_plausible_days": {
+      "10-Q": 60,
+      "10-K": 120
+    }
+  },
+  "counts": {
+    "filers_requested": 150,
+    "filers_with_rows": 148,
+    "filers_complete": 119,
+    "rows": 7118,
+    "form_breakdown": {
+      "10-K": 1788,
+      "10-Q": 5330
+    },
+    "suspect_rows": {
+      "lag_implausibly_short": 6,
+      "lag_long": 4
+    }
+  },
+  "filing_lag_days": {
+    "median": 34,
+    "min": 0,
+    "max": 392
+  },
+  "filers": {
+    "104169": {
+      "name": "Walmart Inc.",
+      "fiscal_year_end": "0131",
+      "tickers": [
+        "WMT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1018724": {
+      "name": "AMAZON COM INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AMZN"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "320193": {
+      "name": "Apple Inc.",
+      "fiscal_year_end": "0926",
+      "tickers": [
+        "AAPL"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "731766": {
+      "name": "UNITEDHEALTH GROUP INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "UNH"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1067983": {
+      "name": "BERKSHIRE HATHAWAY INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "BRK-B",
+        "BRK-A"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "64803": {
+      "name": "CVS HEALTH Corp",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CVS"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "34088": {
+      "name": "EXXON MOBIL CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "927653": {
+      "name": "MCKESSON CORP",
+      "fiscal_year_end": "0331",
+      "tickers": [
+        "MCK"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1652044": {
+      "name": "Alphabet Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GOOGL",
+        "GOOG",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "filings_in_window": 38,
+      "years_covered": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1140859": {
+      "name": "Cencora, Inc.",
+      "fiscal_year_end": "0930",
+      "tickers": [
+        "COR"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "909832": {
+      "name": "COSTCO WHOLESALE CORP /NEW",
+      "fiscal_year_end": "0830",
+      "tickers": [
+        "COST"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "789019": {
+      "name": "MICROSOFT CORP",
+      "fiscal_year_end": "0630",
+      "tickers": [
+        "MSFT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "721371": {
+      "name": "CARDINAL HEALTH INC",
+      "fiscal_year_end": "0630",
+      "tickers": [
+        "CAH"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "93410": {
+      "name": "CHEVRON CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CVX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1739940": {
+      "name": "Cigna Group",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CI"
+      ],
+      "filings_in_window": 25,
+      "years_covered": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "37996": {
+      "name": "FORD MOTOR CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "F",
+        "F-PB",
+        "F-PC",
+        "F-PD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1467858": {
+      "name": "General Motors Co",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1156039": {
+      "name": "Elevance Health, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ELV"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "19617": {
+      "name": "JPMORGAN CHASE & CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "JPM",
+        "JPM-PC",
+        "AMJB",
+        "JPM-PD",
+        "JPM-PJ",
+        "JPM-PK",
+        "JPM-PL",
+        "JPM-PM",
+        "VYLD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1071739": {
+      "name": "CENTENE CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CNC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "354950": {
+      "name": "HOME DEPOT, INC.",
+      "fiscal_year_end": "0131",
+      "tickers": [
+        "HD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "56873": {
+      "name": "KROGER CO",
+      "fiscal_year_end": "0130",
+      "tickers": [
+        "KR"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1510295": {
+      "name": "Marathon Petroleum Corp",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "MPC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1534701": {
+      "name": "Phillips 66",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PSX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1618921": {
+      "name": "Walgreens Boots Alliance, Inc.",
+      "fiscal_year_end": "0831",
+      "tickers": [],
+      "filings_in_window": 41,
+      "years_covered": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1326801": {
+      "name": "Meta Platforms, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "META"
+      ],
+      "filings_in_window": 51,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "732712": {
+      "name": "VERIZON COMMUNICATIONS INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "VZ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "732717": {
+      "name": "AT&T INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "T",
+        "TBB",
+        "T-PA",
+        "T-PC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1166691": {
+      "name": "COMCAST CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CMCSA",
+        "CCZ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "27419": {
+      "name": "TARGET CORP",
+      "fiscal_year_end": "0201",
+      "tickers": [
+        "TGT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "49071": {
+      "name": "HUMANA INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "HUM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "70858": {
+      "name": "BANK OF AMERICA CORP /DE/",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "BAC",
+        "BML-PG",
+        "BML-PL",
+        "BAC-PB",
+        "BAC-PK",
+        "BAC-PE",
+        "BAC-PL",
+        "BAC-PM",
+        "BAC-PN",
+        "BAC-PO",
+        "BAC-PP",
+        "BAC-PQ",
+        "BAC-PS",
+        "BACRP",
+        "BML-PH",
+        "BML-PJ",
+        "MER-PK"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1318605": {
+      "name": "Tesla, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "TSLA"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "7084": {
+      "name": "Archer-Daniels-Midland Co",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ADM"
+      ],
+      "filings_in_window": 51,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "77476": {
+      "name": "PEPSICO INC",
+      "fiscal_year_end": "1226",
+      "tickers": [
+        "PEP"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1090727": {
+      "name": "UNITED PARCEL SERVICE INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "UPS"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1744489": {
+      "name": "Walt Disney Co",
+      "fiscal_year_end": "1003",
+      "tickers": [
+        "DIS"
+      ],
+      "filings_in_window": 24,
+      "years_covered": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1571996": {
+      "name": "Dell Technologies Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "DELL"
+      ],
+      "filings_in_window": 35,
+      "years_covered": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1048911": {
+      "name": "FEDEX CORP",
+      "fiscal_year_end": "0531",
+      "tickers": [
+        "FDX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "60667": {
+      "name": "LOWES COMPANIES INC",
+      "fiscal_year_end": "0131",
+      "tickers": [
+        "LOW"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "200406": {
+      "name": "JOHNSON & JOHNSON",
+      "fiscal_year_end": "0103",
+      "tickers": [
+        "JNJ"
+      ],
+      "filings_in_window": 53,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "80424": {
+      "name": "PROCTER & GAMBLE Co",
+      "fiscal_year_end": "0630",
+      "tickers": [
+        "PG"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1646972": {
+      "name": "Albertsons Companies, Inc.",
+      "fiscal_year_end": "0227",
+      "tickers": [
+        "ACI"
+      ],
+      "filings_in_window": 28,
+      "years_covered": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1276187": {
+      "name": "Energy Transfer LP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ET",
+        "ET-PI"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1283699": {
+      "name": "T-Mobile US, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "TMUS",
+        "TMUSI",
+        "TMUSL",
+        "TMUSZ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "831001": {
+      "name": "CITIGROUP INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "C",
+        "C-PN",
+        "C-PR"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "12927": {
+      "name": "BOEING CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "BA",
+        "BA-PA"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "96021": {
+      "name": "SYSCO CORP",
+      "fiscal_year_end": "0627",
+      "tickers": [
+        "SYY"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "101829": {
+      "name": "RTX Corp",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "RTX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "936468": {
+      "name": "LOCKHEED MARTIN CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LMT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "18230": {
+      "name": "CATERPILLAR INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CAT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1099219": {
+      "name": "METLIFE INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "MET",
+        "MET-PA",
+        "MET-PE",
+        "MET-PF"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "860730": {
+      "name": "HCA Healthcare, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "HCA"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "80661": {
+      "name": "PROGRESSIVE CORP/OH/",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PGR"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "51143": {
+      "name": "INTERNATIONAL BUSINESS MACHINES CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "IBM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "315189": {
+      "name": "DEERE & CO",
+      "fiscal_year_end": "1101",
+      "tickers": [
+        "DE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1045810": {
+      "name": "NVIDIA CORP",
+      "fiscal_year_end": "0131",
+      "tickers": [
+        "NVDA"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "913760": {
+      "name": "StoneX Group Inc.",
+      "fiscal_year_end": "0930",
+      "tickers": [
+        "SNEX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "310158": {
+      "name": "Merck & Co., Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "MRK"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "78003": {
+      "name": "PFIZER INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PFE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "27904": {
+      "name": "DELTA AIR LINES, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "DAL"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1177394": {
+      "name": "TD SYNNEX CORP",
+      "fiscal_year_end": "1130",
+      "tickers": [
+        "SNX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "81061": {
+      "name": "PUBLIX SUPER MARKETS INC",
+      "fiscal_year_end": "1226",
+      "tickers": [],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "899051": {
+      "name": "ALLSTATE CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ALL",
+        "ALL-PH",
+        "ALL-PB",
+        "ALL-PI",
+        "ALL-PJ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "858877": {
+      "name": "CISCO SYSTEMS, INC.",
+      "fiscal_year_end": "0725",
+      "tickers": [
+        "CSCO"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1163165": {
+      "name": "CONOCOPHILLIPS",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "COP"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1091667": {
+      "name": "CHARTER COMMUNICATIONS, INC. /MO/",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CHTR",
+        "CHTRP"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1271833": {
+      "name": "CCO HOLDINGS LLC",
+      "fiscal_year_end": "1231",
+      "tickers": [],
+      "filings_in_window": 35,
+      "years_covered": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1551152": {
+      "name": "AbbVie Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ABBV"
+      ],
+      "filings_in_window": 49,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "50863": {
+      "name": "INTEL CORP",
+      "fiscal_year_end": "1227",
+      "tickers": [
+        "INTC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1137774": {
+      "name": "PRUDENTIAL FINANCIAL INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PRU",
+        "PFH",
+        "PRH",
+        "PRS"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "47217": {
+      "name": "HP INC",
+      "fiscal_year_end": "1031",
+      "tickers": [
+        "HPQ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "100517": {
+      "name": "United Airlines Holdings, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "UAL"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1341439": {
+      "name": "ORACLE CORP",
+      "fiscal_year_end": "0531",
+      "tickers": [
+        "ORCL",
+        "ORCL-PD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "100493": {
+      "name": "TYSON FOODS, INC.",
+      "fiscal_year_end": "1003",
+      "tickers": [
+        "TSN"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "6201": {
+      "name": "American Airlines Group Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AAL"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1859392": {
+      "name": "Galaxy Digital Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GLXY"
+      ],
+      "filings_in_window": 0,
+      "years_covered": [],
+      "complete": false
+    },
+    "320187": {
+      "name": "NIKE, Inc.",
+      "fiscal_year_end": "0531",
+      "tickers": [
+        "NKE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1061219": {
+      "name": "ENTERPRISE PRODUCTS PARTNERS L.P.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "EPD",
+        "EPDU"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1897762": {
+      "name": "Ingram Micro Holding Corp",
+      "fiscal_year_end": "1228",
+      "tickers": [
+        "INGM"
+      ],
+      "filings_in_window": 2,
+      "years_covered": [
+        2024
+      ],
+      "complete": false
+    },
+    "789460": {
+      "name": "WORLD KINECT CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "WKC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1070423": {
+      "name": "PLAINS ALL AMERICAN PIPELINE LP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PAA",
+        "PAAPU"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1581990": {
+      "name": "PLAINS GP HOLDINGS LP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PAGP"
+      ],
+      "filings_in_window": 46,
+      "years_covered": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "21344": {
+      "name": "COCA COLA CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "KO"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "823277": {
+      "name": "CHS INC",
+      "fiscal_year_end": "0831",
+      "tickers": [
+        "CHSCP",
+        "CHSCL",
+        "CHSCM",
+        "CHSCN",
+        "CHSCO"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "14272": {
+      "name": "BRISTOL MYERS SQUIBB CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "BMY",
+        "CELG-RI"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1751788": {
+      "name": "DOW INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "DOW"
+      ],
+      "filings_in_window": 24,
+      "years_covered": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "764478": {
+      "name": "BEST BUY CO INC",
+      "fiscal_year_end": "0130",
+      "tickers": [
+        "BBY"
+      ],
+      "filings_in_window": 51,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "97745": {
+      "name": "THERMO FISHER SCIENTIFIC INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "TMO"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "40533": {
+      "name": "GENERAL DYNAMICS CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "86312": {
+      "name": "TRAVELERS COMPANIES, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "TRV"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1437107": {
+      "name": "Warner Bros. Discovery, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "WBD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1800": {
+      "name": "ABBOTT LABORATORIES",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ABT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1133421": {
+      "name": "NORTHROP GRUMMAN CORP /DE/",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "NOC"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "29534": {
+      "name": "DOLLAR GENERAL CORP",
+      "fiscal_year_end": "0129",
+      "tickers": [
+        "DG"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1534504": {
+      "name": "PBF Energy Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PBF"
+      ],
+      "filings_in_window": 49,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1566011": {
+      "name": "PBF Holding Co LLC",
+      "fiscal_year_end": null,
+      "tickers": [],
+      "filings_in_window": 49,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1543151": {
+      "name": "Uber Technologies, Inc",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "UBER"
+      ],
+      "filings_in_window": 24,
+      "years_covered": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "4962": {
+      "name": "AMERICAN EXPRESS CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AXP"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "927628": {
+      "name": "CAPITAL ONE FINANCIAL CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "COF",
+        "COF-PI",
+        "COF-PJ",
+        "COF-PK",
+        "COF-PL",
+        "COF-PN"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "937834": {
+      "name": "METROPOLITAN LIFE INSURANCE CO",
+      "fiscal_year_end": "1231",
+      "tickers": [],
+      "filings_in_window": 46,
+      "years_covered": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1103982": {
+      "name": "Mondelez International, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "MDLZ"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "829224": {
+      "name": "STARBUCKS CORP",
+      "fiscal_year_end": "0928",
+      "tickers": [
+        "SBUX"
+      ],
+      "filings_in_window": 53,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "804328": {
+      "name": "QUALCOMM INC/DE",
+      "fiscal_year_end": "0927",
+      "tickers": [
+        "QCOM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1730168": {
+      "name": "Broadcom Inc.",
+      "fiscal_year_end": "1101",
+      "tickers": [
+        "AVGO"
+      ],
+      "filings_in_window": 27,
+      "years_covered": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1665918": {
+      "name": "US Foods Holding Corp.",
+      "fiscal_year_end": "0102",
+      "tickers": [
+        "USFD"
+      ],
+      "filings_in_window": 35,
+      "years_covered": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "882184": {
+      "name": "HORTON D R INC /DE/",
+      "fiscal_year_end": "0930",
+      "tickers": [
+        "DHI"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "40545": {
+      "name": "GENERAL ELECTRIC CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1413329": {
+      "name": "Philip Morris International Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "75362": {
+      "name": "PACCAR INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PCAR"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1108524": {
+      "name": "Salesforce, Inc.",
+      "fiscal_year_end": "0131",
+      "tickers": [
+        "CRM"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "73309": {
+      "name": "NUCOR CORP",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "NUE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "898293": {
+      "name": "JABIL INC",
+      "fiscal_year_end": "0831",
+      "tickers": [
+        "JBL"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "920760": {
+      "name": "LENNAR CORP /NEW/",
+      "fiscal_year_end": "1130",
+      "tickers": [
+        "LEN",
+        "LEN-B"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "59478": {
+      "name": "ELI LILLY & Co",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LLY"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1179929": {
+      "name": "MOLINA HEALTHCARE, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "MOH"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "26172": {
+      "name": "CUMMINS INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CMI"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1065280": {
+      "name": "NETFLIX INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "NFLX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1489393": {
+      "name": "LyondellBasell Industries N.V.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LYB"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1996810": {
+      "name": "GE Vernova Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GEV"
+      ],
+      "filings_in_window": 4,
+      "years_covered": [
+        2024
+      ],
+      "complete": false
+    },
+    "87347": {
+      "name": "SLB LIMITED/NV",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "SLB"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "7536": {
+      "name": "ARROW ELECTRONICS, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ARW"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "773840": {
+      "name": "HONEYWELL INTERNATIONAL INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "HON"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1707925": {
+      "name": "LINDE PLC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LIN"
+      ],
+      "filings_in_window": 28,
+      "years_covered": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1403161": {
+      "name": "VISA INC.",
+      "fiscal_year_end": "0930",
+      "tickers": [
+        "V"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1858681": {
+      "name": "Apollo Global Management, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "APO",
+        "APOS"
+      ],
+      "filings_in_window": 12,
+      "years_covered": [
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1915657": {
+      "name": "HF Sinclair Corp",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "DINO"
+      ],
+      "filings_in_window": 12,
+      "years_covered": [
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1138118": {
+      "name": "CBRE GROUP, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "CBRE"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1023128": {
+      "name": "LITHIA MOTORS INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LAD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1019849": {
+      "name": "PENSKE AUTOMOTIVE GROUP, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PAG"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1020859": {
+      "name": "UNITED NATURAL FOODS INC",
+      "fiscal_year_end": "0731",
+      "tickers": [
+        "UNFI"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1633917": {
+      "name": "PayPal Holdings, Inc.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PYPL"
+      ],
+      "filings_in_window": 39,
+      "years_covered": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "2011641": {
+      "name": "Ferguson Enterprises Inc. /DE/",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "FERG"
+      ],
+      "filings_in_window": 2,
+      "years_covered": [
+        2024
+      ],
+      "complete": false
+    },
+    "813828": {
+      "name": "Paramount Global",
+      "fiscal_year_end": "1231",
+      "tickers": [],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "2041610": {
+      "name": "Paramount Skydance Corp",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "PSKY"
+      ],
+      "filings_in_window": 0,
+      "years_covered": [],
+      "complete": false
+    },
+    "1645590": {
+      "name": "Hewlett Packard Enterprise Co",
+      "fiscal_year_end": "1031",
+      "tickers": [
+        "HPE",
+        "HPE-PC"
+      ],
+      "filings_in_window": 37,
+      "years_covered": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "1013871": {
+      "name": "NRG ENERGY, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "NRG"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1527469": {
+      "name": "Athene Holding Ltd.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "ATH-PA",
+        "ATH-PB",
+        "ATH-PD",
+        "ATH-PE",
+        "ATHS"
+      ],
+      "filings_in_window": 33,
+      "years_covered": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    },
+    "318154": {
+      "name": "AMGEN INC",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AMGN"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "36104": {
+      "name": "US BANCORP \\DE\\",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "USB",
+        "USB-PA",
+        "USB-PH",
+        "USB-PP",
+        "USB-PQ",
+        "USB-PR",
+        "USB-PS"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "5272": {
+      "name": "AMERICAN INTERNATIONAL GROUP, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AIG"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "882095": {
+      "name": "GILEAD SCIENCES, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "GILD"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "350698": {
+      "name": "AUTONATION, INC.",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "AN"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "8858": {
+      "name": "AVNET INC",
+      "fiscal_year_end": "0703",
+      "tickers": [
+        "AVT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1170010": {
+      "name": "CARMAX INC",
+      "fiscal_year_end": "0228",
+      "tickers": [
+        "KMX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "6951": {
+      "name": "APPLIED MATERIALS INC /DE",
+      "fiscal_year_end": "1026",
+      "tickers": [
+        "AMAT"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "866374": {
+      "name": "FLEX LTD.",
+      "fiscal_year_end": "0331",
+      "tickers": [
+        "FLEX"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "92380": {
+      "name": "SOUTHWEST AIRLINES CO",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "LUV"
+      ],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1081316": {
+      "name": "BERKSHIRE HATHAWAY ENERGY CO",
+      "fiscal_year_end": "1231",
+      "tickers": [],
+      "filings_in_window": 52,
+      "years_covered": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": true
+    },
+    "1701605": {
+      "name": "Baker Hughes Co",
+      "fiscal_year_end": "1231",
+      "tickers": [
+        "BKR"
+      ],
+      "filings_in_window": 31,
+      "years_covered": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "complete": false
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "generated_by": "scripts/02_select_filers.py",
+  "source_of_truth": "src/reference/filers.py",
+  "commit": "8b474ee",
+  "generated_at": "2026-08-30T10:09:26Z",
+  "selection": {
+    "year": "CY2023",
+    "elements": [
+      "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "us-gaap:Revenues"
+    ],
+    "location_prefix": "US-",
+    "count": 150
+  },
+  "screen": {
+    "rule": "revenue / total assets must not exceed the threshold",
+    "assets_element": "us-gaap:Assets",
+    "assets_period": "CY2023Q4I",
+    "max_revenue_to_assets": 25.0,
+    "pool_size": 200,
+    "excluded": [
+      {
+        "cik": 1855447,
+        "name": "Tigo Energy, Inc.",
+        "revenue": 145233000000.0,
+        "assets": 127777000.0,
+        "revenue_to_assets": 1136.6130054704681,
+        "would_have_ranked": 25,
+        "reason": "revenue_implausible_against_assets"
+      }
+    ],
+    "kept_without_an_assets_figure": [
+      1859392,
+      2041610
+    ],
+    "no_assets_figure_anywhere": [
+      1859392,
+      2041610,
+      2046386,
+      2089661
+    ]
+  },
+  "candidates_per_element": {
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax": 3141,
+    "us-gaap:Revenues": 2677
+  },
+  "candidates_after_location_filter": 4214,
+  "limitations": [
+    "Ranking at one recent year is a survivorship filter: filers large in 2012 that have since shrunk or delisted cannot appear.",
+    "Revenue is a size proxy, not market capitalisation, and over-weights low-margin distribution: three drug wholesalers outrank Microsoft.",
+    "Whether a financial firm appears is decided by tagging practice rather than size. Goldman Sachs, Morgan Stanley, Wells Fargo and Truist tag neither revenue element, so no cutoff admits them.",
+    "The per-CIK dedupe cannot see one business filing under two CIKs, so several corporate families hold more than one slot.",
+    "The definitive study set is this list intersected with the transcript corpus."
+  ],
+  "selected": 150,
+  "revenue_range_usd": [
+    25506000000,
+    648125000000
+  ]
+}
