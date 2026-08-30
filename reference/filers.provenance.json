@@ -1,8 +1,8 @@
 {
   "generated_by": "scripts/02_select_filers.py",
   "source_of_truth": "src/reference/filers.py",
-  "commit": "8b474ee",
-  "generated_at": "2026-08-30T10:09:26Z",
+  "commit": "b54386c",
+  "generated_at": "2026-08-30T14:35:49Z",
   "selection": {
     "year": "CY2023",
     "elements": [

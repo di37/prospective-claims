@@ -68,22 +68,22 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── constants.py              Paths, seeds, SEC settings. Standard library only.
 │   ├── run_logging.py            Console output and log files.
 │   ├── reference/README.md       What is authored here against what is derived.
-│   ├── reference/metrics.py      Authored metric definitions, validated at import.
-│   ├── reference/filers.py       The filer selection rule, and what it costs.
-│   ├── reference/calendar.py     Fiscal year shapes, derived from filed period ends.
+│   ├── reference/metrics/        The 49 metric definitions: models, constructors, data.
+│   ├── reference/filers/         The selection rule: models, ranking, screening.
+│   ├── reference/calendar/       Fiscal year shapes: models, shapes, derivation.
 │   ├── corpus/README.md          The transcript corpus: coverage, identity, segmentation.
-│   ├── corpus/bridge.py          Ticker to CIK, and why that join is fragile.
+│   ├── corpus/bridge/            Ticker to CIK: models, matching. Why that join is fragile.
+│   ├── corpus/segments/          Prepared remarks against the analyst Q&A.
 │   ├── corpus/coverage.py        Quarter-by-quarter coverage per symbol.
-│   ├── corpus/segments.py        Prepared remarks against the analyst Q&A.
 │   ├── edgar/README.md           One transport, one rate limit, for every SEC call.
 │   ├── edgar/transport.py        Shared HTTP layer. A 404 is a result, not a failure.
-│   ├── edgar/frames.py           Element existence, and every filer's value for one period.
-│   ├── edgar/submissions.py      Filing history per filer.
+│   ├── edgar/frames/             Element existence, and every filer's value for one period.
+│   ├── edgar/submissions/        Filing history per filer.
 │   ├── edgar/facts.py            One filer, one concept, for the gaps the frames leave.
 │   ├── resolution/README.md      Claim text to a structured proposition.
-│   ├── resolution/windows.py     Section 5.5 phrases onto a filer's fiscal quarters.
+│   ├── resolution/windows/       Section 5.5 phrases onto a filer's fiscal quarters.
 │   ├── adjudication/README.md    Observation status, evidence lookup, verdicts.
-│   └── adjudication/observation.py  Status from the filing calendar, never from evidence.
+│   └── adjudication/observation/ Status from the filing calendar, never from evidence.
 │
 ├── scripts/                      Numbered, runnable, produce results.
 │   ├── README.md

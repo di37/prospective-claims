@@ -8,8 +8,21 @@ annotation.
 # region Imports
 from __future__ import annotations
 
-from reference.calendar import CalendarType, FilerCalendar, FiscalQuarter, classify, derive
-from reference.filers import Candidate, Exclusion, Filer, Selection, rank_candidates, select
+from reference.calendar import (
+    CalendarType,
+    FilerCalendar,
+    FiscalQuarter,
+    classify,
+    derive,
+)
+from reference.filers import (
+    Candidate,
+    Exclusion,
+    Filer,
+    Selection,
+    rank_candidates,
+    select,
+)
 from reference.metrics import (
     METRIC_DEFINITIONS,
     MetricClass,

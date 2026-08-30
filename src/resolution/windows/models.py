@@ -1,28 +1,10 @@
-"""Resolve a temporal phrase onto a filer's own fiscal quarters.
+"""The vocabulary of a resolved window, and the calendar it is resolved against.
 
-Section 5.5 of the annotation guidelines maps a phrase like "next quarter" onto
-an evaluation window, and does it against the filer's fiscal calendar rather than
-the calendar year. A retailer whose year ends in January means something different
-by "next year" than a filer whose year ends in December, and the difference is
-never visible as an error: the claim is simply scored against the wrong quarter.
-
-This module does the decidable half of that. It maps a phrase the manual already
-names onto a window and then onto concrete period ends. Recognising an arbitrary
-paraphrase as one of those phrases is the model's job and one of the study's
-research questions; nothing here guesses at language.
-
-Two rules from the manual are enforced rather than left to the caller. A phrase
-the manual does not cover resolves to UNRESOLVED, never to next quarter, because
-defaulting the window would manufacture easy labels for the capability under
-test. And a window that does not lie strictly ahead of the claim quarter is
-UNRESOLVED too: "the second half" said during the second half is a case section 5
-does not cover, and section 5 says to log the gap rather than invent a rule.
-
-Where ``t`` sits is a parameter rather than a decision taken here. The manual says
-the window is relative to "the quarter of the call" in one place and "the claim
-quarter" in another, and those differ by one for every earnings call ever held: a
-call reporting the third quarter happens during the fourth. Both readings are
-implemented, both are tested, and the choice belongs in the manual.
+``Anchor`` is the one piece of unfinished business. Section 4.1 calls the window
+relative to "the claim quarter" in one line and "the quarter of the call" in the
+next, and those differ by exactly one for every earnings call, because a call
+reporting the third quarter is held during the fourth. Both readings live here so
+the choice stays a decision about the manual rather than one buried in code.
 """
 
 # region Imports
@@ -35,7 +17,6 @@ from pydantic import BaseModel, ConfigDict, Field
 
 # endregion
 
-# region Vocabulary
 class Phrase(str, Enum):
     """The temporal phrases section 5.5 assigns a window to.
 
@@ -54,7 +35,6 @@ class Phrase(str, Enum):
     VAGUE = "vague"
     ABSENT = "absent"
 
-
 class WindowProvenance(str, Enum):
     """The four-way refinement section 4.2 applies to ``w``."""
 
@@ -63,7 +43,6 @@ class WindowProvenance(str, Enum):
     POLICY_DEFAULT = "POLICY_DEFAULT"
     UNRESOLVED = "UNRESOLVED"
     NOT_APPLICABLE = "NOT_APPLICABLE"
-
 
 class Anchor(str, Enum):
     """Which fiscal quarter ``t`` denotes.
@@ -78,10 +57,6 @@ class Anchor(str, Enum):
     CALL_QUARTER = "call_quarter"
     REPORTED_QUARTER = "reported_quarter"
 
-
-# endregion
-
-# region Calendar
 class Quarter(BaseModel):
     """One fiscal quarter of one filer.
 
@@ -96,7 +71,6 @@ class Quarter(BaseModel):
     fiscal_year: int
     quarter: int = Field(ge=1, le=4)
     period_end: date
-
 
 class FiscalCalendar(BaseModel):
     """One filer's quarters in order, which is all a window needs.
@@ -191,10 +165,6 @@ class FiscalCalendar(BaseModel):
             return containing
         return containing - 1 if containing > 0 else None
 
-
-# endregion
-
-# region Resolution
 class Window(BaseModel):
     """A resolved evaluation window.
 
@@ -219,91 +189,3 @@ class Window(BaseModel):
     def resolved(self) -> bool:
         """Whether the phrase produced a usable window."""
         return self.offsets is not None
-
-
-def _unresolved(phrase: Phrase, reason: str) -> Window:
-    """Build an unresolved window with its reason.
-
-    Args:
-        phrase: The phrase that could not be resolved.
-        reason: Why not, in words a policy-gap log can carry.
-
-    Returns:
-        The unresolved window.
-    """
-    return Window(phrase=phrase, provenance=WindowProvenance.UNRESOLVED, reason=reason)
-
-
-def _offsets_for(phrase: Phrase, t: int, calendar: FiscalCalendar) -> tuple[int, int] | str:
-    """Compute the relative interval a phrase names, or why it has none.
-
-    Args:
-        phrase: The phrase to resolve.
-        t: Index of the claim quarter.
-        calendar: The filer's quarters.
-
-    Returns:
-        A closed interval relative to ``t``, or a string giving the reason there
-        is not one.
-    """
-    if phrase is Phrase.NEXT_QUARTER:
-        return (1, 1)
-    if phrase in (Phrase.NEXT_TWO_QUARTERS, Phrase.FIRST_HALF):
-        return (1, 2)
-
-    current = calendar.quarters[t]
-    if phrase is Phrase.THIS_YEAR:
-        remaining = 4 - current.quarter
-        if remaining == 0:
-            return "the claim quarter is the last of its fiscal year, so no quarters of it remain"
-        return (1, remaining)
-    if phrase is Phrase.NEXT_YEAR:
-        first = 4 - current.quarter + 1
-        return (first, first + 3)
-    if phrase is Phrase.SECOND_HALF:
-        if current.quarter >= 3:
-            return "the claim quarter is already in the second half of its fiscal year"
-        return (3 - current.quarter, 4 - current.quarter)
-    return "the manual assigns no window to this phrase"
-
-
-def resolve(phrase: Phrase, t: int, calendar: FiscalCalendar) -> Window:
-    """Map a phrase onto a window of the filer's own fiscal quarters.
-
-    Args:
-        phrase: The phrase, already recognised. This function does not read text.
-        t: Index of the claim quarter in ``calendar``.
-        calendar: The filer's quarters, contiguous and in order.
-
-    Returns:
-        The window, resolved or not. An unresolved window carries the reason,
-        which is what an annotator logs in ``annotations/policy_gaps.md``.
-    """
-    if phrase in (Phrase.VAGUE, Phrase.ABSENT):
-        return _unresolved(
-            phrase,
-            "section 5.5 marks this UNRESOLVED; it is never defaulted to next quarter",
-        )
-    if not 0 <= t < len(calendar.quarters):
-        return _unresolved(phrase, "the claim quarter is outside the calendar")
-
-    offsets = _offsets_for(phrase, t, calendar)
-    if isinstance(offsets, str):
-        return _unresolved(phrase, offsets)
-
-    start, end = offsets
-    last = t + end
-    if last >= len(calendar.quarters):
-        return _unresolved(
-            phrase, "the window runs past the end of the filer's known calendar"
-        )
-
-    return Window(
-        phrase=phrase,
-        offsets=offsets,
-        period_ends=tuple(calendar.quarters[t + n].period_end for n in range(start, end + 1)),
-        provenance=WindowProvenance.EXPLICIT,
-    )
-
-
-# endregion

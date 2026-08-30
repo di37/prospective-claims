@@ -1,17 +1,7 @@
-"""Verify that an XBRL element exists in the SEC taxonomy and is actually used.
+"""The frames API: one request answers for every filer at once.
 
-The frames API returns every filer reporting a given element for a given period.
-That makes it a cheap existence check: an element name that is misspelled, has
-been deprecated, or belongs to a different namespace returns 404, while a real one
-returns the filers using it.
-
-Filer counts matter as well as existence. An element that only three hundred
-companies tag is real but sparse, and a reference table that says so lets an
-annotator expect the gap rather than treat it as an error.
-
-The same endpoint answers a second question. One request returns every filer's
-value for an element in a period, which is how the study ranks filers by revenue
-and screens them against their balance sheets without a request per company.
+That makes it the cheap path and the right default. ``facts.py`` exists for the
+gaps it leaves.
 """
 
 # region Imports
@@ -19,64 +9,12 @@ from __future__ import annotations
 
 import time
 
-from pydantic import BaseModel, ConfigDict, Field
-
 from constants import SEC_FRAMES_URL, SEC_REQUEST_DELAY_SECONDS
+from edgar.frames.models import FrameFact, TaxonomyProbe
 from edgar.transport import get_json
 
 # endregion
 
-# region Probe result
-class TaxonomyProbe(BaseModel):
-    """Outcome of checking one element against the SEC frames API.
-
-    Attributes:
-        element: Qualified element name, such as ``us-gaap:Revenues``.
-        unit: Unit the element is reported in.
-        period: Frames period used for the probe.
-        exists: Whether the SEC returned data for it.
-        filer_count: Number of filers reporting it in that period, zero if absent.
-        http_status: Status returned, or None if the request never completed.
-        error: Short description when the probe failed for a reason other than 404.
-    """
-
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    element: str
-    unit: str
-    period: str
-    exists: bool
-    filer_count: int = Field(default=0, ge=0)
-    http_status: int | None = None
-    error: str | None = None
-
-
-# endregion
-
-# region Frame values
-class FrameFact(BaseModel):
-    """One filer's reported value for an element in a period.
-
-    Attributes:
-        cik: SEC identifier for the filer.
-        entity_name: Entity name as the SEC records it, which is not stable and
-            must never be used as a join key.
-        location: SEC location code, such as ``US-CA``. Empty when not given.
-        value: The reported value, exactly as tagged. The SEC serves what the
-            filer submitted, scale errors included.
-    """
-
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    cik: int = Field(gt=0)
-    entity_name: str
-    location: str = ""
-    value: float
-
-
-# endregion
-
-# region Probing
 def _split_namespace(element: str) -> tuple[str, str]:
     """Split a qualified element name into namespace and local name.
 
@@ -93,7 +31,6 @@ def _split_namespace(element: str) -> tuple[str, str]:
         raise ValueError(f"element must be namespace-qualified, got {element!r}")
     namespace, local = element.split(":", 1)
     return namespace, local
-
 
 def element_exists(element: str, unit: str = "USD", period: str = "CY2023Q1") -> TaxonomyProbe:
     """Check one element against the frames API.
@@ -126,7 +63,6 @@ def element_exists(element: str, unit: str = "USD", period: str = "CY2023Q1") ->
         filer_count=len(payload.get("data", [])),
         http_status=status,
     )
-
 
 def fetch_frame(element: str, unit: str = "USD", period: str = "CY2023") -> tuple[FrameFact, ...]:
     """Fetch every filer's value for one element in one period.
@@ -163,7 +99,6 @@ def fetch_frame(element: str, unit: str = "USD", period: str = "CY2023") -> tupl
         for row in payload.get("data", [])
     )
 
-
 def probe_elements(requests: list[tuple[str, str, str]]) -> list[TaxonomyProbe]:
     """Check several elements, pausing between requests.
 
@@ -178,6 +113,3 @@ def probe_elements(requests: list[tuple[str, str, str]]) -> list[TaxonomyProbe]:
         results.append(element_exists(element, unit, period))
         time.sleep(SEC_REQUEST_DELAY_SECONDS)
     return results
-
-
-# endregion

@@ -1,8 +1,8 @@
 {
   "generated_by": "scripts/04_build_fiscal_calendar.py",
   "source_of_truth": "src/reference/calendar.py",
-  "commit": "ed4bd17",
-  "generated_at": "2026-08-30T10:44:38Z",
+  "commit": "b54386c",
+  "generated_at": "2026-08-30T14:35:43Z",
   "derived_from": [
     "reference/filing_dates.csv",
     "reference/filers.csv"

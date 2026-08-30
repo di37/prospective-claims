@@ -1,8 +1,8 @@
 {
   "generated_by": "scripts/05_build_transcript_inventory.py",
   "source_of_truth": "src/corpus/",
-  "commit": "2020624",
-  "generated_at": "2026-08-30T12:02:49Z",
+  "commit": "b54386c",
+  "generated_at": "2026-08-30T14:34:00Z",
   "derived_from": [
     "data/raw/episodes.parquet",
     "reference/filers.csv",

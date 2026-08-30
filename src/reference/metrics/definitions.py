@@ -1,141 +1,17 @@
-"""Curated metric definitions behind ``reference/metric_classes.csv``.
+"""The 49 metrics themselves, grouped as an accountant would group them.
 
-Section 5.4 of the annotation manual picks a claim's default baseline from its
-metric class. Flows are measured over a period and default to the same quarter a
-year earlier; levels are measured at a point in time and default to the
-immediately prior quarter. This module is the authored source of that mapping;
-``scripts/01_build_metric_classes.py`` verifies it against the SEC and writes
-the CSV.
-
-Two rules the model enforces rather than trusting an author to remember. A metric
-claiming to be in the evidence store must name a taxonomy element, and a metric
-marked ambiguous must carry a justification. Both were originally conventions in
-prose, which is exactly the kind of thing that decays.
+Authored here and verified against the SEC by the build script, so a row in
+``metric_classes.csv`` that appears in no group below is a row someone typed.
 """
 
 # region Imports
 from __future__ import annotations
 
-from enum import StrEnum
-
-from pydantic import BaseModel, ConfigDict, Field, model_validator
-
-# endregion
-
-# region Types
-class MetricClass(StrEnum):
-    """Which default baseline section 5.4 applies to a metric."""
-
-    FLOW = "FLOW"
-    LEVEL = "LEVEL"
-
-
-class TaxonomyElement(BaseModel):
-    """One XBRL element, with the properties needed to verify it.
-
-    Periodicity lives here rather than on the metric because a ratio can mix the
-    two. Days sales outstanding divides a balance-sheet level by an income-statement
-    flow, and probing the level at a flow period returns 404.
-
-    Attributes:
-        name: Qualified element name, such as ``us-gaap:Revenues``.
-        unit: Frames unit, such as ``USD``, ``USD-per-shares``, or ``shares``.
-        instantaneous: Whether the element is measured at a point in time, which
-            decides whether the frames probe needs the ``I`` period suffix.
-    """
-
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    name: str = Field(min_length=1)
-    unit: str = "USD"
-    instantaneous: bool = False
-
-
-def flow(name: str, unit: str = "USD") -> TaxonomyElement:
-    """Build an element measured over a period.
-
-    Args:
-        name: Qualified element name.
-        unit: Frames unit.
-
-    Returns:
-        The element.
-    """
-    return TaxonomyElement(name=name, unit=unit, instantaneous=False)
-
-
-def instant(name: str, unit: str = "USD") -> TaxonomyElement:
-    """Build an element measured at a point in time.
-
-    Args:
-        name: Qualified element name.
-        unit: Frames unit.
-
-    Returns:
-        The element.
-    """
-    return TaxonomyElement(name=name, unit=unit, instantaneous=True)
-
-
-class MetricDefinition(BaseModel):
-    """One row of the metric class table.
-
-    Attributes:
-        metric: The key an annotator writes in the resolution record.
-        metric_class: FLOW or LEVEL, which selects the default baseline.
-        elements: Taxonomy elements the metric is built from. Empty when the
-            metric is not represented in the evidence store.
-        elements_are_alternatives: Whether the elements are interchangeable names
-            for the same quantity, to be tried in order, rather than components to
-            be combined. Accounting standard changes create these: an ASC 606
-            concept and the pre-606 name it replaced cover different halves of the
-            study window.
-        expression: How the elements combine, for ratios and differences. Empty
-            when the metric is a single tagged value.
-        in_evidence_store: Whether the metric is retrievable from XBRL at all.
-        ambiguous: Whether the class assignment is genuinely arguable.
-        note: Justification, required when ambiguous, otherwise optional context.
-    """
-
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    metric: str = Field(min_length=1)
-    metric_class: MetricClass
-    elements: tuple[TaxonomyElement, ...] = ()
-    elements_are_alternatives: bool = False
-    expression: str = ""
-    in_evidence_store: bool = True
-    ambiguous: bool = False
-    note: str = ""
-
-    @model_validator(mode="after")
-    def _check_consistency(self) -> "MetricDefinition":
-        """Enforce the invariants that prose conventions would let rot.
-
-        Returns:
-            The validated definition.
-
-        Raises:
-            ValueError: If a stored metric names no element, an unstored metric
-                names one, an ambiguous metric carries no justification, or a
-                multi-element metric gives no expression combining them.
-        """
-        if self.in_evidence_store and not self.elements:
-            raise ValueError(f"{self.metric}: in the evidence store but names no taxonomy element")
-        if not self.in_evidence_store and self.elements:
-            raise ValueError(f"{self.metric}: not in the evidence store but names elements")
-        if self.ambiguous and not self.note:
-            raise ValueError(f"{self.metric}: marked ambiguous but carries no justification")
-        if len(self.elements) > 1 and not self.expression and not self.elements_are_alternatives:
-            raise ValueError(f"{self.metric}: names {len(self.elements)} elements but no expression combining them")
-        if self.elements_are_alternatives and self.expression:
-            raise ValueError(f"{self.metric}: elements are alternatives, so an expression combining them is meaningless")
-        return self
-
+from reference.metrics.constructors import flow, instant
+from reference.metrics.models import MetricClass, MetricDefinition
 
 # endregion
 
-# region Flow metrics: income statement
 INCOME_STATEMENT: tuple[MetricDefinition, ...] = (
     MetricDefinition(
         metric="revenue",
@@ -170,9 +46,6 @@ INCOME_STATEMENT: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Flow metrics: cash flow statement
 CASH_FLOW: tuple[MetricDefinition, ...] = (
     MetricDefinition(metric="operating_cash_flow", metric_class=MetricClass.FLOW, elements=(flow("us-gaap:NetCashProvidedByUsedInOperatingActivities"),)),
     MetricDefinition(metric="capex", metric_class=MetricClass.FLOW, elements=(flow("us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"),)),
@@ -180,9 +53,6 @@ CASH_FLOW: tuple[MetricDefinition, ...] = (
     MetricDefinition(metric="dividends_paid", metric_class=MetricClass.FLOW, elements=(flow("us-gaap:PaymentsOfDividendsCommonStock"),)),
 )
 
-# endregion
-
-# region Flow metrics: ratios of flows
 MARGIN_NOTE = (
     "A ratio of two flows, so FLOW, compared year over year. Arguable: for a "
     "non-seasonal filer management often compares sequentially. Year over year is "
@@ -215,9 +85,6 @@ RATIOS: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Level metrics: balance sheet
 BALANCE_SHEET: tuple[MetricDefinition, ...] = (
     MetricDefinition(metric="inventory", metric_class=MetricClass.LEVEL, elements=(instant("us-gaap:InventoryNet"),)),
     MetricDefinition(metric="cash", metric_class=MetricClass.LEVEL, elements=(instant("us-gaap:CashAndCashEquivalentsAtCarryingValue"),)),
@@ -255,9 +122,6 @@ BALANCE_SHEET: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Level metrics: flow over level ratios
 MIXED_NOTE = (
     "Mixes a level numerator with a flow denominator. Classed LEVEL because "
     "management discusses working-capital efficiency sequentially, but the flow "
@@ -279,9 +143,6 @@ MIXED_RATIOS: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Share counts, split on purpose
 SHARES: tuple[MetricDefinition, ...] = (
     MetricDefinition(
         metric="shares_outstanding", metric_class=MetricClass.LEVEL,
@@ -297,12 +158,6 @@ SHARES: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Metrics outside the evidence store
-# These still carry a class, because the baseline default applies whether or not
-# XBRL holds the metric. Falsifiability and evidence availability are separate
-# axes, and this table speaks only to the first.
 UNTAGGED: tuple[MetricDefinition, ...] = (
     MetricDefinition(
         metric="ebitda", metric_class=MetricClass.FLOW, in_evidence_store=False,
@@ -338,16 +193,8 @@ UNTAGGED: tuple[MetricDefinition, ...] = (
     ),
 )
 
-# endregion
-
-# region Assembled table
 METRIC_DEFINITIONS: tuple[MetricDefinition, ...] = (
     INCOME_STATEMENT + CASH_FLOW + RATIOS + BALANCE_SHEET + MIXED_RATIOS + SHARES + UNTAGGED
 )
 
 _seen = [d.metric for d in METRIC_DEFINITIONS]
-if len(_seen) != len(set(_seen)):
-    duplicates = sorted({m for m in _seen if _seen.count(m) > 1})
-    raise ValueError(f"duplicate metric keys in METRIC_DEFINITIONS: {duplicates}")
-
-# endregion
