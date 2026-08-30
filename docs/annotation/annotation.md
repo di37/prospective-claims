@@ -2,21 +2,7 @@
 
 Four passes over the claims, each completed across all of them before the next begins. The order is part of the design rather than a workflow convenience.
 
-```mermaid
-flowchart LR
-    subgraph blind ["Evidence store closed"]
-        direction TB
-        PA["Pass A<br/>Identify claims<br/>exhaustive, no cue list"]
-        PB["Pass B<br/>Falsifiability<br/>text only"]
-        PC["Pass C<br/>Resolution + provenance<br/>text only"]
-        PA --> PB --> PC
-    end
-    OS["Computed<br/>Observation status<br/>script, not annotator"]
-    subgraph open ["Evidence store open"]
-        PD["Pass D<br/>Evidence availability<br/>OBSERVABLE claims only"]
-    end
-    PC --> OS --> PD
-```
+![The four annotation passes. Pass A identifies claims, Pass B judges falsifiability and Pass C resolves fields and provenance, all with the evidence store closed. Observation status is then computed by script, and only Pass D opens the store to check evidence availability on observable claims.](four-passes.png)
 
 Falsifiability is judged before resolution on purpose. Resolution means supplying policy defaults for missing fields, and an annotator who has just supplied a default baseline is primed to call the claim checkable. Judging falsifiability first keeps it a judgment about the sentence.
 

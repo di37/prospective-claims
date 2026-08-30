@@ -21,8 +21,13 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MARKDOWN = sorted(p for p in ROOT.rglob("*.md") if "bin" not in p.parts and ".github" not in p.parts)
-NOTEBOOKS = sorted(p for p in ROOT.rglob("*.ipynb") if "bin" not in p.parts and ".ipynb_checkpoints" not in p.parts)
+# Working files, tool caches and anything a tool generated: none of it is prose
+# this project wrote, and a checker that fails on pytest's own cache README is a
+# checker people learn to ignore.
+SKIP = {"bin", ".github", ".pytest_cache", ".ruff_cache", ".ipynb_checkpoints", "__pycache__"}
+
+MARKDOWN = sorted(p for p in ROOT.rglob("*.md") if not SKIP & set(p.parts))
+NOTEBOOKS = sorted(p for p in ROOT.rglob("*.ipynb") if not SKIP & set(p.parts))
 
 FENCE = re.compile(r"^\s*(```|~~~)")
 HEADING = re.compile(r"^\s*#{1,6}\s+(.*)$")
@@ -183,7 +188,7 @@ def check_guidelines_version(fail) -> None:
     Returns:
         None.
     """
-    path = ROOT / "docs" / "annotation-guidelines.md"
+    path = ROOT / "docs" / "annotation" / "annotation-guidelines.md"
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
@@ -191,15 +196,15 @@ def check_guidelines_version(fail) -> None:
     in_schema = re.search(r'"guidelines_version":\s*"([\d.]+)"', text)
     entries = re.findall(r"^\|\s*(\d+\.\d+)\s*\|", text, re.M)
     if not in_schema:
-        fail("docs/annotation-guidelines.md: no guidelines_version in the record schema")
+        fail("docs/annotation/annotation-guidelines.md: no guidelines_version in the record schema")
         return
     if not entries:
-        fail("docs/annotation-guidelines.md: no change-log entries found")
+        fail("docs/annotation/annotation-guidelines.md: no change-log entries found")
         return
     newest = max(entries, key=lambda v: tuple(int(x) for x in v.split(".")))
     if in_schema.group(1) != newest:
         fail(
-            f"docs/annotation-guidelines.md: schema says v{in_schema.group(1)} but the "
+            f"docs/annotation/annotation-guidelines.md: schema says v{in_schema.group(1)} but the "
             f"newest change-log entry is v{newest}"
         )
 

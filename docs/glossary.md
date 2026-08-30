@@ -18,6 +18,8 @@ Finance and filing terms used across this project, for readers coming from outsi
 | **EBITDA** | Earnings before interest, taxes, depreciation and amortisation. A widely used non-GAAP profitability measure. |
 | **EDGAR** | The SEC's public database of those filings. Free, no key required. |
 | **EPS** | Earnings per share. Net profit divided by shares outstanding. |
+| **Evidence availability** | Whether the evidence store actually holds the figure a claim needs. Judged against the store, after resolution, and deliberately kept apart from falsifiability: a claim can be perfectly checkable in principle and still have nothing to check it with. |
+| **Falsifiability** | Whether any observation could show the claim false. Borrowed from philosophy of science, where it separates a claim that puts itself at risk from one that cannot be wrong. Here it is a label judged from the claim's wording alone, before any evidence is looked at, and it takes three values: FALSIFIABLE when the text alone settles what would count, UNDERSPECIFIED when a field is missing and the manual has to supply it, UNFALSIFIABLE when no observation could settle it. "Margin will exceed 71% in Q3" is falsifiable; "we remain excited about the opportunity" is not. |
 | **Filing date** | When a report actually reached the SEC. Distinct from the period it covers, and often weeks later. |
 | **Fiscal quarter** | A company's own accounting quarter. Not necessarily aligned to the calendar; some retailers use 52- or 53-week years. |
 | **GAAP** | Generally Accepted Accounting Principles, the standard US rules for how a figure must be calculated. What XBRL tags. |
@@ -30,4 +32,4 @@ Finance and filing terms used across this project, for readers coming from outsi
 
 ---
 
-Terms specific to the annotation scheme have their own glossary in [`annotation-guidelines.md`](annotation-guidelines.md).
+Terms specific to the annotation scheme have their own glossary in [`annotation-guidelines.md`](annotation/annotation-guidelines.md), which defines the label values themselves rather than the ideas behind them.

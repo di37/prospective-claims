@@ -6,6 +6,8 @@ bin
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
 
 # Data is not committed. Raw data is obtained by documented steps; interim and
 # processed are rebuilt by the preparation script.

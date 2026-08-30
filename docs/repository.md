@@ -17,12 +17,21 @@ Where everything lives, what writes it, and whether it is committed.
 │
 ├── docs/                         Prose a reader follows rather than runs.
 │   ├── README.md
-│   ├── annotation-guidelines.md  The frozen manual. Changes need a version bump and a change-log entry.
-│   ├── task.md                   What the system does with a claim, and the falsifiability label.
-│   ├── worked-examples.md        Five claims end to end.
-│   ├── annotation.md             The four passes and why the order matters.
+│   ├── annotation/
+│   │   ├── annotation-guidelines.md  The frozen manual. Changes need a version bump.
+│   │   ├── annotation.md         The four passes and why the order matters.
+│   │   └── four-passes.png       The passes as a diagram.
+│   ├── task/
+│   │   ├── task.md               What the system does with a claim, and the falsifiability label.
+│   │   ├── task-pipeline.png     Parked: missing the NOT_APPLICABLE branch.
+│   │   └── falsifiability.png    The three-way label and how it is decided.
+│   ├── worked-examples/
+│   │   ├── worked-examples.md    Five claims end to end.
+│   │   └── example-{1..5}.png    One illustration per example.
+│   ├── pilot/
+│   │   ├── pilot.md              The 250-claim pilot and the decision gate.
+│   │   └── decision-gate.png     The gate and its three branches.
 │   ├── data.md                   Sources, cost, and what constrains them.
-│   ├── pilot.md                  The 250-claim pilot and the decision gate.
 │   ├── reproducibility.md        Environment, seeds, and the protocol rules.
 │   ├── repository.md             This page.
 │   ├── glossary.md               Finance and filing terms.
@@ -69,6 +78,7 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── edgar/submissions.py      Filing history per filer.
 │   ├── edgar/facts.py            One filer, one concept, for the gaps the frames leave.
 │   ├── resolution/README.md      Claim text to a structured proposition.
+│   ├── resolution/windows.py     Section 5.5 phrases onto a filer's fiscal quarters.
 │   └── adjudication/README.md    Observation status, evidence lookup, verdicts.
 │
 ├── scripts/                      Numbered, runnable, produce results.
@@ -84,6 +94,10 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── 08_make_report_figures.py
 │   ├── 09_build_repro_artifacts.py
 │   └── 10_verify_invariants.py
+│
+├── tests/                        CPU only. No dataset, API key, or network.
+│   ├── README.md
+│   └── test_windows.py           Window resolution across five calendar shapes.
 │
 ├── reports/
 │   ├── README.md
@@ -101,7 +115,7 @@ Where everything lives, what writes it, and whether it is committed.
     └── 05_transcripts.ipynb      Corpus coverage, the ticker join, and the Q&A split.
 ```
 
-Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the [annotation guidelines](annotation-guidelines.md) references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
+Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the [annotation guidelines](annotation/annotation-guidelines.md) references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
 
 Artifacts in `reports/` carry the prefix of the script that produced them, so provenance is readable from a filename. `10_verify_invariants.py` will fail on any artifact whose prefix matches no script.
 

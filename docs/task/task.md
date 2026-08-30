@@ -2,6 +2,9 @@
 
 What the system is asked to do with a forward-looking claim, and the label that decides whether it is worth asking.
 
+<!-- task-pipeline.png is parked, not linked: it routes "Window resolved? -> No" into
+     UNFALSIFIABLE and has no NOT_APPLICABLE node, which reverses the fix made in 5d7ac24.
+     Swap the Mermaid below for the image once that branch is added. -->
 ```mermaid
 flowchart TD
     A["Forward-looking claim uttered at time t<br/>'inventory levels should normalise<br/>over the next two quarters'"]
@@ -40,22 +43,7 @@ Two properties of this order carry the design.
 
 ## Falsifiability
 
-```mermaid
-flowchart TD
-    Q1{"Q1. Refers to a quantity that varies<br/>over time and is reported in<br/>any financial disclosure?"}
-    Q2{"Q2. Metric, direction, period, AND<br/>comparison basis all recoverable<br/>from the text, without the registry?"}
-    Q3{"Q3. Any assignment of the missing<br/>fields under which two analysts<br/>would agree on the verdict?"}
-    F["FALSIFIABLE<br/>settleable without the manual"]
-    U["UNDERSPECIFIED<br/>checkable once policy supplies a default"]
-    N["UNFALSIFIABLE<br/>no observation settles it"]
-
-    Q1 -- no --> N
-    Q1 -- yes --> Q2
-    Q2 -- yes --> F
-    Q2 -- no --> Q3
-    Q3 -- yes --> U
-    Q3 -- no --> N
-```
+![The falsifiability decision tree. Q1 asks whether the claim refers to a quantity reported in any financial disclosure, Q2 whether metric, direction, period and comparison basis are all recoverable from the text, and Q3 whether any assignment of the missing fields would let two analysts agree. The answers give FALSIFIABLE, UNDERSPECIFIED or UNFALSIFIABLE, with five labelled example statements.](falsifiability.png)
 
 Q1 asks about *any* financial disclosure, not about the evidence store. A claim about adjusted EBITDA is falsifiable even though the structured data will not carry it, because EBITDA is a company-defined measure rather than a standard one; whether the store holds it is Pass D's question.
 
@@ -73,4 +61,4 @@ FALSIFIABLE and UNDERSPECIFIED claims are both *eligible* for adjudication, and 
 
 ---
 
-Next: [how humans annotate this](annotation.md), or [five claims worked end to end](worked-examples.md).
+Next: [how humans annotate this](../annotation/annotation.md), or [five claims worked end to end](../worked-examples/worked-examples.md).

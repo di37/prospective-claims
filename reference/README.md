@@ -1,16 +1,16 @@
 # reference
 
-Frozen companion tables the [annotation guidelines](../docs/annotation-guidelines.md) depend on. Unlike `data/`, these **are** committed: they are small, they are version-locked to the manual, and changing one changes what an annotation means.
+Frozen companion tables the [annotation guidelines](../docs/annotation/annotation-guidelines.md) depend on. Unlike `data/`, these **are** committed: they are small, they are version-locked to the manual, and changing one changes what an annotation means.
 
 | File | Used by | Contents |
 |---|---|---|
-| `metric_classes.csv` | [section 5.4](../docs/annotation-guidelines.md#54-baseline) | metric -> FLOW or LEVEL, which selects the default baseline. **Present**, 49 rows. |
+| `metric_classes.csv` | [section 5.4](../docs/annotation/annotation-guidelines.md#54-baseline) | metric -> FLOW or LEVEL, which selects the default baseline. **Present**, 49 rows. |
 | `filers.csv` | every table below | the 150 study filers and the CIKs everything joins on. **Present**, 150 rows. |
-| `filing_dates.csv` | [section 6](../docs/annotation-guidelines.md#6-observation-status-computed-not-annotated) | cik, fiscal_period, form_type, filed_date. **Present**, 7,118 rows. |
-| `fiscal_calendar.csv` | [section 5.5](../docs/annotation-guidelines.md#55-window) | cik -> fiscal year end, 52/53-week flag. **Present**, 150 rows. |
-| `fiscal_quarters.csv` | [section 5.5](../docs/annotation-guidelines.md#55-window) | cik, fiscal year, quarter -> period end. **Present**, 7,030 rows. |
+| `filing_dates.csv` | [section 6](../docs/annotation/annotation-guidelines.md#6-observation-status-computed-not-annotated) | cik, fiscal_period, form_type, filed_date. **Present**, 7,118 rows. |
+| `fiscal_calendar.csv` | [section 5.5](../docs/annotation/annotation-guidelines.md#55-window) | cik -> fiscal year end, 52/53-week flag. **Present**, 150 rows. |
+| `fiscal_quarters.csv` | [section 5.5](../docs/annotation/annotation-guidelines.md#55-window) | cik, fiscal year, quarter -> period end. **Present**, 7,030 rows. |
 | `transcript_coverage.csv` | the sampling frame | corpus symbol -> quarters covered, and which study filer it is. **Present**, 685 rows. |
-| `evidence_cutoff.txt` | [section 6](../docs/annotation-guidelines.md#6-observation-status-computed-not-annotated) | the single cutoff date T |
+| `evidence_cutoff.txt` | [section 6](../docs/annotation/annotation-guidelines.md#6-observation-status-computed-not-annotated) | the single cutoff date T |
 
 `filing_dates.csv` is what makes the evidence maturity date computable. The fiscal calendar maps "next quarter" onto a period; it cannot say when the report covering that period was filed. Take the first filing covering a period, not an amendment.
 
@@ -39,7 +39,7 @@ Columns: `metric`, `class`, `taxonomy_element`, `in_evidence_store`, `window_cov
 
 `window_coverage` is `full` when the metric can be retrieved across 2012 to 2024, `partial` when it cannot, and `n/a` when the metric is outside the evidence store. Where `taxonomy_element` separates names with `|` they are alternatives to try in turn, not components to combine, and coverage is their union.
 
-`class` is FLOW or LEVEL and nothing else, because [section 5.4](../docs/annotation-guidelines.md#54-baseline) dispatches on exactly those two. Flows are measured over a period and default to the same quarter a year earlier; levels are measured at a point in time and default to the immediately prior quarter.
+`class` is FLOW or LEVEL and nothing else, because [section 5.4](../docs/annotation/annotation-guidelines.md#54-baseline) dispatches on exactly those two. Flows are measured over a period and default to the same quarter a year earlier; levels are measured at a point in time and default to the immediately prior quarter.
 
 The 8 rows with `in_evidence_store: no` still carry a class, because the baseline default applies whether or not XBRL holds the metric. Falsifiability and evidence availability are separate axes, and this table speaks only to the first.
 

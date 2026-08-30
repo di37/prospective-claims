@@ -31,4 +31,4 @@ The licence chain supports that caution rather than relieving it. The release is
 
 ---
 
-What the data can and cannot settle is measured by [the pilot](pilot.md). The tables built from it are described in [`reference/README.md`](../reference/README.md).
+What the data can and cannot settle is measured by [the pilot](pilot/pilot.md). The tables built from it are described in [`reference/README.md`](../reference/README.md).
