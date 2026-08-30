@@ -18,3 +18,5 @@ Collapsing these into one label would teach a model where the SEC taxonomy has g
 ---
 
 The rules themselves are in [`annotation-guidelines.md`](annotation-guidelines.md), which is frozen and versioned. This page is the shape; that document is the manual.
+
+To see one claim move through all four passes with the governing section cited at each step, read the [walkthrough](walkthrough.md).

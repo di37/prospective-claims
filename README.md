@@ -39,6 +39,7 @@ Each page answers one question and can be read on its own.
 | [Worked examples](docs/worked-examples/worked-examples.md) | Five claims end to end, covering every outcome the task can produce |
 | [Annotation](docs/annotation/annotation.md) | The four passes, and why the order is part of the design |
 | [Annotation guidelines](docs/annotation/annotation-guidelines.md) | The frozen manual annotators work from. Versioned, with a change log |
+| [Annotation walkthrough](docs/annotation/walkthrough.md) | One claim through all four passes, for a new annotator |
 | [Data](docs/data.md) | Where the data comes from, and the four properties of it that shaped the design |
 | [Pilot and decision gate](docs/pilot/pilot.md) | What 250 annotated claims decide, under a rule written before the numbers arrive |
 | [Reproducibility](docs/reproducibility.md) | Environment, seeds, and the protocol rules that keep results rebuildable |

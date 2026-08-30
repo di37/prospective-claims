@@ -10,6 +10,7 @@ The root [README](../README.md) is the entry point: what the project is, the res
 | [`worked-examples.md`](worked-examples/worked-examples.md) | Five claims taken end to end, covering every outcome the task can produce |
 | [`annotation.md`](annotation/annotation.md) | The four annotation passes, and why the order is part of the design |
 | [`annotation-guidelines.md`](annotation/annotation-guidelines.md) | The manual annotators work from. The rules themselves, versioned |
+| [`walkthrough.md`](annotation/walkthrough.md) | One claim taken through all four passes, citing the section behind every decision |
 | [`data.md`](data.md) | Where the data comes from, what it costs, and the four properties of it that shaped the design |
 | [`pilot.md`](pilot/pilot.md) | What 250 annotated claims decide, under a rule written before the numbers arrive |
 | [`reproducibility.md`](reproducibility.md) | Environment, seeds, and the protocol rules that keep results rebuildable |

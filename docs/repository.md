@@ -20,7 +20,10 @@ Where everything lives, what writes it, and whether it is committed.
 │   ├── annotation/
 │   │   ├── annotation-guidelines.md  The frozen manual. Changes need a version bump.
 │   │   ├── annotation.md         The four passes and why the order matters.
-│   │   └── four-passes.png       The passes as a diagram.
+│   │   ├── four-passes.png       The passes as a diagram.
+│   │   ├── walkthrough.md        One claim through all four passes, section by section.
+│   │   ├── claim-1-passes.png    Claim 1 as a diagram: the resolvable case.
+│   │   └── claim-2-passes.png    Claim 2 as a diagram: the unfalsifiable case.
 │   ├── task/
 │   │   ├── task.md               What the system does with a claim, and the falsifiability label.
 │   │   ├── task-pipeline.png     Parked: missing the NOT_APPLICABLE branch.
