@@ -54,6 +54,7 @@ OUTPUT_DIRS = (
 # region Reference tables
 METRIC_CLASSES_FILE = REFERENCE_DIR / "metric_classes.csv"
 FISCAL_CALENDAR_FILE = REFERENCE_DIR / "fiscal_calendar.csv"
+FISCAL_QUARTERS_FILE = REFERENCE_DIR / "fiscal_quarters.csv"
 FILING_DATES_FILE = REFERENCE_DIR / "filing_dates.csv"
 EVIDENCE_CUTOFF_FILE = REFERENCE_DIR / "evidence_cutoff.txt"
 
@@ -117,6 +118,44 @@ PERIODIC_FORMS = ("10-K", "10-Q")
 # earlier threshold of 15 flagged 40 of their legitimate filings as errors.
 MIN_PLAUSIBLE_FILING_LAG_DAYS = 5
 MAX_PLAUSIBLE_FILING_LAG_DAYS = {"10-Q": 60, "10-K": 120}
+
+# endregion
+
+# region Fiscal calendars
+# A filer's own calendar decides what "next quarter" means, and it is derived
+# from the period ends it actually filed rather than from the fiscalYearEnd field
+# EDGAR reports. That field holds one current value, so a filer that changed its
+# year end during the window reports only where it ended up.
+#
+# Two calendar shapes account for all but a handful of filers. A fixed-date year
+# end lands on the same calendar date every year, so consecutive years are 365 or
+# 366 days apart. A 52/53-week year ends on the same weekday, which makes it drift
+# by a day or two annually and inserts a 53rd week roughly every six years, so
+# consecutive years are 364 or 371 days apart. The two gap sets do not overlap,
+# which is what makes the classification decidable rather than a judgement call.
+#
+# A filer is classified when at least four fifths of its anchors and gaps agree.
+# Below that it is irregular, which in this data means the year end changed
+# mid-window rather than that the filer is unclassifiable.
+CALENDAR_WEEK_YEAR_GAPS = (364, 371)
+CALENDAR_FIXED_YEAR_GAPS = (365, 366)
+CALENDAR_MODAL_SHARE = 0.8
+CALENDAR_MIN_ANCHORS = 3
+
+# A fixed-date year end may still move by a day: February ends on the 28th or the
+# 29th, and a filer whose year ends on the last day of a month follows the month.
+CALENDAR_FIXED_DAY_TOLERANCE = 2
+
+# How far a 52/53-week year end may sit from where the filer's most recent one
+# sits before it counts as a different year end rather than drift. A 52/53-week
+# year end moves by a day or two most years and jumps a week when the 53rd week is
+# inserted, so ten days is generous for drift and far short of a month.
+CALENDAR_WEEK_DRIFT_DAYS = 10
+
+# No fiscal year is longer than this. A larger gap between annual reports means an
+# annual report is missing, not that the year was long, and treating it as one
+# year would stretch the quarter boundaries and mislabel every quarter inside it.
+FISCAL_YEAR_MAX_DAYS = 380
 
 # endregion
 

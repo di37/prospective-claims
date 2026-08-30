@@ -384,8 +384,9 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │   ├── metric_classes.csv        metric -> FLOW or LEVEL, selects the default baseline. Generated.
 │   ├── filers.csv                The 150 study filers. The CIK every other table joins on. Generated.
 │   ├── filing_dates.csv          cik, fiscal_period, form_type, filed_date, lag. Generated.
+│   ├── fiscal_calendar.csv       cik -> fiscal year end, 52/53-week flag. Generated.
+│   ├── fiscal_quarters.csv       cik, fiscal year, quarter -> period end. Generated.
 │   ├── *.provenance.json         Per table: what produced it, when, and the rules in force.
-│   ├── fiscal_calendar.csv       cik -> fiscal year end, 52/53-week flag.
 │   └── evidence_cutoff.txt       The single cutoff date T.
 │
 ├── annotations/
@@ -398,8 +399,10 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │   ├── README.md
 │   ├── constants.py              Paths, seeds, SEC settings. Standard library only.
 │   ├── run_logging.py            Console output and log files.
+│   ├── reference/README.md       What is authored here against what is derived.
 │   ├── reference/metrics.py      Authored metric definitions, validated at import.
 │   ├── reference/filers.py       The filer selection rule, and what it costs.
+│   ├── reference/calendar.py     Fiscal year shapes, derived from filed period ends.
 │   ├── edgar/README.md           One transport, one rate limit, for every SEC call.
 │   ├── edgar/transport.py        Shared HTTP layer. A 404 is a result, not a failure.
 │   ├── edgar/frames.py           Element existence, and every filer's value for one period.
@@ -414,7 +417,7 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
 │   ├── 01_build_metric_classes.py    Verifies elements against the SEC, writes the metric table.
 │   ├── 02_select_filers.py           Ranks filers by revenue, writes the study set.
 │   ├── 03_build_filing_dates.py      Filing history per filer, with a lag plausibility flag.
-│   ├── 04_build_fiscal_calendar.py
+│   ├── 04_build_fiscal_calendar.py   Fiscal year shape and quarter ends per filer. Offline.
 │   ├── 05_sample_passages.py
 │   ├── 06_compute_observation_status.py
 │   ├── 07_make_report_figures.py
@@ -432,7 +435,8 @@ Reported alongside it: per-field Cohen's kappa, censoring rate split by reason, 
     ├── README.md                 Read results and interpret them. Generate nothing.
     ├── 01_metric_classes.ipynb   Coverage, the evidence-store gap, and the arguable classes.
     ├── 02_filers.ipynb           What the selection rule admits, and the three things it gets wrong.
-    └── 03_filing_dates.ipynb     Filing lag, the rows the table does not trust, window coverage.
+    ├── 03_filing_dates.ipynb     Filing lag, the rows the table does not trust, window coverage.
+    └── 04_fiscal_calendar.ipynb  The two calendar shapes, year-end changes, quarter labels.
 ```
 
 Every directory carries a README stating what lives there, what writes it, and whether it is committed. Many of the files listed above do not exist yet; the directories and their READMEs do, so the manual's references resolve to a known place either way. Three reference tables are built and committed, each with a provenance record and a notebook that reads it.
@@ -441,7 +445,7 @@ Artifacts in `reports/` carry the prefix of the script that produced them, so pr
 
 ## Status
 
-No transcripts have been pulled and nothing has been annotated. Three of the four companion tables the pilot depends on are built.
+No transcripts have been pulled and nothing has been annotated. Every companion table the pilot depends on is built.
 
 The data comes before the pilot, not after. An earlier reading of the plan had the pilot as the first gate, but 250 annotated claims cannot exist without transcripts, and `StructuredCoverage` cannot be computed without filing dates and XBRL facts. Acquisition is the first task.
 
@@ -450,7 +454,8 @@ The data comes before the pilot, not after. An earlier reading of the plan had t
 | `metric_classes.csv` | Pass C | metric → FLOW or LEVEL, for the baseline defaults | Built, 49 rows |
 | `filers.csv` | every table below | the 150 study filers | Built, 150 rows |
 | `filing_dates.csv` | observation status | cik, fiscal_period, form_type, filed_date | Built, 7,118 rows |
-| `fiscal_calendar.csv` | Pass C | cik → fiscal year end, 52/53-week flag | Not built |
+| `fiscal_calendar.csv` | Pass C | cik → fiscal year end, 52/53-week flag | Built, 150 rows |
+| `fiscal_quarters.csv` | Pass C | cik, fiscal year, quarter → period end | Built, 7,030 rows |
 
 `filing_dates.csv` is what makes the evidence maturity date computable. The fiscal calendar maps "next quarter" onto a period; it cannot say when the report covering that period was filed.
 

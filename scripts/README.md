@@ -15,7 +15,7 @@ Runnable entry points. Each produces results; none defines a method.
 09_verify_invariants.py           PASS/FAIL protocol checks, non-zero on failure
 ```
 
-01 to 04 build `reference/`, in that order: 02 decides who is in the study and 03 and 04 join on the CIKs it writes. Running 03 against a stale `filers.csv` produces a table that looks fine and covers the wrong companies.
+01 to 04 build `reference/`, in that order: 02 decides who is in the study, 03 joins on the CIKs it writes, and 04 derives the calendars from what 03 pulled. Running 03 against a stale `filers.csv` produces a table that looks fine and covers the wrong companies. Only 04 is offline.
 
 Naming is `NN[a-z]_description.py`. Where a part both selects and tests, the `a` script touches validation only and the `b` script contacts the held-out set exactly once, which is what makes "the test set is read once" checkable rather than asserted.
 

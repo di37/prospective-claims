@@ -13,6 +13,7 @@ The reason is provenance. A figure that exists only in a notebook's output cell 
 | `01_metric_classes.ipynb` | `reference/metric_classes.csv` | `scripts/01_build_metric_classes.py` |
 | `02_filers.ipynb` | `reference/filers.csv` | `scripts/02_select_filers.py` |
 | `03_filing_dates.ipynb` | `reference/filing_dates.csv` | `scripts/03_build_filing_dates.py` |
+| `04_fiscal_calendar.ipynb` | `reference/fiscal_calendar.csv` and `reference/fiscal_quarters.csv` | `scripts/04_build_fiscal_calendar.py` |
 
 A notebook is numbered to match the script whose output it reads, and reads that table's provenance record alongside it. A gap in the numbering means the table has no notebook yet, not that the notebook was renamed.
 

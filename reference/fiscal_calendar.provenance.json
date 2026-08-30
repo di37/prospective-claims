@@ -1,0 +1,107 @@
+{
+  "generated_by": "scripts/04_build_fiscal_calendar.py",
+  "source_of_truth": "src/reference/calendar.py",
+  "commit": "ed4bd17",
+  "generated_at": "2026-08-30T10:44:38Z",
+  "derived_from": [
+    "reference/filing_dates.csv",
+    "reference/filers.csv"
+  ],
+  "study_window": [
+    2012,
+    2024
+  ],
+  "rules": [
+    "Every 10-K period end is an annual anchor; the 10-Q period ends between consecutive anchors are its quarters.",
+    "Rows flagged suspect in filing_dates.csv are excluded, because a wrong period end corrupts the calendar it anchors.",
+    "A fiscal year is labelled by the calendar year it ends in. Filers do not agree with each other on this, so the label is a deterministic convention rather than the filer's own name for the year.",
+    "Quarters are labelled by elapsed fraction of the fiscal year, and the observed dates are kept rather than assumed evenly spaced.",
+    "Where the year end changed, the shape reported is the one in force after the change and the earlier one is recorded beside it."
+  ],
+  "thresholds": {
+    "modal_share": 0.8,
+    "min_anchors_to_classify": 3,
+    "fixed_day_tolerance": 2,
+    "week_drift_days": 10,
+    "fiscal_year_max_days": 380
+  },
+  "counts": {
+    "filers": 150,
+    "calendar_types": {
+      "fixed_date": 118,
+      "week_52_53": 27,
+      "insufficient_data": 5
+    },
+    "year_end_changed": 3,
+    "with_suspect_anchors": 2,
+    "with_missing_years": 2,
+    "quarters": 7030,
+    "suspect_filing_rows_excluded": 10,
+    "clean_rows_outside_any_fiscal_year": {
+      "after_the_last_annual_anchor": 74,
+      "inside_a_gap_between_anchors": 4
+    },
+    "quarters_labelled": 7030
+  },
+  "year_end_changes": [
+    {
+      "cik": 7084,
+      "name": "Archer-Daniels-Midland Co",
+      "changed_at": "2013-12-31",
+      "from": "insufficient_data",
+      "to": "fixed_date"
+    },
+    {
+      "cik": 315189,
+      "name": "DEERE & CO",
+      "changed_at": "2017-10-29",
+      "from": "fixed_date",
+      "to": "week_52_53"
+    },
+    {
+      "cik": 764478,
+      "name": "BEST BUY CO INC",
+      "changed_at": "2014-02-01",
+      "from": "insufficient_data",
+      "to": "week_52_53"
+    }
+  ],
+  "suspect_anchors": [
+    {
+      "cik": 81061,
+      "name": "PUBLIX SUPER MARKETS INC",
+      "anchors": [
+        "2013-12-31"
+      ]
+    },
+    {
+      "cik": 813828,
+      "name": "Paramount Global",
+      "anchors": [
+        "2012-12-21"
+      ]
+    }
+  ],
+  "missing_fiscal_years": [
+    {
+      "cik": 764478,
+      "name": "BEST BUY CO INC",
+      "years": [
+        2013
+      ]
+    },
+    {
+      "cik": 40545,
+      "name": "GENERAL ELECTRIC CO",
+      "years": [
+        2014
+      ]
+    }
+  ],
+  "limitations": [
+    "A year end that changed in the last year or two of the window cannot be told from a wrong period end, because one or two anchors do not establish a regime. Such a filer is reported as having suspect anchors instead.",
+    "Filers with fewer than three annual anchors are classified insufficient_data rather than guessed at.",
+    "The fiscal_year column does not match every filer's own name for the year. Walmart calls the year ending January 2024 fiscal 2024 and Target calls the year ending January 2023 fiscal 2022, so no single rule matches both. Join on period_end, not on fiscal_year.",
+    "Quarter labels come from elapsed fraction of the fiscal year, so a filer that filed an unusual number of 10-Qs in a year may carry a repeated or missing quarter number."
+  ]
+}
